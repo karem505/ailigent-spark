@@ -22,44 +22,46 @@ export const ProductsServices = () => {
 
   const services = [
     {
+      title: "Business Consultation & Customized Software",
+      description: "We conduct in-depth analysis of a company's departments, identifying strengths and weaknesses. We then design and implement bespoke business automation and software solutions to address these specific challenges, optimizing processes and enhancing efficiency.",
       category: "Customized Solutions & Consulting",
       icon: Lightbulb,
-      services: [
-        {
-          title: "Business Consultation & Customized Software",
-          description: "We conduct in-depth analysis of a company's departments, identifying strengths and weaknesses. We then design and implement bespoke business automation and software solutions to address these specific challenges, optimizing processes and enhancing efficiency.",
-        },
-        {
-          title: "Digital Transformation",
-          description: "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable business models. Our approach optimizes operations, enhances agility, and delivers superior customer-centric experiences.",
-        },
-      ],
     },
     {
+      title: "Digital Transformation",
+      description: "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable business models. Our approach optimizes operations, enhances agility, and delivers superior customer-centric experiences.",
+      category: "Customized Solutions & Consulting",
+      icon: Rocket,
+    },
+    {
+      title: "AI Development",
+      description: "We provide cutting-edge AI development services in Saudi Arabia, building intelligent solutions that enhance automation, decision-making, and customer experiences.",
       category: "Advanced AI Development Services",
       icon: Brain,
-      services: [
-        {
-          title: "AI Development",
-          description: "We provide cutting-edge AI development services in Saudi Arabia, building intelligent solutions that enhance automation, decision-making, and customer experiences.",
-        },
-        {
-          title: "Agentic AI Development",
-          description: "Empower your business with autonomous agents capable of complex problem-solving, advanced process automation, and intelligent decision-making.",
-        },
-        {
-          title: "Generative AI Development",
-          description: "Specializing in Generative AI in Saudi Arabia, we create solutions powered by Large Language Models (LLMs) for content generation, automation, and predictive analytics.",
-        },
-        {
-          title: "Conversational AI",
-          description: "We design sophisticated conversational AI solutions that deliver human-like interactions, automate customer communication, and significantly improve user experiences.",
-        },
-        {
-          title: "AI Integration",
-          description: "Our AI integration services connect artificial intelligence with your existing ERP, CRM, and other enterprise systems.",
-        },
-      ],
+    },
+    {
+      title: "Agentic AI Development",
+      description: "Empower your business with autonomous agents capable of complex problem-solving, advanced process automation, and intelligent decision-making.",
+      category: "Advanced AI Development Services",
+      icon: Zap,
+    },
+    {
+      title: "Generative AI Development",
+      description: "Specializing in Generative AI in Saudi Arabia, we create solutions powered by Large Language Models (LLMs) for content generation, automation, and predictive analytics.",
+      category: "Advanced AI Development Services",
+      icon: Brain,
+    },
+    {
+      title: "Conversational AI",
+      description: "We design sophisticated conversational AI solutions that deliver human-like interactions, automate customer communication, and significantly improve user experiences.",
+      category: "Advanced AI Development Services",
+      icon: MessageSquare,
+    },
+    {
+      title: "AI Integration",
+      description: "Our AI integration services connect artificial intelligence with your existing ERP, CRM, and other enterprise systems.",
+      category: "Advanced AI Development Services",
+      icon: Link2,
     },
   ];
 
@@ -115,33 +117,28 @@ export const ProductsServices = () => {
         {/* Services */}
         <div>
           <h3 className="text-3xl font-bold mb-8 text-center">Professional Services</h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {services.map((category, catIndex) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {services.map((service, index) => (
               <Card
-                key={catIndex}
-                className="glass-card border-primary/20 animate-fade-in-up"
-                style={{ animationDelay: `${catIndex * 0.1}s` }}
+                key={index}
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 rounded-lg bg-secondary/10">
-                      <category.icon className="w-6 h-6 text-secondary" />
+                  <div className="flex items-start justify-between mb-3">
+                    <Badge variant="outline" className="text-xs">
+                      {service.category}
+                    </Badge>
+                    <div className="p-3 rounded-lg bg-secondary/10 group-hover:scale-110 transition-transform">
+                      <service.icon className="w-5 h-5 text-secondary" />
                     </div>
-                    <CardTitle className="text-xl">{category.category}</CardTitle>
                   </div>
+                  <CardTitle className="text-lg">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  {category.services.map((service, sIndex) => (
-                    <div key={sIndex} className="space-y-2 pb-6 last:pb-0 border-b last:border-0 border-border/50">
-                      <h4 className="font-semibold text-foreground flex items-center gap-2">
-                        <Zap className="w-4 h-4 text-primary" />
-                        {service.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  ))}
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
