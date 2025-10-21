@@ -16,7 +16,7 @@ export const Hero = () => {
           alt="AILIGENT Technology Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/98 to-background" />
       </div>
 
       {/* Animated Background Elements */}
