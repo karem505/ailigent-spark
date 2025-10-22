@@ -1,23 +1,26 @@
 import logoImage from "@/assets/ailigent-logo.png";
+import { useTranslation } from "react-i18next";
 
 export const PreFooter = () => {
+  const { t } = useTranslation();
+
   const columns = {
     solutions: [
-      { name: "AI Automation", href: "#solutions" },
-      { name: "Custom Software", href: "#solutions" },
-      { name: "Process Optimization", href: "#solutions" },
-      { name: "Integration Services", href: "#solutions" },
+      { name: t("preFooter.solutions.aiAutomation"), href: "#solutions" },
+      { name: t("preFooter.solutions.customSoftware"), href: "#solutions" },
+      { name: t("preFooter.solutions.processOptimization"), href: "#solutions" },
+      { name: t("preFooter.solutions.integrationServices"), href: "#solutions" },
     ],
     company: [
-      { name: "About Us", href: "#mission" },
-      { name: "Case Studies", href: "#projects" },
-      { name: "Team", href: "#team" },
-      { name: "Contact", href: "#consultation" },
+      { name: t("preFooter.company.aboutUs"), href: "#mission" },
+      { name: t("preFooter.company.caseStudies"), href: "#projects" },
+      { name: t("preFooter.company.team"), href: "#team" },
+      { name: t("preFooter.company.contact"), href: "#consultation" },
     ],
     contact: [
-      { label: "Email", value: "info@ailigent.ai", href: "mailto:info@ailigent.ai" },
-      { label: "Phone", value: "Contact us", href: "#consultation" },
-      { label: "Location", value: "Saudi Arabia", href: "#" },
+      { label: t("preFooter.contact.email"), value: t("preFooter.contact.emailValue"), href: "mailto:info@ailigent.ai" },
+      { label: t("preFooter.contact.phone"), value: t("preFooter.contact.phoneValue"), href: "#consultation" },
+      { label: t("preFooter.contact.location"), value: t("preFooter.contact.locationValue"), href: "#" },
     ],
   };
 
@@ -29,13 +32,13 @@ export const PreFooter = () => {
           <div className="space-y-4">
             <img src={logoImage} alt="AILIGENT" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Empowering Fortune 500 companies with autonomous AI systems and custom enterprise software solutions.
+              {t("preFooter.tagline")}
             </p>
           </div>
 
           {/* Solutions Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">Solutions</h4>
+            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.solutions.title")}</h4>
             <ul className="space-y-2">
               {columns.solutions.map((item, index) => (
                 <li key={index}>
@@ -52,7 +55,7 @@ export const PreFooter = () => {
 
           {/* Company Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">Company</h4>
+            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.company.title")}</h4>
             <ul className="space-y-2">
               {columns.company.map((item, index) => (
                 <li key={index}>
@@ -69,7 +72,7 @@ export const PreFooter = () => {
 
           {/* Contact Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">Contact</h4>
+            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.contact.title")}</h4>
             <ul className="space-y-3">
               {columns.contact.map((item, index) => (
                 <li key={index} className="text-sm">

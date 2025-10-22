@@ -3,34 +3,37 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Play } from "lucide-react";
 import peLogo from "@/assets/pe-logo.webp";
 import tornixLogo from "@/assets/tornix-logo.png";
+import { useTranslation } from "react-i18next";
 
 export const Projects = () => {
+  const { t } = useTranslation();
+
   const projects = [
     {
-      badge: "Client Success Story",
-      client: "Professional Engineers",
+      badge: t("projects.pe.badge"),
+      client: t("projects.pe.client"),
       logo: peLogo,
-      description: "Delivering comprehensive full operation automation and custom software solutions for professional engineering firms, streamlining workflows and enhancing operational efficiency.",
+      description: t("projects.pe.description"),
       focus: [
-        "Full Operation Automation & Custom Software Development",
-        "End-to-end automation implementation",
-        "Custom software solutions tailored to engineering workflows",
-        "Seamless integration with existing systems",
-        "Measurable efficiency improvements",
+        t("projects.pe.focus.0"),
+        t("projects.pe.focus.1"),
+        t("projects.pe.focus.2"),
+        t("projects.pe.focus.3"),
+        t("projects.pe.focus.4"),
       ],
       videoUrl: "https://www.youtube.com/embed/4T1_Spk9dss",
     },
     {
-      badge: "Featured Partnership",
-      client: "Tornix",
+      badge: t("projects.tornix.badge"),
+      client: t("projects.tornix.client"),
       logo: tornixLogo,
-      description: "Tornix is an advanced AI-powered platform designed to transform project planning, execution, and delivery. Specializing in construction and large-scale projects, it integrates cutting-edge AI to bring automation, predictive analytics, and intelligent decision support.",
+      description: t("projects.tornix.description"),
       focus: [
-        "AI-Powered Project Management & Construction Intelligence",
-        "AI-driven cost and resource estimation",
-        "Automated risk detection and Monte Carlo simulations",
-        "Natural language project queries",
-        "Digital-twin simulations and dashboards",
+        t("projects.tornix.focus.0"),
+        t("projects.tornix.focus.1"),
+        t("projects.tornix.focus.2"),
+        t("projects.tornix.focus.3"),
+        t("projects.tornix.focus.4"),
       ],
       videoUrl: "https://www.youtube.com/embed/jbuQf16vO-4",
     },
@@ -41,9 +44,9 @@ export const Projects = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">SUCCESS STORIES</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("projects.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Delivering Excellence Across Industries
+            {t("projects.subtitle")}
           </p>
         </div>
 
@@ -74,7 +77,7 @@ export const Projects = () => {
                   </CardDescription>
 
                   <div className="pt-4 space-y-3">
-                    <h4 className="font-semibold text-lg text-foreground">Project Focus:</h4>
+                    <h4 className="font-semibold text-lg text-foreground">{t("projects.projectFocus")}</h4>
                     <ul className="space-y-2">
                       {project.focus.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">

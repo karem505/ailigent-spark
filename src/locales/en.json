@@ -1,0 +1,215 @@
+{
+  "header": {
+    "scheduleConsultation": "Schedule Consultation",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "headline": "Turn your data into decisions—intelligently",
+    "aboutUs": "About Us",
+    "description": "is a Saudi company specializing in AI automation systems that transform business operations and boost productivity by over 90%.",
+    "companyName": "AILIGENT",
+    "cta": "BOOK A FREE DEMO"
+  },
+  "mission": {
+    "title": "Our Foundation",
+    "subtitle": "Guided by purpose, driven by innovation",
+    "ourMission": "Our Mission",
+    "missionText": "Is to empower enterprises across all sectors to achieve operational excellence through autonomous AI solutions that drive strategic automation and transform data into real-time intelligent decisions.",
+    "ourVision": "Our Vision",
+    "visionText": "Is to establish Ailigent as the world's leading partner for organizations driving sustainable digital transformation — powered by trusted, self-learning AI systems that work autonomously and deliver measurable performance impact.",
+    "ourValues": "Our Values",
+    "values": {
+      "innovation": "Sustainable Innovation",
+      "integrity": "Integrity & Transparency",
+      "clientCentric": "Client-Centric Approach",
+      "collaboration": "Collaboration & Inclusion",
+      "excellence": "Excellence in Execution",
+      "responsibleAI": "Responsible AI"
+    }
+  },
+  "solutions": {
+    "title": "OUR SERVICES",
+    "subtitle": "Transforming Businesses Through Intelligent Automation",
+    "featuredProducts": "FEATURED PRODUCTS",
+    "professionalServices": "PROFESSIONAL SERVICES",
+    "products": {
+      "tornix": {
+        "badge": "Product",
+        "title": "Tornix",
+        "description": "A powerful project management software with seamless integrations with popular platforms like Trello, Microsoft Project, and other commonly used enterprise tools, streamlining project workflows and collaboration.",
+        "tags": {
+          "integration": "Integration",
+          "collaboration": "Collaboration",
+          "workflow": "Workflow"
+        }
+      },
+      "pmoBuilder": {
+        "badge": "Product",
+        "title": "PMO Builder",
+        "description": "A comprehensive Project Management Office (PMO) reporting tool. Leveraging AI, it provides project managers with full monitoring capabilities throughout the project lifecycle, generating insightful reports and ensuring proactive oversight.",
+        "tags": {
+          "aiPowered": "AI-Powered",
+          "reporting": "Reporting",
+          "monitoring": "Monitoring"
+        }
+      }
+    },
+    "services": {
+      "businessConsultation": {
+        "title": "Business Consultation & Customized Software",
+        "description": "We conduct in-depth analysis of a company's departments, identifying strengths and weaknesses. We then design and implement bespoke business automation and software solutions to address these specific challenges, optimizing processes and enhancing efficiency.",
+        "category": "Customized Solutions & Consulting"
+      },
+      "digitalTransformation": {
+        "title": "Digital Transformation",
+        "description": "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable business models. Our approach optimizes operations, enhances agility, and delivers superior customer-centric experiences.",
+        "category": "Customized Solutions & Consulting"
+      },
+      "aiDevelopment": {
+        "title": "AI Development",
+        "description": "We provide cutting-edge AI development services in Saudi Arabia, building intelligent solutions that enhance automation, decision-making, and customer experiences.",
+        "category": "Advanced AI Development Services"
+      },
+      "agenticAI": {
+        "title": "Agentic AI Development",
+        "description": "Empower your business with autonomous agents capable of complex problem-solving, advanced process automation, and intelligent decision-making.",
+        "category": "Advanced AI Development Services"
+      },
+      "generativeAI": {
+        "title": "Generative AI Development",
+        "description": "Specializing in Generative AI in Saudi Arabia, we create solutions powered by Large Language Models (LLMs) for content generation, automation, and predictive analytics.",
+        "category": "Advanced AI Development Services"
+      },
+      "conversationalAI": {
+        "title": "Conversational AI",
+        "description": "We design sophisticated conversational AI solutions that deliver human-like interactions, automate customer communication, and significantly improve user experiences.",
+        "category": "Advanced AI Development Services"
+      },
+      "aiIntegration": {
+        "title": "AI Integration",
+        "description": "Our AI integration services connect artificial intelligence with your existing ERP, CRM, and other enterprise systems.",
+        "category": "Advanced AI Development Services"
+      }
+    }
+  },
+  "projects": {
+    "title": "SUCCESS STORIES",
+    "subtitle": "Delivering Excellence Across Industries",
+    "projectFocus": "Project Focus:",
+    "pe": {
+      "badge": "Client Success Story",
+      "client": "Professional Engineers",
+      "description": "Delivering comprehensive full operation automation and custom software solutions for professional engineering firms, streamlining workflows and enhancing operational efficiency.",
+      "focus": [
+        "Full Operation Automation & Custom Software Development",
+        "End-to-end automation implementation",
+        "Custom software solutions tailored to engineering workflows",
+        "Seamless integration with existing systems",
+        "Measurable efficiency improvements"
+      ]
+    },
+    "tornix": {
+      "badge": "Featured Partnership",
+      "client": "Tornix",
+      "description": "Tornix is an advanced AI-powered platform designed to transform project planning, execution, and delivery. Specializing in construction and large-scale projects, it integrates cutting-edge AI to bring automation, predictive analytics, and intelligent decision support.",
+      "focus": [
+        "AI-Powered Project Management & Construction Intelligence",
+        "AI-driven cost and resource estimation",
+        "Automated risk detection and Monte Carlo simulations",
+        "Natural language project queries",
+        "Digital-twin simulations and dashboards"
+      ]
+    }
+  },
+  "team": {
+    "title": "MEET OUR TEAM",
+    "subtitle": "Expertise Driving Innovation",
+    "nameTBA": "Name TBA",
+    "positions": {
+      "ceo": "Chief Executive Officer",
+      "pmo": "Project Management Officer",
+      "cmo": "Chief Marketing Officer"
+    },
+    "roles": {
+      "ceo": "CEO",
+      "pmo": "PMO",
+      "cmo": "CMO"
+    },
+    "linkedin": "LinkedIn"
+  },
+  "consultation": {
+    "title": "Ready to Transform Your Operations?",
+    "subtitle": "Schedule a strategic consultation with our enterprise automation experts. We'll analyze your current processes and design a custom AI solution that delivers measurable ROI.",
+    "valueProps": {
+      "assessment": {
+        "title": "Complimentary Assessment",
+        "description": "Free analysis of your automation potential and ROI projections."
+      },
+      "design": {
+        "title": "Custom Solution Design",
+        "description": "Tailored automation architecture for your specific needs."
+      },
+      "implementation": {
+        "title": "White-Glove Implementation",
+        "description": "End-to-end support from design through deployment and beyond."
+      }
+    },
+    "formTitle": "Schedule Your Consultation",
+    "formSubtitle": "Fill out the form below and our team will reach out within 24 hours",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "company": "Company Name",
+      "phone": "Phone Number",
+      "message": "Message",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john@company.com",
+      "companyPlaceholder": "Your Company",
+      "phonePlaceholder": "+966 XX XXX XXXX",
+      "messagePlaceholder": "Tell us about your automation needs and goals...",
+      "submitButton": "Submit Request",
+      "submitting": "Submitting...",
+      "required": "*"
+    },
+    "toast": {
+      "missingInfo": "Missing Information",
+      "fillRequired": "Please fill in all required fields.",
+      "submitted": "Request Submitted!",
+      "thankYou": "Thank you for your interest. Our team will contact you within 24 hours."
+    }
+  },
+  "preFooter": {
+    "tagline": "Empowering Fortune 500 companies with autonomous AI systems and custom enterprise software solutions.",
+    "solutions": {
+      "title": "Solutions",
+      "aiAutomation": "AI Automation",
+      "customSoftware": "Custom Software",
+      "processOptimization": "Process Optimization",
+      "integrationServices": "Integration Services"
+    },
+    "company": {
+      "title": "Company",
+      "aboutUs": "About Us",
+      "caseStudies": "Case Studies",
+      "team": "Team",
+      "contact": "Contact"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "emailValue": "info@ailigent.ai",
+      "phoneValue": "Contact us",
+      "locationValue": "Saudi Arabia"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 AILIGENT. All Rights Reserved.",
+    "social": {
+      "facebook": "Visit our Facebook page",
+      "linkedin": "Visit our LinkedIn page",
+      "email": "Send us an email"
+    }
+  }
+}

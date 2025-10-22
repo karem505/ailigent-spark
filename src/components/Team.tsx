@@ -1,25 +1,28 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Linkedin, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export const Team = () => {
+  const { t } = useTranslation();
+
   const team = [
     {
-      name: "Name TBA",
-      position: "Chief Executive Officer",
-      role: "CEO",
+      name: t("team.nameTBA"),
+      position: t("team.positions.ceo"),
+      role: t("team.roles.ceo"),
       linkedin: "#",
     },
     {
-      name: "Name TBA",
-      position: "Project Management Officer",
-      role: "PMO",
+      name: t("team.nameTBA"),
+      position: t("team.positions.pmo"),
+      role: t("team.roles.pmo"),
       linkedin: "#",
     },
     {
-      name: "Name TBA",
-      position: "Chief Marketing Officer",
-      role: "CMO",
+      name: t("team.nameTBA"),
+      position: t("team.positions.cmo"),
+      role: t("team.roles.cmo"),
       linkedin: "#",
     },
   ];
@@ -29,9 +32,9 @@ export const Team = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">MEET OUR TEAM</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("team.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Expertise Driving Innovation
+            {t("team.subtitle")}
           </p>
         </div>
 
@@ -70,7 +73,7 @@ export const Team = () => {
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
                     <Linkedin className="w-5 h-5 mr-2" />
-                    LinkedIn
+                    {t("team.linkedin")}
                   </a>
                 </Button>
               </CardContent>

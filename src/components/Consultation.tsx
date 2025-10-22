@@ -6,8 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart3, Target, Handshake, Send } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Consultation = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -27,12 +29,12 @@ export const Consultation = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validation
     if (!formData.name || !formData.email || !formData.company || !formData.message) {
       toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
+        title: t("consultation.toast.missingInfo"),
+        description: t("consultation.toast.fillRequired"),
         variant: "destructive",
       });
       return;
@@ -43,8 +45,8 @@ export const Consultation = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Request Submitted!",
-        description: "Thank you for your interest. Our team will contact you within 24 hours.",
+        title: t("consultation.toast.submitted"),
+        description: t("consultation.toast.thankYou"),
       });
       setFormData({ name: "", email: "", company: "", phone: "", message: "" });
       setIsSubmitting(false);
@@ -54,18 +56,18 @@ export const Consultation = () => {
   const valueProps = [
     {
       icon: BarChart3,
-      title: "Complimentary Assessment",
-      description: "Free analysis of your automation potential and ROI projections.",
+      title: t("consultation.valueProps.assessment.title"),
+      description: t("consultation.valueProps.assessment.description"),
     },
     {
       icon: Target,
-      title: "Custom Solution Design",
-      description: "Tailored automation architecture for your specific needs.",
+      title: t("consultation.valueProps.design.title"),
+      description: t("consultation.valueProps.design.description"),
     },
     {
       icon: Handshake,
-      title: "White-Glove Implementation",
-      description: "End-to-end support from design through deployment and beyond.",
+      title: t("consultation.valueProps.implementation.title"),
+      description: t("consultation.valueProps.implementation.description"),
     },
   ];
 
@@ -74,9 +76,9 @@ export const Consultation = () => {
       <div className="container mx-auto max-w-6xl">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">Ready to Transform Your Operations?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("consultation.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Schedule a strategic consultation with our enterprise automation experts. We'll analyze your current processes and design a custom AI solution that delivers measurable ROI.
+            {t("consultation.subtitle")}
           </p>
         </div>
 
@@ -104,20 +106,20 @@ export const Consultation = () => {
         {/* Consultation Form */}
         <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl">Schedule Your Consultation</CardTitle>
+            <CardTitle className="text-3xl">{t("consultation.formTitle")}</CardTitle>
             <CardDescription className="text-base">
-              Fill out the form below and our team will reach out within 24 hours
+              {t("consultation.formSubtitle")}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Full Name *</Label>
+                  <Label htmlFor="name">{t("consultation.form.fullName")} {t("consultation.form.required")}</Label>
                   <Input
                     id="name"
                     name="name"
-                    placeholder="John Doe"
+                    placeholder={t("consultation.form.namePlaceholder")}
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -125,12 +127,12 @@ export const Consultation = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
+                  <Label htmlFor="email">{t("consultation.form.email")} {t("consultation.form.required")}</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="john@company.com"
+                    placeholder={t("consultation.form.emailPlaceholder")}
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -141,11 +143,11 @@ export const Consultation = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company Name *</Label>
+                  <Label htmlFor="company">{t("consultation.form.company")} {t("consultation.form.required")}</Label>
                   <Input
                     id="company"
                     name="company"
-                    placeholder="Your Company"
+                    placeholder={t("consultation.form.companyPlaceholder")}
                     value={formData.company}
                     onChange={handleChange}
                     required
@@ -153,12 +155,12 @@ export const Consultation = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone">{t("consultation.form.phone")}</Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+966 XX XXX XXXX"
+                    placeholder={t("consultation.form.phonePlaceholder")}
                     value={formData.phone}
                     onChange={handleChange}
                     className="bg-background/50"
@@ -167,11 +169,11 @@ export const Consultation = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Message *</Label>
+                <Label htmlFor="message">{t("consultation.form.message")} {t("consultation.form.required")}</Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Tell us about your automation needs and goals..."
+                  placeholder={t("consultation.form.messagePlaceholder")}
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -187,10 +189,10 @@ export const Consultation = () => {
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow"
               >
                 {isSubmitting ? (
-                  "Submitting..."
+                  t("consultation.form.submitting")
                 ) : (
                   <>
-                    Submit Request
+                    {t("consultation.form.submitButton")}
                     <Send className="ml-2 h-5 w-5" />
                   </>
                 )}
