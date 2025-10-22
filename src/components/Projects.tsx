@@ -41,7 +41,7 @@ export const Projects = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">Projects & Collaborations</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">SUCCESS STORIES</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Delivering Excellence Across Industries
           </p>

@@ -29,7 +29,7 @@ export const Team = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">Meet Our Leadership</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">MEET OUR TEAM</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Expertise Driving Innovation
           </p>
