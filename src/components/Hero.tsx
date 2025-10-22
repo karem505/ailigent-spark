@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroLogo from "@/assets/hero-logo.png";
+import { useTheme } from "next-themes";
+import heroLogoLight from "@/assets/hero-logo.png";
+import heroLogoDark from "@/assets/hero-logo-dark.png";
 
 export const Hero = () => {
+  const { theme } = useTheme();
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -24,7 +27,7 @@ export const Hero = () => {
           {/* Logo on Left */}
           <div className="flex justify-center md:justify-start">
             <img 
-              src={heroLogo} 
+              src={theme === "dark" ? heroLogoDark : heroLogoLight} 
               alt="AILIGENT Logo" 
               className="w-full max-w-md h-auto"
             />
