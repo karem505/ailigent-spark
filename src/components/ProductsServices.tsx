@@ -3,68 +3,70 @@ import { Badge } from "@/components/ui/badge";
 import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Link2, Zap } from "lucide-react";
 import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
+import { useTranslation } from "react-i18next";
 
 export const ProductsServices = () => {
+  const { t } = useTranslation();
   const products = [
     {
-      badge: "Product",
-      title: "Tornix",
-      description: "A powerful project management software with seamless integrations with popular platforms like Trello, Microsoft Project, and other commonly used enterprise tools, streamlining project workflows and collaboration.",
+      badge: t("solutions.products.tornix.badge"),
+      title: t("solutions.products.tornix.title"),
+      description: t("solutions.products.tornix.description"),
       icon: LayoutDashboard,
       logo: tornixLogo,
-      tags: ["Integration", "Collaboration", "Workflow"],
+      tags: [t("solutions.products.tornix.tags.integration"), t("solutions.products.tornix.tags.collaboration"), t("solutions.products.tornix.tags.workflow")],
     },
     {
-      badge: "Product",
-      title: "PMO Builder",
-      description: "A comprehensive Project Management Office (PMO) reporting tool. Leveraging AI, it provides project managers with full monitoring capabilities throughout the project lifecycle, generating insightful reports and ensuring proactive oversight.",
+      badge: t("solutions.products.pmoBuilder.badge"),
+      title: t("solutions.products.pmoBuilder.title"),
+      description: t("solutions.products.pmoBuilder.description"),
       icon: BarChart3,
       logo: pmoBuilderLogo,
-      tags: ["AI-Powered", "Reporting", "Monitoring"],
+      tags: [t("solutions.products.pmoBuilder.tags.aiPowered"), t("solutions.products.pmoBuilder.tags.reporting"), t("solutions.products.pmoBuilder.tags.monitoring")],
     },
   ];
 
   const services = [
     {
-      title: "Business Consultation & Customized Software",
-      description: "We conduct in-depth analysis of a company's departments, identifying strengths and weaknesses. We then design and implement bespoke business automation and software solutions to address these specific challenges, optimizing processes and enhancing efficiency.",
-      category: "Customized Solutions & Consulting",
+      title: t("solutions.services.businessConsultation.title"),
+      description: t("solutions.services.businessConsultation.description"),
+      category: t("solutions.services.businessConsultation.category"),
       icon: Lightbulb,
     },
     {
-      title: "Digital Transformation",
-      description: "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable business models. Our approach optimizes operations, enhances agility, and delivers superior customer-centric experiences.",
-      category: "Customized Solutions & Consulting",
+      title: t("solutions.services.digitalTransformation.title"),
+      description: t("solutions.services.digitalTransformation.description"),
+      category: t("solutions.services.digitalTransformation.category"),
       icon: Rocket,
     },
     {
-      title: "AI Development",
-      description: "We provide cutting-edge AI development services in Saudi Arabia, building intelligent solutions that enhance automation, decision-making, and customer experiences.",
-      category: "Advanced AI Development Services",
+      title: t("solutions.services.aiDevelopment.title"),
+      description: t("solutions.services.aiDevelopment.description"),
+      category: t("solutions.services.aiDevelopment.category"),
       icon: Brain,
     },
     {
-      title: "Agentic AI Development",
-      description: "Empower your business with autonomous agents capable of complex problem-solving, advanced process automation, and intelligent decision-making.",
-      category: "Advanced AI Development Services",
+      title: t("solutions.services.agenticAI.title"),
+      description: t("solutions.services.agenticAI.description"),
+      category: t("solutions.services.agenticAI.category"),
       icon: Zap,
     },
     {
-      title: "Generative AI Development",
-      description: "Specializing in Generative AI in Saudi Arabia, we create solutions powered by Large Language Models (LLMs) for content generation, automation, and predictive analytics.",
-      category: "Advanced AI Development Services",
+      title: t("solutions.services.generativeAI.title"),
+      description: t("solutions.services.generativeAI.description"),
+      category: t("solutions.services.generativeAI.category"),
       icon: Brain,
     },
     {
-      title: "Conversational AI",
-      description: "We design sophisticated conversational AI solutions that deliver human-like interactions, automate customer communication, and significantly improve user experiences.",
-      category: "Advanced AI Development Services",
+      title: t("solutions.services.conversationalAI.title"),
+      description: t("solutions.services.conversationalAI.description"),
+      category: t("solutions.services.conversationalAI.category"),
       icon: MessageSquare,
     },
     {
-      title: "AI Integration",
-      description: "Our AI integration services connect artificial intelligence with your existing ERP, CRM, and other enterprise systems.",
-      category: "Advanced AI Development Services",
+      title: t("solutions.services.aiIntegration.title"),
+      description: t("solutions.services.aiIntegration.description"),
+      category: t("solutions.services.aiIntegration.category"),
       icon: Link2,
     },
   ];
@@ -74,15 +76,15 @@ export const ProductsServices = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">OUR SERVICES</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">{t("solutions.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Transforming Businesses Through Intelligent Automation
+            {t("solutions.subtitle")}
           </p>
         </div>
 
         {/* Products */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold mb-8 text-center">FEATURED PRODUCTS</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t("solutions.featuredProducts")}</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
@@ -123,7 +125,7 @@ export const ProductsServices = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-3xl font-bold mb-8 text-center">PROFESSIONAL SERVICES</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">{t("solutions.professionalServices")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card

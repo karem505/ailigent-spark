@@ -3,8 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import heroLogoLight from "@/assets/hero-logo.png";
 import heroLogoDark from "@/assets/hero-logo-dark.png";
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
+  const { t } = useTranslation();
   const { theme } = useTheme();
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
@@ -38,15 +40,15 @@ export const Hero = () => {
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-                Turn your data into decisions—intelligently
+                {t("hero.headline")}
               </span>
             </h1>
 
             {/* About Us Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">About Us</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">{t("hero.aboutUs")}</h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">AILIGENT</strong> is a Saudi company specializing in AI automation systems that transform business operations and boost productivity by over 90%.
+                <strong className="text-foreground">{t("hero.companyName")}</strong> {t("hero.description")}
               </p>
             </div>
 
@@ -57,7 +59,7 @@ export const Hero = () => {
                 onClick={scrollToConsultation}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-glow animate-glow group"
               >
-                BOOK A FREE DEMO
+                {t("hero.cta")}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

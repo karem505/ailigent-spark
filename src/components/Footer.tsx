@@ -1,25 +1,28 @@
 import { Facebook, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   const socialLinks = [
     {
       name: "Facebook",
       icon: Facebook,
       href: "https://facebook.com",
-      ariaLabel: "Visit our Facebook page",
+      ariaLabel: t("footer.social.facebook"),
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
       href: "https://linkedin.com",
-      ariaLabel: "Visit our LinkedIn page",
+      ariaLabel: t("footer.social.linkedin"),
     },
     {
       name: "Email",
       icon: Mail,
       href: "mailto:info@ailigent.ai",
-      ariaLabel: "Send us an email",
+      ariaLabel: t("footer.social.email"),
     },
   ];
 
@@ -51,7 +54,7 @@ export const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground text-center">
-            © 2025 AILIGENT. All Rights Reserved.
+            {t("footer.copyright")}
           </p>
         </div>
       </div>

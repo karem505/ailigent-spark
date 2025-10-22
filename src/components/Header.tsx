@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { Moon, Sun, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/ailigent-logo.png";
+import { useTranslation } from "react-i18next";
 
 export const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState<"en" | "ar">("en");
 
   useEffect(() => {
     // Set dark mode by default
@@ -27,8 +28,8 @@ export const Header = () => {
   };
 
   const toggleLanguage = () => {
-    const newLang = language === "en" ? "ar" : "en";
-    setLanguage(newLang);
+    const newLang = i18n.language === "en" ? "ar" : "en";
+    i18n.changeLanguage(newLang);
     document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = newLang;
   };
@@ -61,7 +62,7 @@ export const Header = () => {
               aria-label="Toggle Language"
             >
               <Globe className="h-5 w-5" />
-              <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
+              <span className="ml-1 text-xs font-medium">{i18n.language.toUpperCase()}</span>
             </Button>
 
             {/* Theme Toggle */}
@@ -84,14 +85,14 @@ export const Header = () => {
               onClick={scrollToConsultation}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold shadow-glow animate-glow hidden sm:flex"
             >
-              Schedule Consultation
+              {t("header.scheduleConsultation")}
             </Button>
             <Button
               onClick={scrollToConsultation}
               size="sm"
               className="bg-primary hover:bg-primary/90 text-primary-foreground sm:hidden"
             >
-              Book Now
+              {t("header.bookNow")}
             </Button>
           </div>
         </div>
