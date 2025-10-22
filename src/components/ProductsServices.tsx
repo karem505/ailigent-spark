@@ -1,14 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Link2, Zap } from "lucide-react";
+import tornixLogo from "@/assets/tornix-product-logo.png";
+import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 
 export const ProductsServices = () => {
   const products = [
     {
       badge: "Product",
-      title: "Turnix",
+      title: "Tornix",
       description: "A powerful project management software with seamless integrations with popular platforms like Trello, Microsoft Project, and other commonly used enterprise tools, streamlining project workflows and collaboration.",
       icon: LayoutDashboard,
+      logo: tornixLogo,
       tags: ["Integration", "Collaboration", "Workflow"],
     },
     {
@@ -16,6 +19,7 @@ export const ProductsServices = () => {
       title: "PMO Builder",
       description: "A comprehensive Project Management Office (PMO) reporting tool. Leveraging AI, it provides project managers with full monitoring capabilities throughout the project lifecycle, generating insightful reports and ensuring proactive oversight.",
       icon: BarChart3,
+      logo: pmoBuilderLogo,
       tags: ["AI-Powered", "Reporting", "Monitoring"],
     },
   ];
@@ -87,13 +91,16 @@ export const ProductsServices = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="flex items-start justify-between mb-2">
+                  <div className="flex items-start justify-between mb-4">
                     <Badge variant="secondary" className="bg-primary/10 text-primary">
                       {product.badge}
                     </Badge>
                     <div className="p-3 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
                       <product.icon className="w-6 h-6 text-primary" />
                     </div>
+                  </div>
+                  <div className="mb-4">
+                    <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
                   </div>
                   <CardTitle className="text-2xl">{product.title}</CardTitle>
                   <CardDescription className="text-base text-foreground/80 leading-relaxed">
