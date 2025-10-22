@@ -74,7 +74,7 @@ export const ProductsServices = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">Our Solutions & Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">OUR SERVICES</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Transforming Businesses Through Intelligent Automation
           </p>
@@ -82,7 +82,7 @@ export const ProductsServices = () => {
 
         {/* Products */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold mb-8 text-center">Featured Products</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">FEATURED PRODUCTS</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
@@ -123,7 +123,7 @@ export const ProductsServices = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-3xl font-bold mb-8 text-center">Professional Services</h3>
+          <h3 className="text-3xl font-bold mb-8 text-center">PROFESSIONAL SERVICES</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card
