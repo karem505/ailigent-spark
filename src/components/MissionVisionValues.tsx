@@ -25,7 +25,7 @@ export const MissionVisionValues = () => {
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base text-foreground/80 leading-relaxed">
-                Our mission is to empower enterprises across all sectors to achieve operational excellence through autonomous AI solutions that drive strategic automation and transform data into real-time intelligent decisions.
+                Is to empower enterprises across all sectors to achieve operational excellence through autonomous AI solutions that drive strategic automation and transform data into real-time intelligent decisions.
               </CardDescription>
             </CardContent>
           </Card>
@@ -40,7 +40,7 @@ export const MissionVisionValues = () => {
             </CardHeader>
             <CardContent>
               <CardDescription className="text-base text-foreground/80 leading-relaxed">
-                Our vision is to establish Ailigent as the world's leading partner for organizations driving sustainable digital transformation — powered by trusted, self-learning AI systems that work autonomously and deliver measurable performance impact.
+                Is to establish Ailigent as the world's leading partner for organizations driving sustainable digital transformation — powered by trusted, self-learning AI systems that work autonomously and deliver measurable performance impact.
               </CardDescription>
             </CardContent>
           </Card>
