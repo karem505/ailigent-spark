@@ -35,7 +35,7 @@ export const MissionVisionValues = () => {
           {/* Vision Card */}
           <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group" style={{ animationDelay: "0.1s" }}>
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform shadow-glow">
+              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Eye className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-2xl font-bold">{t("mission.ourVision")}</CardTitle>
