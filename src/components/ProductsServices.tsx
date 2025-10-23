@@ -134,18 +134,15 @@ export const ProductsServices = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="flex items-start justify-between mb-3">
-                    <Badge variant="outline" className="text-xs">
-                      {service.category}
-                    </Badge>
-                    <div className="p-3 rounded-lg bg-secondary/10 group-hover:scale-110 transition-transform">
-                      <service.icon className="w-5 h-5 text-secondary" />
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <service.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg">{service.title}</CardTitle>
+                  <CardTitle className="text-lg text-center">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
                     {service.description}
                   </p>
                 </CardContent>
