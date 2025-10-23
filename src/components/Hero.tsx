@@ -31,7 +31,7 @@ export const Hero = () => {
             <img 
               src={theme === "dark" ? heroLogoDark : heroLogoLight} 
               alt="AILIGENT Logo" 
-              className="w-full max-w-md h-auto"
+              className="w-full max-w-md h-auto shadow-glow animate-glow drop-shadow-2xl"
             />
           </div>
 
