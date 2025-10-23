@@ -124,7 +124,17 @@
   "team": {
     "title": "MEET OUR TEAM",
     "subtitle": "Expertise Driving Innovation",
-    "nameTBA": "Name TBA",
+    "members": {
+      "gm": {
+        "name": "Dr. Ahmed Alsenosy"
+      },
+      "ceo": {
+        "name": "Dr. Karem Shohoud"
+      },
+      "cmo": {
+        "name": "Dr. Sohaila Abuelliel"
+      }
+    },
     "positions": {
       "ceo": "General Manager",
       "pmo": "Chief Executive Officer",

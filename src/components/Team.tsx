@@ -1,29 +1,35 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Linkedin, User } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import teamAhmed from "@/assets/team-ahmed.png";
+import teamKarem from "@/assets/team-karem.jpg";
+import teamSohaila from "@/assets/team-sohaila.jpg";
 
 export const Team = () => {
   const { t } = useTranslation();
 
   const team = [
     {
-      name: t("team.nameTBA"),
+      name: t("team.members.gm.name"),
       position: t("team.positions.ceo"),
       role: t("team.roles.ceo"),
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/alsenosy/",
+      image: teamAhmed,
     },
     {
-      name: t("team.nameTBA"),
+      name: t("team.members.ceo.name"),
       position: t("team.positions.pmo"),
       role: t("team.roles.pmo"),
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/abo-el-makarem-shohoud-745367244/",
+      image: teamKarem,
     },
     {
-      name: t("team.nameTBA"),
+      name: t("team.members.cmo.name"),
       position: t("team.positions.cmo"),
       role: t("team.roles.cmo"),
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/sohaila-abuelliel-350672274/",
+      image: teamSohaila,
     },
   ];
 
@@ -47,9 +53,13 @@ export const Team = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
-                {/* Profile Image Placeholder */}
-                <div className="mx-auto w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform shadow-card">
-                  <User className="w-16 h-16 text-primary/60" />
+                {/* Profile Image */}
+                <div className="mx-auto w-32 h-32 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
+                  <img 
+                    src={member.image} 
+                    alt={`${member.name} profile`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <div className="space-y-2">
