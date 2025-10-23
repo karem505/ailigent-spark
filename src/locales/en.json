@@ -126,13 +126,13 @@
     "subtitle": "Expertise Driving Innovation",
     "nameTBA": "Name TBA",
     "positions": {
-      "ceo": "Chief Executive Officer",
-      "pmo": "Project Management Officer",
-      "cmo": "Chief Marketing Officer"
+      "ceo": "General Manager",
+      "pmo": "Chief Executive Officer",
+      "cmo": "Chief Executive Officer"
     },
     "roles": {
-      "ceo": "CEO",
-      "pmo": "PMO",
+      "ceo": "GM",
+      "pmo": "CEO",
       "cmo": "CMO"
     },
     "linkedin": "LinkedIn"
