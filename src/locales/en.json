@@ -191,21 +191,21 @@
   "preFooter": {
     "tagline": "Empowering Fortune 500 companies with autonomous AI systems and custom enterprise software solutions.",
     "solutions": {
-      "title": "Solutions",
+      "title": "SOLUTIONS",
       "aiAutomation": "AI Automation",
       "customSoftware": "Custom Software",
       "processOptimization": "Process Optimization",
       "integrationServices": "Integration Services"
     },
     "company": {
-      "title": "Company",
+      "title": "COMPANY",
       "aboutUs": "About Us",
       "caseStudies": "Case Studies",
       "team": "Team",
       "contact": "Contact"
     },
     "contact": {
-      "title": "Contact",
+      "title": "CONTACT",
       "email": "Email",
       "phone": "Phone",
       "location": "Location",
