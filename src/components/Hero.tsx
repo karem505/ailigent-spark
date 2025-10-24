@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
-import heroLogoLight from "@/assets/hero-logo.png";
-import heroLogoDark from "@/assets/hero-logo-dark.png";
+import heroLogoLight from "@/assets/logo-dark-blue.png";
+import heroLogoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
 
 export const Hero = () => {

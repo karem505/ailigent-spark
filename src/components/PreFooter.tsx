@@ -1,8 +1,21 @@
-import logoImage from "@/assets/ailigent-logo.png";
+import logoLight from "@/assets/logo-dark-blue.png";
+import logoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 export const PreFooter = () => {
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   const columns = {
     solutions: [
@@ -30,7 +43,7 @@ export const PreFooter = () => {
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {/* Logo & Tagline */}
           <div className="space-y-4">
-            <img src={logoImage} alt="AILIGENT" className="h-12 w-auto" />
+            <img src={isDark ? logoDark : logoLight} alt="AILIGENT" className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t("preFooter.tagline")}
             </p>
