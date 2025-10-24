@@ -1,13 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import heroLogoLight from "@/assets/logo-dark-blue.png";
 import heroLogoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
   const { t } = useTranslation();
-  const { theme } = useTheme();
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -29,7 +40,7 @@ export const Hero = () => {
           {/* Logo on Left */}
           <div className="flex justify-center md:justify-start">
             <img 
-              src={theme === "dark" ? heroLogoDark : heroLogoLight} 
+              src={isDark ? heroLogoDark : heroLogoLight} 
               alt="AILIGENT Logo" 
               className="w-full max-w-md h-auto"
             />
