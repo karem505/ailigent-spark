@@ -9,13 +9,13 @@ export const Footer = () => {
     {
       name: "Facebook",
       icon: Facebook,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=61582507262883",
       ariaLabel: t("footer.social.facebook"),
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/company/109390621/admin/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BmXEBiUOGT12d9b%2BCaVphDA%3D%3D",
       ariaLabel: t("footer.social.linkedin"),
     },
     {
