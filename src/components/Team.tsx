@@ -58,7 +58,7 @@ export const Team = () => {
                   <img 
                     src={member.image} 
                     alt={`${member.name} profile`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
 
