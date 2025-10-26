@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoLight from "@/assets/logo-dark-blue.png";
-import logoDark from "@/assets/logo-light-blue.png";
+import logoMetallic from "@/assets/logo-metallic.png";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
@@ -49,7 +48,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-12 w-auto" />
+            <img src={logoMetallic} alt="AILIGENT Logo" className="h-12 w-auto metallic-logo" />
           </a>
 
           {/* Right Side Controls */}

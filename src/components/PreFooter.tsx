@@ -1,5 +1,4 @@
-import logoLight from "@/assets/logo-dark-blue.png";
-import logoDark from "@/assets/logo-light-blue.png";
+import logoMetallic from "@/assets/logo-metallic.png";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
@@ -43,7 +42,7 @@ export const PreFooter = () => {
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {/* Logo & Tagline */}
           <div className="space-y-4">
-            <img src={isDark ? logoDark : logoLight} alt="AILIGENT" className="h-12 w-auto" />
+            <img src={logoMetallic} alt="AILIGENT" className="h-12 w-auto metallic-logo" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t("preFooter.tagline")}
             </p>
