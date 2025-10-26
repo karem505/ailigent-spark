@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroLogoMetallic from "@/assets/logo-metallic.png";
+import heroLogoLight from "@/assets/logo-dark-blue.png";
+import heroLogoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
@@ -39,9 +40,9 @@ export const Hero = () => {
           {/* Logo on Left */}
           <div className="flex justify-center md:justify-start">
             <img 
-              src={heroLogoMetallic} 
+              src={isDark ? heroLogoDark : heroLogoLight} 
               alt="AILIGENT Logo" 
-              className="w-full max-w-md h-auto metallic-logo"
+              className="w-full max-w-md h-auto"
             />
           </div>
 
