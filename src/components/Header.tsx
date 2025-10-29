@@ -57,13 +57,12 @@ export const Header = () => {
             {/* Language Toggle */}
             <Button
               variant="ghost"
-              size="icon"
               onClick={toggleLanguage}
-              className="rounded-full glass-card hover:border-secondary/50 transition-smooth"
+              className="glass-card hover:border-secondary/50 transition-smooth flex items-center gap-2 px-4"
               aria-label="Toggle Language"
             >
               <Globe className="h-5 w-5 text-secondary" />
-              <span className="ml-1 text-xs font-medium">{i18n.language.toUpperCase()}</span>
+              <span className="text-sm font-medium text-foreground">{i18n.language.toUpperCase()}</span>
             </Button>
 
             {/* Theme Toggle */}
@@ -71,7 +70,7 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full glass-card hover:border-secondary/50 transition-smooth"
+              className="glass-card hover:border-secondary/50 transition-smooth"
               aria-label="Toggle Theme"
             >
               {isDark ? (
