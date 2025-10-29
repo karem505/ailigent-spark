@@ -72,7 +72,7 @@ export const Team = () => {
 
                 <div className="space-y-2">
                   <CardTitle className="text-xl font-bold">{member.name}</CardTitle>
-                  <p className="text-sm font-semibold gradient-primary bg-clip-text text-transparent">{member.role}</p>
+                  <p className="text-sm font-semibold text-secondary">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.position}</p>
                 </div>
               </CardHeader>
