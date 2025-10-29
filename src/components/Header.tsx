@@ -42,7 +42,7 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card shadow-lg" : "bg-transparent"
+        isScrolled ? "glass-morphism shadow-glow" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -59,10 +59,10 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleLanguage}
-              className="rounded-full hover:bg-primary/10"
+              className="rounded-full glass-card hover:border-secondary/50 transition-smooth"
               aria-label="Toggle Language"
             >
-              <Globe className="h-5 w-5" />
+              <Globe className="h-5 w-5 text-secondary" />
               <span className="ml-1 text-xs font-medium">{i18n.language.toUpperCase()}</span>
             </Button>
 
@@ -71,11 +71,11 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full hover:bg-primary/10"
+              className="rounded-full glass-card hover:border-secondary/50 transition-smooth"
               aria-label="Toggle Theme"
             >
               {isDark ? (
-                <Sun className="h-5 w-5 text-primary" />
+                <Sun className="h-5 w-5 text-secondary" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
@@ -84,14 +84,14 @@ export const Header = () => {
             {/* CTA Button */}
             <Button
               onClick={scrollToConsultation}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold shadow-glow animate-glow hidden sm:flex"
+              className="gradient-primary hover:opacity-90 text-white px-6 py-2 font-semibold shadow-glow-hover border-0 hidden sm:flex"
             >
               {t("header.scheduleConsultation")}
             </Button>
             <Button
               onClick={scrollToConsultation}
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground sm:hidden"
+              className="gradient-primary hover:opacity-90 text-white border-0 sm:hidden"
             >
               {t("header.bookNow")}
             </Button>

@@ -87,15 +87,15 @@ export const Consultation = () => {
           {valueProps.map((prop, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 text-center animate-fade-in-up"
+              className="glass-morphism text-center animate-fade-in-up hover-lift"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
-                <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                  <prop.icon className="w-7 h-7 text-primary" />
+                <div className="mx-auto w-16 h-16 rounded-2xl gradient-icon flex items-center justify-center shadow-glow">
+                  <prop.icon className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="text-xl">{prop.title}</CardTitle>
-                <CardDescription className="text-sm text-foreground/70">
+                <CardDescription className="text-sm text-foreground/80">
                   {prop.description}
                 </CardDescription>
               </CardHeader>
@@ -104,10 +104,10 @@ export const Consultation = () => {
         </div>
 
         {/* Consultation Form */}
-        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+        <Card className="glass-morphism shadow-glow-hover animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
             <CardTitle className="text-3xl">{t("consultation.formTitle")}</CardTitle>
-            <CardDescription className="text-base">
+            <CardDescription className="text-base text-foreground/80">
               {t("consultation.formSubtitle")}
             </CardDescription>
           </CardHeader>
@@ -123,7 +123,7 @@ export const Consultation = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="glass-card border-secondary/30 focus:border-secondary"
                   />
                 </div>
                 <div className="space-y-2">
@@ -136,7 +136,7 @@ export const Consultation = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="glass-card border-secondary/30 focus:border-secondary"
                   />
                 </div>
               </div>
@@ -151,7 +151,7 @@ export const Consultation = () => {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="glass-card border-secondary/30 focus:border-secondary"
                   />
                 </div>
                 <div className="space-y-2">
@@ -163,7 +163,7 @@ export const Consultation = () => {
                     placeholder={t("consultation.form.phonePlaceholder")}
                     value={formData.phone}
                     onChange={handleChange}
-                    className="bg-background/50"
+                    className="glass-card border-secondary/30 focus:border-secondary"
                   />
                 </div>
               </div>
@@ -178,7 +178,7 @@ export const Consultation = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-background/50 resize-none"
+                  className="glass-card border-secondary/30 focus:border-secondary resize-none"
                 />
               </div>
 
@@ -186,7 +186,7 @@ export const Consultation = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow"
+                className="w-full gradient-primary hover:opacity-90 text-white font-bold shadow-glow-hover border-0"
               >
                 {isSubmitting ? (
                   t("consultation.form.submitting")

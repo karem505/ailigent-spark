@@ -27,7 +27,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="py-8 px-4 bg-card border-t border-border">
+    <footer className="py-8 px-4 glass-card border-t border-secondary/30">
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-6">
           {/* Social Media Icons */}
@@ -37,7 +37,7 @@ export const Footer = () => {
                 key={social.name}
                 variant="ghost"
                 size="icon"
-                className="rounded-full hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all"
+                className="rounded-full glass-card hover:border-secondary/50 hover:text-secondary hover:scale-110 transition-smooth"
                 asChild
               >
                 <a

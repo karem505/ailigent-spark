@@ -38,7 +38,7 @@ export const PreFooter = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-card border-t border-border">
+    <section className="py-16 px-4 glass-card border-t border-secondary/30">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {/* Logo & Tagline */}
@@ -57,7 +57,7 @@ export const PreFooter = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-secondary transition-smooth"
                   >
                     {item.name}
                   </a>
@@ -74,7 +74,7 @@ export const PreFooter = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-secondary transition-smooth"
                   >
                     {item.name}
                   </a>
@@ -92,7 +92,7 @@ export const PreFooter = () => {
                   <span className="text-muted-foreground">{item.label}:</span>{" "}
                   <a
                     href={item.href}
-                    className="text-foreground hover:text-primary transition-colors"
+                    className="text-foreground hover:text-secondary transition-smooth"
                   >
                     {item.value}
                   </a>
