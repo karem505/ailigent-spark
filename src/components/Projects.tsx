@@ -55,7 +55,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass-morphism glass-overlay animate-fade-in-up overflow-hidden hover:shadow-glow-hover transition-smooth"
+              className="glass-card border-primary/20 animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="grid lg:grid-cols-2 gap-6">
@@ -67,12 +67,12 @@ export const Projects = () => {
                       alt={`${project.client} logo`}
                       className="h-16 w-auto object-contain"
                     />
-                    <Badge variant="secondary" className="glass-card border-secondary/50 text-secondary font-semibold">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">
                       {project.badge}
                     </Badge>
                   </div>
                   <CardTitle className="text-3xl">{project.client}</CardTitle>
-                  <CardDescription className="text-base text-foreground/90 leading-relaxed">
+                  <CardDescription className="text-base text-foreground/80 leading-relaxed">
                     {project.description}
                   </CardDescription>
 
@@ -80,8 +80,8 @@ export const Projects = () => {
                     <h4 className="font-semibold text-lg text-foreground">{t("projects.projectFocus")}</h4>
                     <ul className="space-y-2">
                       {project.focus.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
-                          <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -91,7 +91,7 @@ export const Projects = () => {
 
                 {/* Video Side */}
                 <CardContent className="p-0 lg:p-6 flex items-center">
-                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden glass-card shadow-glow border border-secondary/30">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden group shadow-card">
                     <iframe
                       src={project.videoUrl}
                       title={`${project.client} Project Video`}

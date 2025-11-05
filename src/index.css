@@ -8,94 +8,78 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 30% 96%;
-    --foreground: 220 20% 15%;
+    --background: 0 0% 98%;
+    --foreground: 210 20% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 210 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
+    --popover-foreground: 210 20% 12%;
 
-    --primary: 270 70% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 207 85% 20%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 190 95% 45%;
-    --secondary-foreground: 220 30% 10%;
+    --secondary: 190 100% 50%;
+    --secondary-foreground: 210 20% 12%;
 
-    --accent: 160 85% 50%;
-    --accent-foreground: 220 30% 10%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 210 20% 12%;
 
-    --muted: 220 20% 92%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 12% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 85%;
-    --input: 220 20% 85%;
-    --ring: 190 95% 45%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 190 100% 50%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* TORNIX Glassmorphic Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(270 70% 55%) 0%, hsl(190 95% 45%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(190 95% 45%) 0%, hsl(270 70% 55%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(260 70% 20%) 0%, hsl(220 60% 15%) 50%, hsl(190 80% 20%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(270 70% 55% / 0.1) 0%, hsl(190 95% 45% / 0.1) 100%);
-    
-    /* Glass Shadows & Effects */
-    --shadow-glow: 0 0 30px hsl(190 95% 45% / 0.4), 0 0 60px hsl(270 70% 55% / 0.2);
-    --shadow-card: 0 8px 32px hsl(220 30% 10% / 0.3), 0 0 20px hsl(190 95% 45% / 0.1);
-    --shadow-glow-hover: 0 0 40px hsl(190 95% 45% / 0.6), 0 0 80px hsl(270 70% 55% / 0.3);
-    
-    --glass-border: 1px solid hsl(190 95% 45% / 0.3);
-    --glass-bg: hsl(220 30% 15% / 0.6);
+    --gradient-primary: linear-gradient(135deg, hsl(207 85% 20%) 0%, hsl(207 85% 35%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%) 0%, hsl(190 100% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(207 85% 12%) 0%, hsl(207 85% 20%) 50%, hsl(190 100% 15%) 100%);
+    --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(207 85% 20% / 0.2);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 30% 8%;
+    --background: 207 85% 8%;
     --foreground: 0 0% 98%;
 
-    --card: 220 25% 12%;
+    --card: 207 70% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 25% 12%;
+    --popover: 207 70% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 270 70% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 190 100% 50%;
+    --primary-foreground: 207 85% 8%;
 
-    --secondary: 190 100% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 207 50% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --accent: 160 90% 50%;
-    --accent-foreground: 220 30% 10%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 207 85% 8%;
 
-    --muted: 220 25% 18%;
-    --muted-foreground: 220 15% 70%;
+    --muted: 207 50% 18%;
+    --muted-foreground: 210 20% 70%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 25% 20%;
-    --input: 220 25% 20%;
+    --border: 207 40% 20%;
+    --input: 207 40% 20%;
     --ring: 190 100% 50%;
 
-    /* TORNIX Glassmorphic Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(270 70% 60%) 0%, hsl(190 100% 50%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%) 0%, hsl(270 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(260 70% 15%) 0%, hsl(220 60% 12%) 50%, hsl(190 80% 15%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(270 70% 60% / 0.15) 0%, hsl(190 100% 50% / 0.15) 100%);
-    
-    /* Glass Shadows & Effects */
-    --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.5), 0 0 80px hsl(270 70% 60% / 0.3);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4), 0 0 20px hsl(190 100% 50% / 0.15);
-    --shadow-glow-hover: 0 0 50px hsl(190 100% 50% / 0.7), 0 0 100px hsl(270 70% 60% / 0.4);
-    
-    --glass-border: 1px solid hsl(190 100% 50% / 0.3);
-    --glass-bg: hsl(220 30% 15% / 0.7);
+    --gradient-primary: linear-gradient(135deg, hsl(207 85% 20%) 0%, hsl(207 85% 35%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(190 100% 50%) 0%, hsl(190 100% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(207 85% 8%) 0%, hsl(207 85% 12%) 50%, hsl(190 100% 10%) 100%);
+    --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(190 100% 50% / 0.15);
   }
 }
 
@@ -119,46 +103,10 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Glassmorphism Effects */
   .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: var(--glass-border);
-    box-shadow: var(--shadow-card);
+    @apply backdrop-blur-lg bg-card/80 border border-border/50;
   }
 
-  .glass-morphism {
-    background: linear-gradient(135deg, hsl(220 30% 15% / 0.7) 0%, hsl(220 30% 10% / 0.6) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid hsl(190 100% 50% / 0.3);
-    box-shadow: 
-      0 8px 32px hsl(0 0% 0% / 0.3),
-      0 0 20px hsl(190 100% 50% / 0.1),
-      inset 0 1px 1px hsl(255 255% 255% / 0.1);
-  }
-
-  .glass-overlay {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .glass-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--gradient-glass);
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .glass-overlay:hover::before {
-    opacity: 1;
-  }
-
-  /* Gradient Utilities */
   .gradient-primary {
     background: var(--gradient-primary);
   }
@@ -171,12 +119,6 @@ All colors MUST be HSL.
     background: var(--gradient-hero);
   }
 
-  .gradient-icon {
-    background: var(--gradient-primary);
-    box-shadow: var(--shadow-glow);
-  }
-
-  /* Shadow Utilities */
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
@@ -185,73 +127,20 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-card);
   }
 
-  .shadow-glow-hover {
-    transition: var(--transition-smooth);
-  }
-
-  .shadow-glow-hover:hover {
-    box-shadow: var(--shadow-glow-hover);
-  }
-
-  /* Transition Utilities */
   .transition-smooth {
     transition: var(--transition-smooth);
   }
 
-  /* Animation Utilities */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
 
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite;
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 6s ease infinite;
-  }
-
   @keyframes float {
-    0%, 100% { 
-      transform: translateY(0px) scale(1); 
-    }
-    50% { 
-      transform: translateY(-20px) scale(1.05); 
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 
-  @keyframes glow {
-    0%, 100% { 
-      box-shadow: var(--shadow-glow); 
-    }
-    50% { 
-      box-shadow: var(--shadow-glow-hover); 
-    }
-  }
-
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Hover Effects */
   .hover-lift {
-    @apply transition-smooth;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-glow-hover);
-  }
-
-  .hover-glass {
-    transition: var(--transition-smooth);
-  }
-
-  .hover-glass:hover {
-    background: linear-gradient(135deg, hsl(220 30% 15% / 0.8) 0%, hsl(220 30% 10% / 0.7) 100%);
-    border-color: hsl(190 100% 50% / 0.5);
+    @apply transition-smooth hover:transform hover:-translate-y-2 hover:shadow-card;
   }
 }

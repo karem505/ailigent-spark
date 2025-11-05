@@ -25,17 +25,13 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Glassmorphic Gradient Background */}
-      <div className="absolute inset-0 z-0 gradient-hero" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 z-0 bg-background" />
 
-      {/* Animated Glass Orbs */}
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl animate-float opacity-40" 
-          style={{ background: 'radial-gradient(circle, hsl(270 70% 60% / 0.6) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] rounded-full blur-3xl animate-float opacity-40" 
-          style={{ background: 'radial-gradient(circle, hsl(190 100% 50% / 0.6) 0%, transparent 70%)', animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl animate-float opacity-30" 
-          style={{ background: 'radial-gradient(circle, hsl(160 90% 50% / 0.4) 0%, transparent 70%)', animationDelay: '4s' }} />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Content */}
@@ -72,7 +68,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 onClick={scrollToConsultation}
-                className="gradient-primary hover:opacity-90 text-white px-8 py-6 text-lg font-bold shadow-glow-hover group border-0"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-glow animate-glow group"
               >
                 {t("hero.cta")}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

@@ -72,16 +72,8 @@ export const ProductsServices = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 px-4 relative overflow-hidden">
-      {/* Animated Background Orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-10 w-96 h-96 rounded-full blur-3xl opacity-30 animate-float" 
-          style={{ background: 'radial-gradient(circle, hsl(270 70% 60% / 0.5) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full blur-3xl opacity-30 animate-float" 
-          style={{ background: 'radial-gradient(circle, hsl(190 100% 50% / 0.5) 0%, transparent 70%)', animationDelay: '3s' }} />
-      </div>
-      
-      <div className="container mx-auto relative z-10">
+    <section id="solutions" className="py-24 px-4 bg-muted/30">
+      <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold">{t("solutions.title")}</h2>
@@ -97,30 +89,30 @@ export const ProductsServices = () => {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-morphism hover-lift glass-overlay animate-fade-in-up group"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <Badge variant="secondary" className="glass-card border-secondary/50 text-secondary font-semibold">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary">
                       {product.badge}
                     </Badge>
-                    <div className="p-3 rounded-xl gradient-icon group-hover:scale-110 transition-smooth">
-                      <product.icon className="w-6 h-6 text-white" />
+                    <div className="p-3 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
+                      <product.icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
                   <div className="mb-4">
                     <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
                   </div>
                   <CardTitle className="text-2xl">{product.title}</CardTitle>
-                  <CardDescription className="text-base text-foreground/90 leading-relaxed">
+                  <CardDescription className="text-base text-foreground/80 leading-relaxed">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {product.tags.map((tag, i) => (
-                      <Badge key={i} variant="outline" className="text-xs glass-card border-secondary/30 text-secondary/90">
+                      <Badge key={i} variant="outline" className="text-xs">
                         {tag}
                       </Badge>
                     ))}
@@ -138,13 +130,13 @@ export const ProductsServices = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-morphism hover-lift glass-overlay animate-fade-in-up group"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
                   <div className="flex justify-center mb-4">
-                    <div className="w-20 h-20 rounded-2xl gradient-icon flex items-center justify-center group-hover:scale-110 transition-smooth shadow-glow-hover">
-                      <service.icon className="w-10 h-10 text-white" />
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <service.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
                   <CardTitle className="text-lg text-center">{service.title}</CardTitle>

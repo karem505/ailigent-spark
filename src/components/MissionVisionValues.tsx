@@ -18,40 +18,40 @@ export const MissionVisionValues = () => {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Mission Card */}
-          <Card className="glass-morphism hover-lift glass-overlay animate-fade-in-up group">
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group">
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-20 h-20 rounded-2xl gradient-icon flex items-center justify-center group-hover:scale-110 transition-smooth">
-                <Target className="w-10 h-10 text-white" />
+              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Target className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-2xl font-bold">{t("mission.ourMission")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-foreground/90 leading-relaxed">
+              <CardDescription className="text-base text-foreground/80 leading-relaxed">
                 {t("mission.missionText")}
               </CardDescription>
             </CardContent>
           </Card>
 
           {/* Vision Card */}
-          <Card className="glass-morphism hover-lift glass-overlay animate-fade-in-up group" style={{ animationDelay: "0.1s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group" style={{ animationDelay: "0.1s" }}>
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-20 h-20 rounded-2xl gradient-icon flex items-center justify-center group-hover:scale-110 transition-smooth">
-                <Eye className="w-10 h-10 text-white" />
+              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Eye className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-2xl font-bold">{t("mission.ourVision")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-foreground/90 leading-relaxed">
+              <CardDescription className="text-base text-foreground/80 leading-relaxed">
                 {t("mission.visionText")}
               </CardDescription>
             </CardContent>
           </Card>
 
           {/* Values Card */}
-          <Card className="glass-morphism hover-lift glass-overlay animate-fade-in-up group" style={{ animationDelay: "0.2s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group" style={{ animationDelay: "0.2s" }}>
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-20 h-20 rounded-2xl gradient-icon flex items-center justify-center group-hover:scale-110 transition-smooth">
-                <Star className="w-10 h-10 text-white" />
+              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Star className="w-8 h-8 text-primary" />
               </div>
               <CardTitle className="text-2xl font-bold">{t("mission.ourValues")}</CardTitle>
             </CardHeader>
@@ -65,8 +65,8 @@ export const MissionVisionValues = () => {
                   { icon: TrendingUp, text: t("mission.values.excellence") },
                   { icon: Target, text: t("mission.values.responsibleAI") },
                 ].map((value, index) => (
-                  <li key={index} className="flex items-center gap-3 text-foreground/90">
-                    <value.icon className="w-5 h-5 text-secondary flex-shrink-0" />
+                  <li key={index} className="flex items-center gap-3 text-foreground/80">
+                    <value.icon className="w-4 h-4 text-primary flex-shrink-0" />
                     <span className="text-sm font-medium">{value.text}</span>
                   </li>
                 ))}
