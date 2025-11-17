@@ -63,7 +63,9 @@ export const Header = () => {
               aria-label="Toggle Language"
             >
               <Globe className="h-5 w-5" />
-              <span className="ml-1 text-xs font-medium">{i18n.language.toUpperCase()}</span>
+              <span className="ml-1 text-xs font-medium">
+                {i18n.language === "en" ? "AR" : "EN"}
+              </span>
             </Button>
 
             {/* Theme Toggle */}
