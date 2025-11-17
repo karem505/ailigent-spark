@@ -14,7 +14,7 @@ import teamHady from "@/assets/team-hady.png";
 export const Team = () => {
   const { t } = useTranslation();
 
-  const team = [
+  const executives = [
     {
       name: t("team.members.gm.name"),
       position: t("team.positions.ceo"),
@@ -36,6 +36,9 @@ export const Team = () => {
       linkedin: "https://www.linkedin.com/in/sohaila-abuelliel-350672274/",
       image: teamSohaila,
     },
+  ];
+
+  const teamMembers = [
     {
       name: t("team.members.mohamed.name"),
       position: t("team.positions.marketing"),
@@ -84,17 +87,17 @@ export const Team = () => {
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {team.map((member, index) => (
+        {/* Executive Team Grid - Top 3 */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+          {executives.map((member, index) => (
             <Card
               key={index}
               className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
-                {/* Profile Image */}
-                <div className="mx-auto w-32 h-32 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
+                {/* Profile Image - Larger for executives */}
+                <div className="mx-auto w-40 h-40 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
                   <img 
                     src={member.image} 
                     alt={`${member.name} profile`}
@@ -103,8 +106,8 @@ export const Team = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <CardTitle className="text-xl font-bold">{member.name}</CardTitle>
-                  <p className="text-sm font-semibold text-primary">{member.role}</p>
+                  <CardTitle className="text-2xl font-bold">{member.name}</CardTitle>
+                  <p className="text-base font-semibold text-secondary">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.position}</p>
                 </div>
               </CardHeader>
@@ -123,6 +126,53 @@ export const Team = () => {
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
                     <Linkedin className="w-5 h-5 mr-2" />
+                    {t("team.linkedin")}
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Rest of Team Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {teamMembers.map((member, index) => (
+            <Card
+              key={index}
+              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center"
+              style={{ animationDelay: `${(index + 3) * 0.1}s` }}
+            >
+              <CardHeader className="space-y-3">
+                {/* Profile Image */}
+                <div className="mx-auto w-28 h-28 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
+                  <img 
+                    src={member.image} 
+                    alt={`${member.name} profile`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <CardTitle className="text-lg font-bold">{member.name}</CardTitle>
+                  <p className="text-xs font-semibold text-secondary">{member.role}</p>
+                  <p className="text-xs text-muted-foreground">{member.position}</p>
+                </div>
+              </CardHeader>
+
+              <CardContent className="pt-0">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:bg-primary/10 hover:text-primary text-xs"
+                  asChild
+                >
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${member.name} LinkedIn Profile`}
+                  >
+                    <Linkedin className="w-4 h-4 mr-1" />
                     {t("team.linkedin")}
                   </a>
                 </Button>
