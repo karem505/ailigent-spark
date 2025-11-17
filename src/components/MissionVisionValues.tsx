@@ -1,11 +1,17 @@
 import { Target, Eye, Star, Sparkles, Users, Award, Heart, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const MissionVisionValues = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
   return (
-    <section id="mission" className="py-24 px-4 relative overflow-hidden">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="mission" 
+      className={`py-24 px-4 relative overflow-hidden scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
@@ -33,7 +39,7 @@ export const MissionVisionValues = () => {
           </Card>
 
           {/* Vision Card */}
-          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group" style={{ animationDelay: "0.1s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect" style={{ animationDelay: "0.1s" }}>
             <CardHeader className="text-center pb-4">
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Eye className="w-8 h-8 text-primary" />
@@ -48,7 +54,7 @@ export const MissionVisionValues = () => {
           </Card>
 
           {/* Values Card */}
-          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group" style={{ animationDelay: "0.2s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect" style={{ animationDelay: "0.2s" }}>
             <CardHeader className="text-center pb-4">
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Star className="w-8 h-8 text-primary" />

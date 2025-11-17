@@ -4,9 +4,11 @@ import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Li
 import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
   const products = [
     {
       badge: t("solutions.products.tornix.badge"),
@@ -72,7 +74,11 @@ export const ProductsServices = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 px-4 bg-muted/30">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="solutions" 
+      className={`py-24 px-4 bg-muted/30 scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
@@ -89,7 +95,7 @@ export const ProductsServices = () => {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
@@ -130,7 +136,7 @@ export const ProductsServices = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>

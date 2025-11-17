@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import teamAhmed from "@/assets/team-ahmed.png";
 import teamKarem from "@/assets/team-karem.jpg";
 import teamSohaila from "@/assets/team-sohaila.jpg";
@@ -13,6 +14,7 @@ import teamHady from "@/assets/team-hady.png";
 
 export const Team = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
 
   const executives = [
     {
@@ -77,7 +79,11 @@ export const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-24 px-4 bg-muted/30">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="team" 
+      className={`py-24 px-4 bg-muted/30 scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
@@ -92,7 +98,7 @@ export const Team = () => {
           {executives.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center"
+              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
@@ -139,7 +145,7 @@ export const Team = () => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center"
+              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
               <CardHeader className="space-y-3">

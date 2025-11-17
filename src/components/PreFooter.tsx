@@ -2,9 +2,11 @@ import logoLight from "@/assets/logo-dark-blue.png";
 import logoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const PreFooter = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -38,7 +40,10 @@ export const PreFooter = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-card border-t border-border">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-16 px-4 bg-card border-t border-border scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {/* Logo & Tagline */}

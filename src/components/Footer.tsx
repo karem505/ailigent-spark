@@ -1,9 +1,11 @@
 import { Facebook, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
 
   const socialLinks = [
     {
@@ -27,7 +29,10 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="py-8 px-4 bg-card border-t border-border">
+    <footer 
+      ref={ref as React.RefObject<HTMLElement>}
+      className={`py-8 px-4 bg-card border-t border-border scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-6">
           {/* Social Media Icons */}
@@ -37,7 +42,7 @@ export const Footer = () => {
                 key={social.name}
                 variant="ghost"
                 size="icon"
-                className="rounded-full hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all"
+                className="rounded-full hover:bg-primary/10 hover:text-primary hover:scale-110 transition-all hover-scale-effect"
                 asChild
               >
                 <a
