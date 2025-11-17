@@ -5,6 +5,11 @@ import { useTranslation } from "react-i18next";
 import teamAhmed from "@/assets/team-ahmed.png";
 import teamKarem from "@/assets/team-karem.jpg";
 import teamSohaila from "@/assets/team-sohaila.jpg";
+import teamMohamed from "@/assets/team-mohamed.jpg";
+import teamAnna from "@/assets/team-anna.jpg";
+import teamAbdelaziz from "@/assets/team-abdelaziz.jpg";
+import teamOleksii from "@/assets/team-oleksii.jpg";
+import teamHady from "@/assets/team-hady.png";
 
 export const Team = () => {
   const { t } = useTranslation();
@@ -31,6 +36,41 @@ export const Team = () => {
       linkedin: "https://www.linkedin.com/in/sohaila-abuelliel-350672274/",
       image: teamSohaila,
     },
+    {
+      name: t("team.members.mohamed.name"),
+      position: t("team.positions.marketing"),
+      role: t("team.roles.marketing"),
+      linkedin: "https://www.linkedin.com/in/mohammed-abd-elsattar-8ba612121/",
+      image: teamMohamed,
+    },
+    {
+      name: t("team.members.anna.name"),
+      position: t("team.positions.analytics"),
+      role: t("team.roles.analytics"),
+      linkedin: "https://www.linkedin.com/in/anna-chyzhova-23b8121ab/",
+      image: teamAnna,
+    },
+    {
+      name: t("team.members.abdelaziz.name"),
+      position: t("team.positions.projectManager"),
+      role: t("team.roles.projectManager"),
+      linkedin: "https://www.linkedin.com/in/abdulazeezaletiby/",
+      image: teamAbdelaziz,
+    },
+    {
+      name: t("team.members.oleksii.name"),
+      position: t("team.positions.technology"),
+      role: t("team.roles.technology"),
+      linkedin: "https://www.linkedin.com/in/oleksii-samoilenko-5802a5147/",
+      image: teamOleksii,
+    },
+    {
+      name: t("team.members.hady.name"),
+      position: t("team.positions.developer"),
+      role: t("team.roles.developer"),
+      linkedin: "https://www.linkedin.com/in/hady-abouelliel-74516b226/",
+      image: teamHady,
+    },
   ];
 
   return (
@@ -45,7 +85,7 @@ export const Team = () => {
         </div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {team.map((member, index) => (
             <Card
               key={index}

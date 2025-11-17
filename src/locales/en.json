@@ -133,17 +133,42 @@
       },
       "cmo": {
         "name": "Dr. Sohaila Abuelliel"
+      },
+      "mohamed": {
+        "name": "Mohamed Abdelsatar"
+      },
+      "anna": {
+        "name": "Anna Chyzhova"
+      },
+      "abdelaziz": {
+        "name": "Abdelaziz Aletiby"
+      },
+      "oleksii": {
+        "name": "Oleksii Samoilenko"
+      },
+      "hady": {
+        "name": "Hady Abouelliel"
       }
     },
     "positions": {
       "ceo": "General Manager",
       "pmo": "Chief Executive Officer",
-      "cmo": "Chief Executive Officer"
+      "cmo": "Chief Marketing Officer",
+      "marketing": "Marketing Consultant",
+      "analytics": "AI Analytics Consultant",
+      "projectManager": "Project Manager",
+      "technology": "AI Technology Consultant",
+      "developer": "Software Developer & AI"
     },
     "roles": {
       "ceo": "GM",
       "pmo": "CEO",
-      "cmo": "CMO"
+      "cmo": "CMO",
+      "marketing": "Marketing Consultant",
+      "analytics": "AI Analytics Consultant",
+      "projectManager": "Project Manager",
+      "technology": "AI Technology Consultant",
+      "developer": "Software Developer & AI"
     },
     "linkedin": "LinkedIn"
   },
