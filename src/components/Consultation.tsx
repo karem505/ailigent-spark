@@ -7,9 +7,11 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart3, Target, Handshake, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Consultation = () => {
   const { t } = useTranslation();
+  const { ref, isVisible } = useScrollReveal();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -72,7 +74,11 @@ export const Consultation = () => {
   ];
 
   return (
-    <section id="consultation" className="py-24 px-4">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="consultation" 
+      className={`py-24 px-4 scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="container mx-auto max-w-6xl">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
@@ -87,7 +93,7 @@ export const Consultation = () => {
           {valueProps.map((prop, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 text-center animate-fade-in-up"
+              className="glass-card border-primary/20 text-center animate-fade-in-up hover-scale-effect"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
@@ -104,7 +110,7 @@ export const Consultation = () => {
         </div>
 
         {/* Consultation Form */}
-        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up hover-scale-effect" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
             <CardTitle className="text-3xl">{t("consultation.formTitle")}</CardTitle>
             <CardDescription className="text-base">
@@ -186,7 +192,7 @@ export const Consultation = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow hover-scale-effect"
               >
                 {isSubmitting ? (
                   t("consultation.form.submitting")

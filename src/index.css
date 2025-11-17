@@ -143,4 +143,25 @@ All colors MUST be HSL.
   .hover-lift {
     @apply transition-smooth hover:transform hover:-translate-y-2 hover:shadow-card;
   }
+
+  /* Scroll Reveal Animation */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hover Scale Effect */
+  .hover-scale-effect {
+    transition: transform 0.25s ease;
+  }
+
+  .hover-scale-effect:hover {
+    transform: scale(1.05);
+  }
 }

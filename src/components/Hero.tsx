@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import heroLogoLight from "@/assets/logo-dark-blue.png";
 import heroLogoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Hero = () => {
   const { t } = useTranslation();
   const [isDark, setIsDark] = useState(true);
+  const { ref, isVisible } = useScrollReveal();
 
   useEffect(() => {
     const checkTheme = () => {
@@ -24,7 +26,11 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="hero" 
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-20 scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       {/* Background Gradient */}
       <div className="absolute inset-0 z-0 bg-background" />
 
@@ -68,7 +74,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 onClick={scrollToConsultation}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-glow animate-glow group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-glow animate-glow group hover-scale-effect"
               >
                 {t("hero.cta")}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
