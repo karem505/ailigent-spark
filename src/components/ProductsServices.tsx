@@ -42,12 +42,6 @@ export const ProductsServices = () => {
       icon: Rocket,
     },
     {
-      title: t("solutions.services.aiDevelopment.title"),
-      description: t("solutions.services.aiDevelopment.description"),
-      category: t("solutions.services.aiDevelopment.category"),
-      icon: Brain,
-    },
-    {
       title: t("solutions.services.agenticAI.title"),
       description: t("solutions.services.agenticAI.description"),
       category: t("solutions.services.agenticAI.category"),
