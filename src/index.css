@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 20% 8%;
+    --background: 220 13% 9%;
     --foreground: 0 0% 98%;
 
-    --card: 220 20% 10%;
+    --card: 220 13% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 10%;
+    --popover: 220 13% 12%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 180 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 14%;
+    --secondary: 220 13% 18%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 270 80% 65%;
     --accent-foreground: 220 13% 9%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 9% 55%;
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 9% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 15%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
     --ring: 180 100% 45%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 20% 10%) 50%, hsl(180 100% 10%) 100%);
-    --shadow-glow: 0 0 60px hsl(180 100% 45% / 0.15);
-    --shadow-card: 0 20px 50px -15px hsl(220 20% 5% / 0.5);
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
+    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.2);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Border beam animation */
@@ -50,39 +50,39 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 220 20% 8%;
+    --background: 220 13% 9%;
     --foreground: 0 0% 98%;
 
-    --card: 220 20% 10%;
+    --card: 220 13% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 10%;
+    --popover: 220 13% 12%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 180 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 14%;
+    --secondary: 220 13% 18%;
     --secondary-foreground: 0 0% 98%;
 
     --accent: 270 80% 65%;
     --accent-foreground: 220 13% 9%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 9% 55%;
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 9% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 15%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
     --ring: 180 100% 45%;
 
     --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 20% 10%) 50%, hsl(180 100% 10%) 100%);
-    --shadow-glow: 0 0 60px hsl(180 100% 45% / 0.15);
-    --shadow-card: 0 20px 50px -15px hsl(220 20% 5% / 0.5);
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
+    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.15);
   }
 }
 
@@ -108,11 +108,7 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-xl bg-card/60 border border-border/40;
-  }
-  
-  .card-label {
-    @apply text-xs uppercase tracking-wider text-muted-foreground font-medium;
+    @apply backdrop-blur-md bg-card/90 border border-border;
   }
 
   .gradient-primary {
@@ -170,7 +166,7 @@ All colors MUST be HSL.
   }
 
   .hover-scale-effect:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 
   /* Stagger animation delays */
@@ -223,5 +219,48 @@ All colors MUST be HSL.
 
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  /* Border Beam Animation - Hover Only */
+  .border-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .border-beam::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg, 
+      transparent,
+      transparent,
+      hsl(var(--beam-color) / 0.8),
+      hsl(var(--beam-color)),
+      hsl(var(--beam-color) / 0.8),
+      transparent,
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-beam:hover::before {
+    opacity: 1;
+    animation: border-beam 3s linear infinite;
+  }
+
+  @keyframes border-beam {
+    0%, 100% {
+      background-position: 200% 0;
+    }
+    50% {
+      background-position: -200% 0;
+    }
   }
 }

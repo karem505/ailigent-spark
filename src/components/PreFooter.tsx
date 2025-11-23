@@ -42,7 +42,7 @@ export const PreFooter = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 px-4 bg-neutral-950/50 backdrop-blur-xl border-t border-border/30 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-16 px-4 bg-neutral-900/30 backdrop-blur-md border-t border-neutral-800/50 scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">

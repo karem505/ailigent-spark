@@ -93,18 +93,15 @@ export const Consultation = () => {
           {valueProps.map((prop, index) => (
             <Card
               key={index}
-              className="glass-card border-border/30 shadow-card text-center animate-fade-in-up transition-all duration-300 hover:border-border/60"
+              className="glass-card border-neutral-800 text-center animate-fade-in-up hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardHeader className="space-y-3">
-                <div className="mx-auto w-11 h-11 rounded-xl bg-primary/5 flex items-center justify-center">
-                  <prop.icon className="w-5 h-5 text-primary/80" />
+              <CardHeader className="space-y-4">
+                <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <prop.icon className="w-7 h-7 text-primary" />
                 </div>
-                <div className="space-y-1.5">
-                  <p className="card-label text-[10px]">{prop.title}</p>
-                  <CardTitle className="text-base font-manrope font-light tracking-tight">{prop.title}</CardTitle>
-                </div>
-                <CardDescription className="text-xs text-muted-foreground leading-relaxed">
+                <CardTitle className="text-xl font-manrope font-light">{prop.title}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">
                   {prop.description}
                 </CardDescription>
               </CardHeader>
@@ -113,11 +110,10 @@ export const Consultation = () => {
         </div>
 
         {/* Consultation Form */}
-        <Card className="glass-card border-border/30 shadow-card animate-fade-in-up transition-all duration-300" style={{ animationDelay: "0.3s" }}>
-          <CardHeader className="text-center space-y-2">
-            <p className="card-label">{t("consultation.formTitle")}</p>
-            <CardTitle className="text-2xl font-manrope font-light tracking-tight">{t("consultation.formTitle")}</CardTitle>
-            <CardDescription className="text-sm text-muted-foreground">
+        <Card className="glass-card border-neutral-800 shadow-card animate-fade-in-up hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.3s" }}>
+          <CardHeader className="text-center">
+            <CardTitle className="text-3xl font-manrope font-light">{t("consultation.formTitle")}</CardTitle>
+            <CardDescription className="text-base">
               {t("consultation.formSubtitle")}
             </CardDescription>
           </CardHeader>
@@ -133,7 +129,7 @@ export const Consultation = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-background/50 border-border/30 focus:border-primary/50"
+                    className="bg-background/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -146,7 +142,7 @@ export const Consultation = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-background/50 border-border/30 focus:border-primary/50"
+                    className="bg-background/50"
                   />
                 </div>
               </div>
@@ -161,7 +157,7 @@ export const Consultation = () => {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    className="bg-background/50 border-border/30 focus:border-primary/50"
+                    className="bg-background/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -173,7 +169,7 @@ export const Consultation = () => {
                     placeholder={t("consultation.form.phonePlaceholder")}
                     value={formData.phone}
                     onChange={handleChange}
-                    className="bg-background/50 border-border/30 focus:border-primary/50"
+                    className="bg-background/50"
                   />
                 </div>
               </div>
@@ -188,7 +184,7 @@ export const Consultation = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-background/50 resize-none border-border/30 focus:border-primary/50"
+                  className="bg-background/50 resize-none"
                 />
               </div>
 
@@ -196,7 +192,7 @@ export const Consultation = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-glow transition-all duration-300"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-glow hover-scale-effect transition-all duration-200"
               >
                 {isSubmitting ? (
                   t("consultation.form.submitting")
