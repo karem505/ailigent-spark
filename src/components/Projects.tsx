@@ -50,7 +50,7 @@ export const Projects = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">{t("projects.title")}</h2>
+          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("projects.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("projects.subtitle")}
           </p>
@@ -61,7 +61,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 animate-fade-in-up overflow-hidden hover-scale-effect border-beam"
+              className="glass-card border-neutral-800 animate-fade-in-up overflow-hidden hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="grid lg:grid-cols-2 gap-6">
@@ -77,8 +77,8 @@ export const Projects = () => {
                       {project.badge}
                     </Badge>
                   </div>
-                  <CardTitle className="text-3xl">{project.client}</CardTitle>
-                  <CardDescription className="text-base text-foreground/80 leading-relaxed">
+                  <CardTitle className="text-3xl font-manrope font-light">{project.client}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
                     {project.description}
                   </CardDescription>
 

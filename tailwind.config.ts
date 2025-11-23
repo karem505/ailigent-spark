@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   darkMode: ["class"],
@@ -13,12 +14,23 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...fontFamily.sans],
+        manrope: ['Manrope', ...fontFamily.sans],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        neutral: {
+          900: "hsl(220 13% 12%)",
+          800: "hsl(220 13% 20%)",
+          700: "hsl(220 13% 28%)",
+          400: "hsl(220 9% 65%)",
+          300: "hsl(220 9% 75%)",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

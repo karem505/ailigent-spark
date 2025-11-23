@@ -42,7 +42,7 @@ export const PreFooter = () => {
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-16 px-4 bg-card border-t border-border scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-16 px-4 bg-card/50 border-t border-neutral-800 scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -56,7 +56,7 @@ export const PreFooter = () => {
 
           {/* Solutions Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.solutions.title")}</h4>
+            <h4 className="font-manrope font-light text-foreground text-lg">{t("preFooter.solutions.title")}</h4>
             <ul className="space-y-2">
               {columns.solutions.map((item, index) => (
                 <li key={index}>
@@ -73,7 +73,7 @@ export const PreFooter = () => {
 
           {/* Company Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.company.title")}</h4>
+            <h4 className="font-manrope font-light text-foreground text-lg">{t("preFooter.company.title")}</h4>
             <ul className="space-y-2">
               {columns.company.map((item, index) => (
                 <li key={index}>
@@ -90,7 +90,7 @@ export const PreFooter = () => {
 
           {/* Contact Column */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground text-lg">{t("preFooter.contact.title")}</h4>
+            <h4 className="font-manrope font-light text-foreground text-lg">{t("preFooter.contact.title")}</h4>
             <ul className="space-y-3">
               {columns.contact.map((item, index) => (
                 <li key={index} className="text-sm">

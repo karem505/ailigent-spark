@@ -87,7 +87,7 @@ export const Team = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">{t("team.title")}</h2>
+          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("team.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("team.subtitle")}
           </p>
@@ -98,7 +98,7 @@ export const Team = () => {
           {executives.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect border-beam"
+              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
@@ -112,8 +112,8 @@ export const Team = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <CardTitle className="text-2xl font-bold">{member.name}</CardTitle>
-                  <p className="text-base font-semibold text-secondary">{member.role}</p>
+                  <CardTitle className="text-2xl font-manrope font-light">{member.name}</CardTitle>
+                  <p className="text-base font-medium text-primary">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.position}</p>
                 </div>
               </CardHeader>
@@ -145,7 +145,7 @@ export const Team = () => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect border-beam"
+              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
               <CardHeader className="space-y-3">
@@ -159,8 +159,8 @@ export const Team = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <CardTitle className="text-lg font-bold">{member.name}</CardTitle>
-                  <p className="text-xs font-semibold text-secondary">{member.role}</p>
+                  <CardTitle className="text-lg font-manrope font-light">{member.name}</CardTitle>
+                  <p className="text-xs font-medium text-primary">{member.role}</p>
                   <p className="text-xs text-muted-foreground">{member.position}</p>
                 </div>
               </CardHeader>
