@@ -5,6 +5,7 @@ import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
@@ -71,9 +72,10 @@ export const ProductsServices = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="solutions" 
-      className={`py-24 px-4 bg-neutral-900/30 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <div className="container mx-auto">
+      <BackgroundAnimation />
+      <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("solutions.title")}</h2>

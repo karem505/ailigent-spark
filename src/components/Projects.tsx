@@ -5,6 +5,7 @@ import peLogo from "@/assets/pe-logo.webp";
 import tornixLogo from "@/assets/tornix-logo.png";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const Projects = () => {
   const { t } = useTranslation();
@@ -45,9 +46,10 @@ export const Projects = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="projects" 
-      className={`py-24 px-4 bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <div className="container mx-auto">
+      <BackgroundAnimation />
+      <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("projects.title")}</h2>
