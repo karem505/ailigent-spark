@@ -23,12 +23,6 @@ export const Footer = () => {
 
   const socialLinks = [
     {
-      name: "X",
-      icon: Mail,
-      href: "https://twitter.com/ailigent",
-      ariaLabel: "X (Twitter)",
-    },
-    {
       name: "Instagram",
       icon: Instagram,
       href: "https://instagram.com/ailigent",
