@@ -98,12 +98,12 @@ export const Team = () => {
           {executives.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+              className="glass-card border-border/30 shadow-card animate-fade-in-up group text-center transition-all duration-300 hover:border-border/60"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
                 {/* Profile Image - Larger for executives */}
-                <div className="mx-auto w-40 h-40 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
+                <div className="mx-auto w-32 h-32 rounded-2xl overflow-hidden shadow-card border border-border/20">
                   <img 
                     src={member.image} 
                     alt={`${member.name} profile`}
@@ -112,17 +112,17 @@ export const Team = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <CardTitle className="text-2xl font-manrope font-light">{member.name}</CardTitle>
-                  <p className="text-base font-medium text-primary">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.position}</p>
+                  <p className="card-label">{member.position}</p>
+                  <CardTitle className="text-lg font-manrope font-light tracking-tight">{member.name}</CardTitle>
+                  <p className="text-xs text-primary/80">{member.role}</p>
                 </div>
               </CardHeader>
 
-              <CardContent>
+              <CardContent className="pt-0">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="hover:bg-primary/10 hover:text-primary"
+                  className="hover:bg-primary/5 hover:text-primary text-xs"
                   asChild
                 >
                   <a
@@ -131,7 +131,7 @@ export const Team = () => {
                     rel="noopener noreferrer"
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
-                    <Linkedin className="w-5 h-5 mr-2" />
+                    <Linkedin className="w-4 h-4 mr-1.5" />
                     {t("team.linkedin")}
                   </a>
                 </Button>
@@ -145,12 +145,12 @@ export const Team = () => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+              className="glass-card border-border/30 shadow-card animate-fade-in-up group text-center transition-all duration-300 hover:border-border/60"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
               <CardHeader className="space-y-3">
                 {/* Profile Image */}
-                <div className="mx-auto w-28 h-28 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
+                <div className="mx-auto w-24 h-24 rounded-xl overflow-hidden shadow-card border border-border/20">
                   <img 
                     src={member.image} 
                     alt={`${member.name} profile`}
@@ -159,9 +159,9 @@ export const Team = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <CardTitle className="text-lg font-manrope font-light">{member.name}</CardTitle>
-                  <p className="text-xs font-medium text-primary">{member.role}</p>
-                  <p className="text-xs text-muted-foreground">{member.position}</p>
+                  <p className="card-label text-[10px]">{member.position}</p>
+                  <CardTitle className="text-sm font-manrope font-light tracking-tight">{member.name}</CardTitle>
+                  <p className="text-[10px] text-primary/80">{member.role}</p>
                 </div>
               </CardHeader>
 
@@ -169,7 +169,7 @@ export const Team = () => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="hover:bg-primary/10 hover:text-primary text-xs"
+                  className="hover:bg-primary/5 hover:text-primary text-[10px] h-7"
                   asChild
                 >
                   <a
@@ -178,7 +178,7 @@ export const Team = () => {
                     rel="noopener noreferrer"
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
-                    <Linkedin className="w-4 h-4 mr-1" />
+                    <Linkedin className="w-3 h-3 mr-1" />
                     {t("team.linkedin")}
                   </a>
                 </Button>

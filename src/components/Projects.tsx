@@ -61,33 +61,33 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass-card border-neutral-800 animate-fade-in-up overflow-hidden hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+              className="glass-card border-border/30 shadow-card animate-fade-in-up overflow-hidden transition-all duration-300 hover:border-border/60"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="grid lg:grid-cols-2 gap-6">
                 {/* Content Side */}
                 <CardHeader className="space-y-4">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 mb-4">
                     <img
                       src={project.logo}
                       alt={`${project.client} logo`}
-                      className="h-16 w-auto object-contain"
+                      className="h-12 w-auto object-contain opacity-90"
                     />
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
+                    <Badge variant="secondary" className="card-label bg-secondary/50 text-muted-foreground border-0">
                       {project.badge}
                     </Badge>
                   </div>
-                  <CardTitle className="text-3xl font-manrope font-light">{project.client}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                  <CardTitle className="text-2xl font-manrope font-light tracking-tight mb-3">{project.client}</CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
                     {project.description}
                   </CardDescription>
 
-                  <div className="pt-4 space-y-3">
-                    <h4 className="font-semibold text-lg text-foreground">{t("projects.projectFocus")}</h4>
+                  <div className="pt-6 space-y-3">
+                    <h4 className="card-label">{t("projects.projectFocus")}</h4>
                     <ul className="space-y-2">
                       {project.focus.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary/60 flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -97,7 +97,7 @@ export const Projects = () => {
 
                 {/* Video Side */}
                 <CardContent className="p-0 lg:p-6 flex items-center">
-                  <div className="relative w-full aspect-video rounded-lg overflow-hidden group shadow-card">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-card border border-border/20">
                     <iframe
                       src={project.videoUrl}
                       title={`${project.client} Project Video`}

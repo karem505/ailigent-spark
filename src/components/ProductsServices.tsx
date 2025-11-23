@@ -89,30 +89,30 @@ export const ProductsServices = () => {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+                className="glass-card hover-lift border-border/30 shadow-card animate-fade-in-up group transition-all duration-300 hover:border-border/60"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
+                <CardHeader className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <Badge variant="secondary" className="card-label bg-secondary/50 text-muted-foreground border-0">
                       {product.badge}
                     </Badge>
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                      <product.icon className="w-6 h-6 text-primary" />
+                    <div className="p-2.5 rounded-lg bg-primary/5 group-hover:bg-primary/10 transition-colors">
+                      <product.icon className="w-5 h-5 text-primary/80" />
                     </div>
                   </div>
-                  <div className="mb-4">
-                    <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
+                  <div className="mb-3">
+                    <img src={product.logo} alt={`${product.title} logo`} className="h-12 w-auto object-contain opacity-90" />
                   </div>
-                  <CardTitle className="text-2xl font-manrope font-light">{product.title}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                  <CardTitle className="text-xl font-manrope font-light tracking-tight">{product.title}</CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {product.tags.map((tag, i) => (
-                      <Badge key={i} variant="outline" className="text-xs">
+                      <Badge key={i} variant="outline" className="text-xs border-border/30 text-muted-foreground">
                         {tag}
                       </Badge>
                     ))}
@@ -130,19 +130,22 @@ export const ProductsServices = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+                className="glass-card border-border/30 shadow-card animate-fade-in-up group transition-all duration-300 hover:border-border/60"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <service.icon className="w-8 h-8 text-primary" />
+                <CardHeader className="space-y-3">
+                  <div className="flex justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <service.icon className="w-6 h-6 text-primary/80" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg text-center font-manrope font-light">{service.title}</CardTitle>
+                  <div className="text-center space-y-2">
+                    <p className="card-label">{service.category}</p>
+                    <CardTitle className="text-base font-manrope font-light tracking-tight">{service.title}</CardTitle>
+                  </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
+                <CardContent className="pt-0">
+                  <p className="text-xs text-muted-foreground leading-relaxed text-center">
                     {service.description}
                   </p>
                 </CardContent>
