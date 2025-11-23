@@ -24,45 +24,54 @@ export const MissionVisionValues = () => {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Mission Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group border-beam transition-all duration-200 hover:border-neutral-700">
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Target className="w-8 h-8 text-primary" />
+          <Card className="glass-card border-border/30 shadow-card animate-fade-in-up group transition-all duration-300 hover:border-border/60">
+            <CardHeader className="text-center pb-4 space-y-4">
+              <div className="mx-auto w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <Target className="w-6 h-6 text-primary/80" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourMission")}</CardTitle>
+              <div className="space-y-2">
+                <p className="card-label">{t("mission.ourMission")}</p>
+                <CardTitle className="text-xl font-manrope font-light tracking-tight">{t("mission.ourMission")}</CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed">
+              <CardDescription className="text-sm text-muted-foreground leading-relaxed text-center">
                 {t("mission.missionText")}
               </CardDescription>
             </CardContent>
           </Card>
 
           {/* Vision Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.1s" }}>
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Eye className="w-8 h-8 text-primary" />
+          <Card className="glass-card border-border/30 shadow-card animate-fade-in-up group transition-all duration-300 hover:border-border/60" style={{ animationDelay: "0.1s" }}>
+            <CardHeader className="text-center pb-4 space-y-4">
+              <div className="mx-auto w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <Eye className="w-6 h-6 text-primary/80" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourVision")}</CardTitle>
+              <div className="space-y-2">
+                <p className="card-label">{t("mission.ourVision")}</p>
+                <CardTitle className="text-xl font-manrope font-light tracking-tight">{t("mission.ourVision")}</CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed">
+              <CardDescription className="text-sm text-muted-foreground leading-relaxed text-center">
                 {t("mission.visionText")}
               </CardDescription>
             </CardContent>
           </Card>
 
           {/* Values Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.2s" }}>
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Star className="w-8 h-8 text-primary" />
+          <Card className="glass-card border-border/30 shadow-card animate-fade-in-up group transition-all duration-300 hover:border-border/60" style={{ animationDelay: "0.2s" }}>
+            <CardHeader className="text-center pb-4 space-y-4">
+              <div className="mx-auto w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <Star className="w-6 h-6 text-primary/80" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourValues")}</CardTitle>
+              <div className="space-y-2">
+                <p className="card-label">{t("mission.ourValues")}</p>
+                <CardTitle className="text-xl font-manrope font-light tracking-tight">{t("mission.ourValues")}</CardTitle>
+              </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {[
                   { icon: Sparkles, text: t("mission.values.innovation") },
                   { icon: Award, text: t("mission.values.integrity") },
@@ -71,9 +80,9 @@ export const MissionVisionValues = () => {
                   { icon: TrendingUp, text: t("mission.values.excellence") },
                   { icon: Target, text: t("mission.values.responsibleAI") },
                 ].map((value, index) => (
-                  <li key={index} className="flex items-center gap-3 text-muted-foreground">
-                    <value.icon className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{value.text}</span>
+                  <li key={index} className="flex items-center gap-2.5 text-muted-foreground">
+                    <value.icon className="w-3.5 h-3.5 text-primary/60 flex-shrink-0" />
+                    <span className="text-xs">{value.text}</span>
                   </li>
                 ))}
               </ul>
