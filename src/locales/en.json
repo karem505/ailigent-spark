@@ -5,10 +5,23 @@
   },
   "hero": {
     "headline": "TURN YOUR DATA INTO DECISIONS - INTELLIGENTLY",
+    "headline1": "Transform your business.",
+    "headline2": "Automate everything.",
+    "headline3": "Scale faster.",
     "aboutUs": "About Us",
     "description": "is a Saudi company specializing in AI automation systems that transform business operations and boost productivity by over 90%.",
     "companyName": "AILIGENT",
-    "cta": "BOOK A FREE DEMO"
+    "cta": "BOOK A FREE DEMO",
+    "trustBadge": "Trusted by leading companies worldwide",
+    "subtitle": "AILIGENT delivers intelligent AI automation solutions that boost productivity by over 90%. Transform your operations with cutting-edge technology.",
+    "feature1": "Enterprise Security",
+    "feature2": "Global Deployment",
+    "feature3": "24/7 Support",
+    "emailPlaceholder": "Enter your work email",
+    "ctaButton": "Get Free Demo",
+    "benefit1": "No credit card required",
+    "benefit2": "Free consultation",
+    "benefit3": "Custom solutions"
   },
   "mission": {
     "title": "Our Foundation",
