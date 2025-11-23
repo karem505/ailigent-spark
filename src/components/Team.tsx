@@ -79,6 +79,8 @@ export const Team = () => {
     },
   ];
 
+  const allMembers = [...executives, ...teamMembers];
+
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
@@ -86,106 +88,55 @@ export const Team = () => {
       className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <BackgroundAnimation />
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("team.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="max-w-2xl mb-20">
+          <h2 className="text-primary font-medium text-xs uppercase tracking-widest mb-3">
             {t("team.subtitle")}
+          </h2>
+          <h1 className="text-4xl lg:text-5xl font-manrope font-medium text-foreground tracking-tight mb-6">
+            {t("team.title")}
+          </h1>
+          <p className="text-lg text-muted-foreground font-light leading-relaxed">
+            {t("team.description", "We are a distributed team of AI specialists, engineers, and innovators building the future of intelligent automation.")}
           </p>
         </div>
 
-        {/* Executive Team Grid - Top 3 */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-          {executives.map((member, index) => (
-            <Card
-              key={index}
-              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader className="space-y-4">
-                {/* Profile Image - Larger for executives */}
-                <div className="mx-auto w-40 h-40 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
-                  <img 
-                    src={member.image} 
-                    alt={`${member.name} profile`}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <CardTitle className="text-2xl font-manrope font-light">{member.name}</CardTitle>
-                  <p className="text-base font-medium text-primary">{member.role}</p>
-                  <p className="text-sm text-muted-foreground">{member.position}</p>
-                </div>
-              </CardHeader>
-
-              <CardContent>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hover:bg-primary/10 hover:text-primary"
-                  asChild
-                >
-                  <a
+        {/* Team Grid - All Members in 4 Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+          {allMembers.map((member, index) => (
+            <div key={index} className="group relative">
+              <div className="aspect-[4/5] overflow-hidden rounded-lg bg-card border border-border relative mb-4">
+                <img 
+                  src={member.image} 
+                  alt={`${member.name} profile`}
+                  className="object-cover object-top w-full h-full opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
+                />
+                
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Social icon on hover */}
+                <div className="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75">
+                  <a 
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="p-2 bg-foreground/10 backdrop-blur hover:bg-foreground text-foreground hover:text-background rounded-full transition-colors flex items-center justify-center"
                     aria-label={`${member.name} LinkedIn Profile`}
                   >
-                    <Linkedin className="w-5 h-5 mr-2" />
-                    {t("team.linkedin")}
+                    <Linkedin className="w-4 h-4" />
                   </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Rest of Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <Card
-              key={index}
-              className="glass-card hover-lift border-neutral-800 animate-fade-in-up group text-center hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
-              style={{ animationDelay: `${(index + 3) * 0.1}s` }}
-            >
-              <CardHeader className="space-y-3">
-                {/* Profile Image */}
-                <div className="mx-auto w-28 h-28 rounded-full overflow-hidden group-hover:scale-110 transition-transform shadow-card">
-                  <img 
-                    src={member.image} 
-                    alt={`${member.name} profile`}
-                    className="w-full h-full object-cover object-top"
-                  />
                 </div>
-
-                <div className="space-y-1">
-                  <CardTitle className="text-lg font-manrope font-light">{member.name}</CardTitle>
-                  <p className="text-xs font-medium text-primary">{member.role}</p>
-                  <p className="text-xs text-muted-foreground">{member.position}</p>
-                </div>
-              </CardHeader>
-
-              <CardContent className="pt-0">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hover:bg-primary/10 hover:text-primary text-xs"
-                  asChild
-                >
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} LinkedIn Profile`}
-                  >
-                    <Linkedin className="w-4 h-4 mr-1" />
-                    {t("team.linkedin")}
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              </div>
+              
+              <h3 className="text-foreground font-medium text-base tracking-tight">
+                {member.name}
+              </h3>
+              <p className="text-muted-foreground text-sm mt-0.5">
+                {member.role}
+              </p>
+            </div>
           ))}
         </div>
       </div>
