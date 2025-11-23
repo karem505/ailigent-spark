@@ -84,8 +84,8 @@ export const Consultation = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("consultation.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("consultation.title")}</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-bold">
             {t("consultation.subtitle")}
           </p>
         </div>
@@ -102,8 +102,8 @@ export const Consultation = () => {
                 <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                   <prop.icon className="w-7 h-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-manrope font-light">{prop.title}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground">
+                <CardTitle className="text-xl font-manrope font-bold">{prop.title}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground font-bold">
                   {prop.description}
                 </CardDescription>
               </CardHeader>
@@ -114,8 +114,8 @@ export const Consultation = () => {
         {/* Consultation Form */}
         <Card className="glass-card border-neutral-800 shadow-card animate-fade-in-up hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-manrope font-light">{t("consultation.formTitle")}</CardTitle>
-            <CardDescription className="text-base">
+            <CardTitle className="text-3xl font-manrope font-bold">{t("consultation.formTitle")}</CardTitle>
+            <CardDescription className="text-base font-bold">
               {t("consultation.formSubtitle")}
             </CardDescription>
           </CardHeader>
@@ -123,7 +123,7 @@ export const Consultation = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">{t("consultation.form.fullName")} {t("consultation.form.required")}</Label>
+                  <Label htmlFor="name" className="font-bold">{t("consultation.form.fullName")} {t("consultation.form.required")}</Label>
                   <Input
                     id="name"
                     name="name"
@@ -131,11 +131,11 @@ export const Consultation = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="bg-background/50 font-bold"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">{t("consultation.form.email")} {t("consultation.form.required")}</Label>
+                  <Label htmlFor="email" className="font-bold">{t("consultation.form.email")} {t("consultation.form.required")}</Label>
                   <Input
                     id="email"
                     name="email"
@@ -144,14 +144,14 @@ export const Consultation = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="bg-background/50 font-bold"
                   />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="company">{t("consultation.form.company")} {t("consultation.form.required")}</Label>
+                  <Label htmlFor="company" className="font-bold">{t("consultation.form.company")} {t("consultation.form.required")}</Label>
                   <Input
                     id="company"
                     name="company"
@@ -159,11 +159,11 @@ export const Consultation = () => {
                     value={formData.company}
                     onChange={handleChange}
                     required
-                    className="bg-background/50"
+                    className="bg-background/50 font-bold"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">{t("consultation.form.phone")}</Label>
+                  <Label htmlFor="phone" className="font-bold">{t("consultation.form.phone")}</Label>
                   <Input
                     id="phone"
                     name="phone"
@@ -171,13 +171,13 @@ export const Consultation = () => {
                     placeholder={t("consultation.form.phonePlaceholder")}
                     value={formData.phone}
                     onChange={handleChange}
-                    className="bg-background/50"
+                    className="bg-background/50 font-bold"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">{t("consultation.form.message")} {t("consultation.form.required")}</Label>
+                <Label htmlFor="message" className="font-bold">{t("consultation.form.message")} {t("consultation.form.required")}</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -186,7 +186,7 @@ export const Consultation = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="bg-background/50 resize-none"
+                  className="bg-background/50 resize-none font-bold"
                 />
               </div>
 
@@ -194,7 +194,7 @@ export const Consultation = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-glow hover-scale-effect transition-all duration-200"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow hover-scale-effect transition-all duration-200"
               >
                 {isSubmitting ? (
                   t("consultation.form.submitting")

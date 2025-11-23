@@ -78,15 +78,15 @@ export const ProductsServices = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("solutions.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("solutions.title")}</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
             {t("solutions.subtitle")}
           </p>
         </div>
 
         {/* Products */}
         <div className="mb-16">
-          <h3 className="text-3xl font-manrope font-light mb-8 text-center">{t("solutions.featuredProducts")}</h3>
+          <h3 className="text-3xl font-manrope font-bold mb-8 text-center">{t("solutions.featuredProducts")}</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
@@ -106,8 +106,8 @@ export const ProductsServices = () => {
                   <div className="mb-4">
                     <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
                   </div>
-                  <CardTitle className="text-2xl font-manrope font-light">{product.title}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                  <CardTitle className="text-2xl font-manrope font-bold">{product.title}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
@@ -127,7 +127,7 @@ export const ProductsServices = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-3xl font-manrope font-light mb-8 text-center">{t("solutions.professionalServices")}</h3>
+          <h3 className="text-3xl font-manrope font-bold mb-8 text-center">{t("solutions.professionalServices")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card
@@ -141,10 +141,10 @@ export const ProductsServices = () => {
                       <service.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg text-center font-manrope font-light">{service.title}</CardTitle>
+                  <CardTitle className="text-lg text-center font-manrope font-bold">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center font-bold">
                     {service.description}
                   </p>
                 </CardContent>

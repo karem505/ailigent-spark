@@ -130,10 +130,10 @@ export const Team = () => {
                 </div>
               </div>
               
-              <h3 className="text-foreground font-medium text-base tracking-tight">
+              <h3 className="text-foreground font-bold text-base tracking-tight">
                 {member.name}
               </h3>
-              <p className="text-muted-foreground text-sm mt-0.5">
+              <p className="text-muted-foreground text-sm mt-0.5 font-bold">
                 {member.role}
               </p>
             </div>
