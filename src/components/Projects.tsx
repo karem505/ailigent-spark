@@ -45,7 +45,7 @@ export const Projects = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="projects" 
-      className={`py-24 px-4 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-24 px-4 bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto">
         {/* Section Title */}

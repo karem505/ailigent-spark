@@ -31,7 +31,7 @@ export const Footer = () => {
   return (
     <footer 
       ref={ref as React.RefObject<HTMLElement>}
-      className={`py-8 px-4 bg-card/50 border-t border-neutral-800 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-8 px-4 bg-neutral-900/50 backdrop-blur-md border-t border-neutral-800/50 scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-6">

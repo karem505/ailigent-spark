@@ -10,7 +10,7 @@ export const MissionVisionValues = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="mission" 
-      className={`py-24 px-4 relative overflow-hidden scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto">
         {/* Section Title */}
