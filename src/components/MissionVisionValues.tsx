@@ -17,8 +17,8 @@ export const MissionVisionValues = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("mission.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("mission.title")}</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
             {t("mission.subtitle")}
           </p>
         </div>
@@ -31,10 +31,10 @@ export const MissionVisionValues = () => {
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourMission")}</CardTitle>
+              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourMission")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed">
+              <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
                 {t("mission.missionText")}
               </CardDescription>
             </CardContent>
@@ -46,10 +46,10 @@ export const MissionVisionValues = () => {
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Eye className="w-8 h-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourVision")}</CardTitle>
+              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourVision")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed">
+              <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
                 {t("mission.visionText")}
               </CardDescription>
             </CardContent>
@@ -61,7 +61,7 @@ export const MissionVisionValues = () => {
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Star className="w-8 h-8 text-primary" />
               </div>
-              <CardTitle className="text-2xl font-manrope font-light">{t("mission.ourValues")}</CardTitle>
+              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourValues")}</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
@@ -75,7 +75,7 @@ export const MissionVisionValues = () => {
                 ].map((value, index) => (
                   <li key={index} className="flex items-center gap-3 text-muted-foreground">
                     <value.icon className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm font-medium">{value.text}</span>
+                    <span className="text-sm font-bold">{value.text}</span>
                   </li>
                 ))}
               </ul>

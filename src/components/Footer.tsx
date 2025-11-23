@@ -105,14 +105,14 @@ export const Footer = () => {
             {/* Logo & Tagline */}
             <div className="space-y-4">
               <img src={isDark ? logoDark : logoLight} alt="AILIGENT" className="h-12 w-auto" />
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed font-bold">
                 {t("preFooter.tagline")}
               </p>
             </div>
 
             {/* Solutions Column */}
             <div className="space-y-4">
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
                 {t("preFooter.solutions.title")}
               </h3>
               <ul className="space-y-3">
@@ -120,7 +120,7 @@ export const Footer = () => {
                   <li key={index}>
                     <a
                       href={item.href}
-                      className="text-sm text-foreground hover:text-primary transition-colors"
+                      className="text-sm text-foreground hover:text-primary transition-colors font-bold"
                     >
                       {item.name}
                     </a>
@@ -131,7 +131,7 @@ export const Footer = () => {
 
             {/* Company Column */}
             <div className="space-y-4">
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
                 {t("preFooter.company.title")}
               </h3>
               <ul className="space-y-3">
@@ -139,7 +139,7 @@ export const Footer = () => {
                   <li key={index}>
                     <a
                       href={item.href}
-                      className="text-sm text-foreground hover:text-primary transition-colors"
+                      className="text-sm text-foreground hover:text-primary transition-colors font-bold"
                     >
                       {item.name}
                     </a>
@@ -150,16 +150,16 @@ export const Footer = () => {
 
             {/* Contact Column */}
             <div className="space-y-4">
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
                 {t("preFooter.contact.title")}
               </h3>
               <ul className="space-y-3">
                 {columns.contact.map((item, index) => (
                   <li key={index} className="text-sm">
-                    <span className="text-muted-foreground">{item.label}:</span>{" "}
+                    <span className="text-muted-foreground font-bold">{item.label}:</span>{" "}
                     <a
                       href={item.href}
-                      className="text-foreground hover:text-primary transition-colors"
+                      className="text-foreground hover:text-primary transition-colors font-bold"
                     >
                       {item.value}
                     </a>
@@ -171,7 +171,7 @@ export const Footer = () => {
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground font-bold">
               {t("footer.copyright", "© 2025 AILIGENT. All rights reserved.")}
             </p>
             <div className="flex items-center gap-6">
@@ -179,7 +179,7 @@ export const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors font-bold"
                 >
                   {link.label}
                 </a>

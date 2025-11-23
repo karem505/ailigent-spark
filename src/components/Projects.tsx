@@ -52,8 +52,8 @@ export const Projects = () => {
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("projects.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("projects.title")}</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
             {t("projects.subtitle")}
           </p>
         </div>
@@ -79,18 +79,18 @@ export const Projects = () => {
                       {project.badge}
                     </Badge>
                   </div>
-                  <CardTitle className="text-3xl font-manrope font-light">{project.client}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                  <CardTitle className="text-3xl font-manrope font-bold">{project.client}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
                     {project.description}
                   </CardDescription>
 
                   <div className="pt-4 space-y-3">
-                    <h4 className="font-semibold text-lg text-foreground">{t("projects.projectFocus")}</h4>
+                    <h4 className="font-bold text-lg text-foreground">{t("projects.projectFocus")}</h4>
                     <ul className="space-y-2">
                       {project.focus.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                           <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span>{item}</span>
+                          <span className="font-bold">{item}</span>
                         </li>
                       ))}
                     </ul>
