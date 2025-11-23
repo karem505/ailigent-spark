@@ -1,35 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowRight, CheckCircle, Globe, Clock, Shield } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroLogoLight from "@/assets/logo-dark-blue.png";
-import heroLogoDark from "@/assets/logo-light-blue.png";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Hero = () => {
   const { t } = useTranslation();
-  const [isDark, setIsDark] = useState(true);
+  const [email, setEmail] = useState("");
   const { ref, isVisible } = useScrollReveal();
-
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    };
-    checkTheme();
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
 
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    scrollToConsultation();
   };
 
   return (
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="hero" 
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-20 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20 scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 z-0 bg-background" />
@@ -81,43 +75,84 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center animate-fade-in-up">
-          {/* Logo on Left */}
-          <div className="flex justify-center md:justify-start">
-            <img 
-              src={isDark ? heroLogoDark : heroLogoLight} 
-              alt="AILIGENT Logo" 
-              className="w-full max-w-md h-auto"
-            />
+        <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
+          {/* Trust Badge */}
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 border border-border backdrop-blur-sm">
+            <CheckCircle className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">
+              {t("hero.trustBadge", "Trusted by leading companies worldwide")}
+            </span>
           </div>
 
-          {/* Content on Right */}
-          <div className="space-y-8 text-center md:text-left">
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-manrope font-light leading-tight tracking-tight">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t("hero.headline")}
-              </span>
+          {/* Main Headline */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-manrope font-bold leading-tight tracking-tight">
+              {t("hero.headline1", "Transform your business.")}
             </h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-manrope font-bold leading-tight tracking-tight bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              {t("hero.headline2", "Automate everything.")}
+            </h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-manrope font-bold leading-tight tracking-tight">
+              {t("hero.headline3", "Scale faster.")}
+            </h1>
+          </div>
 
-            {/* About Us Section */}
-            <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-manrope font-light text-foreground">{t("hero.aboutUs")}</h2>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">{t("hero.companyName")}</strong> {t("hero.description")}
-              </p>
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {t("hero.subtitle", "AILIGENT delivers intelligent AI automation solutions that boost productivity by over 90%. Transform your operations with cutting-edge technology.")}
+          </p>
+
+          {/* Feature Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-6 py-4">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Shield className="w-5 h-5 text-primary" />
+              <span className="text-sm">{t("hero.feature1", "Enterprise Security")}</span>
             </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Globe className="w-5 h-5 text-primary" />
+              <span className="text-sm">{t("hero.feature2", "Global Deployment")}</span>
+            </div>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Clock className="w-5 h-5 text-primary" />
+              <span className="text-sm">{t("hero.feature3", "24/7 Support")}</span>
+            </div>
+          </div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
+          {/* Email Capture Form */}
+          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch">
+              <Input
+                type="email"
+                placeholder={t("hero.emailPlaceholder", "Enter your work email")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="flex-1 h-14 px-6 bg-background border-2 border-primary/30 focus:border-primary rounded-xl text-base"
+              />
               <Button
+                type="submit"
                 size="lg"
-                onClick={scrollToConsultation}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium shadow-glow group hover-scale-effect transition-all duration-200"
+                className="h-14 px-8 bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium rounded-xl shadow-glow transition-all duration-200 hover-scale-effect"
               >
-                {t("hero.cta")}
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                {t("hero.ctaButton", "Get Free Demo")}
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
+            </div>
+          </form>
+
+          {/* Sub-text */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span>{t("hero.benefit1", "No credit card required")}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span>{t("hero.benefit2", "Free consultation")}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <CheckCircle className="w-4 h-4 text-primary" />
+              <span>{t("hero.benefit3", "Custom solutions")}</span>
             </div>
           </div>
         </div>
