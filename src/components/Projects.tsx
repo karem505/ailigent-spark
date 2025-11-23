@@ -61,7 +61,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 animate-fade-in-up overflow-hidden hover-scale-effect"
+              className="glass-card border-primary/20 animate-fade-in-up overflow-hidden hover-scale-effect border-beam"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="grid lg:grid-cols-2 gap-6">

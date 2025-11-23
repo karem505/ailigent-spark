@@ -24,7 +24,7 @@ export const MissionVisionValues = () => {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Mission Card */}
-          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group">
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group border-beam">
             <CardHeader className="text-center pb-4">
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8 text-primary" />
@@ -39,7 +39,7 @@ export const MissionVisionValues = () => {
           </Card>
 
           {/* Vision Card */}
-          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect" style={{ animationDelay: "0.1s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam" style={{ animationDelay: "0.1s" }}>
             <CardHeader className="text-center pb-4">
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Eye className="w-8 h-8 text-primary" />
@@ -54,7 +54,7 @@ export const MissionVisionValues = () => {
           </Card>
 
           {/* Values Card */}
-          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect" style={{ animationDelay: "0.2s" }}>
+          <Card className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam" style={{ animationDelay: "0.2s" }}>
             <CardHeader className="text-center pb-4">
               <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Star className="w-8 h-8 text-primary" />

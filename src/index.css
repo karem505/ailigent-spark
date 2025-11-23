@@ -43,7 +43,10 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(207 85% 12%) 0%, hsl(207 85% 20%) 50%, hsl(190 100% 15%) 100%);
     --shadow-glow: 0 0 40px hsl(190 100% 50% / 0.3);
     --shadow-card: 0 10px 30px -10px hsl(207 85% 20% / 0.2);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Border beam animation */
+  --beam-color: 45 100% 50%; /* Yellow color in HSL */
   }
 
   .dark {
@@ -163,5 +166,42 @@ All colors MUST be HSL.
 
   .hover-scale-effect:hover {
     transform: scale(1.05);
+  }
+
+  /* Border Beam Animation */
+  .border-beam {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .border-beam::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(90deg, 
+      transparent,
+      transparent,
+      hsl(var(--beam-color) / 0.8),
+      hsl(var(--beam-color)),
+      hsl(var(--beam-color) / 0.8),
+      transparent,
+      transparent
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-beam 3s linear infinite;
+    background-size: 200% 100%;
+  }
+
+  @keyframes border-beam {
+    0%, 100% {
+      background-position: 200% 0;
+    }
+    50% {
+      background-position: -200% 0;
+    }
   }
 }

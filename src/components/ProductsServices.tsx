@@ -89,7 +89,7 @@ export const ProductsServices = () => {
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
@@ -130,7 +130,7 @@ export const ProductsServices = () => {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect"
+                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>

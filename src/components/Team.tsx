@@ -98,7 +98,7 @@ export const Team = () => {
           {executives.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect"
+              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect border-beam"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
@@ -145,7 +145,7 @@ export const Team = () => {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect"
+              className="glass-card hover-lift border-primary/20 animate-fade-in-up group text-center hover-scale-effect border-beam"
               style={{ animationDelay: `${(index + 3) * 0.1}s` }}
             >
               <CardHeader className="space-y-3">
