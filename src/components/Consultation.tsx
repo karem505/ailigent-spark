@@ -93,7 +93,7 @@ export const Consultation = () => {
           {valueProps.map((prop, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 text-center animate-fade-in-up hover-scale-effect"
+              className="glass-card border-primary/20 text-center animate-fade-in-up hover-scale-effect border-beam"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
@@ -110,7 +110,7 @@ export const Consultation = () => {
         </div>
 
         {/* Consultation Form */}
-        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up hover-scale-effect" style={{ animationDelay: "0.3s" }}>
+        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up hover-scale-effect border-beam" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
             <CardTitle className="text-3xl">{t("consultation.formTitle")}</CardTitle>
             <CardDescription className="text-base">
