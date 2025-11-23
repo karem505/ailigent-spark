@@ -2,10 +2,24 @@ import { Facebook, Linkedin, Mail, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import logoLight from "@/assets/logo-dark-blue.png";
+import logoDark from "@/assets/logo-light-blue.png";
+import { useEffect, useState } from "react";
 
 export const Footer = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   const socialLinks = [
     {
@@ -34,30 +48,23 @@ export const Footer = () => {
     },
   ];
 
-  const footerLinks = {
+  const columns = {
+    solutions: [
+      { name: t("preFooter.solutions.aiAutomation"), href: "#solutions" },
+      { name: t("preFooter.solutions.customSoftware"), href: "#solutions" },
+      { name: t("preFooter.solutions.processOptimization"), href: "#solutions" },
+      { name: t("preFooter.solutions.integrationServices"), href: "#solutions" },
+    ],
     company: [
-      { label: t("footer.company.productOverview", "Product overview"), href: "#products" },
-      { label: t("footer.company.pricing", "Pricing & plans"), href: "#consultation" },
-      { label: t("footer.company.customerStories", "Customer stories"), href: "#projects" },
-      { label: t("footer.company.team", "Team"), href: "#team" },
+      { name: t("preFooter.company.aboutUs"), href: "#mission" },
+      { name: t("preFooter.company.caseStudies"), href: "#projects" },
+      { name: t("preFooter.company.team"), href: "#team" },
+      { name: t("preFooter.company.contact"), href: "#consultation" },
     ],
-    support: [
-      { label: t("footer.support.knowledgeBase", "Knowledge base"), href: "#" },
-      { label: t("footer.support.implementation", "Implementation desk"), href: "#consultation" },
-      { label: t("footer.support.status", "Status & uptime"), href: "#" },
-      { label: t("footer.support.security", "Security portal"), href: "#" },
-    ],
-    community: [
-      { label: t("footer.community.forum", "Operator forum"), href: "#" },
-      { label: t("footer.community.workshops", "Treasury workshops"), href: "#" },
-      { label: t("footer.community.network", "Partner network"), href: "#" },
-      { label: t("footer.community.careers", "Careers"), href: "#team" },
-    ],
-    governance: [
-      { label: t("footer.governance.briefings", "Investor briefings"), href: "#" },
-      { label: t("footer.governance.risk", "Risk framework"), href: "#" },
-      { label: t("footer.governance.data", "Data processing"), href: "#" },
-      { label: t("footer.governance.regulatory", "Regulatory resources"), href: "#" },
+    contact: [
+      { label: t("preFooter.contact.email"), value: t("preFooter.contact.emailValue"), href: "mailto:info@ailigent.ai" },
+      { label: t("preFooter.contact.phone"), value: t("preFooter.contact.phoneValue"), href: "#consultation" },
+      { label: t("preFooter.contact.location"), value: t("preFooter.contact.locationValue"), href: "#" },
     ],
   };
 
@@ -101,76 +108,66 @@ export const Footer = () => {
 
           {/* Link Columns */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
+            {/* Logo & Tagline */}
+            <div className="space-y-4">
+              <img src={isDark ? logoDark : logoLight} alt="AILIGENT" className="h-12 w-auto" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {t("preFooter.tagline")}
+              </p>
+            </div>
+
+            {/* Solutions Column */}
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                {t("preFooter.solutions.title")}
+              </h3>
+              <ul className="space-y-3">
+                {columns.solutions.map((item, index) => (
+                  <li key={index}>
+                    <a
+                      href={item.href}
+                      className="text-sm text-foreground hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Company Column */}
-            <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                {t("footer.company.title", "COMPANY")}
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                {t("preFooter.company.title")}
               </h3>
               <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.label}>
+                {columns.company.map((item, index) => (
+                  <li key={index}>
                     <a
-                      href={link.href}
+                      href={item.href}
                       className="text-sm text-foreground hover:text-primary transition-colors"
                     >
-                      {link.label}
+                      {item.name}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Support Column */}
-            <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                {t("footer.support.title", "SUPPORT")}
+            {/* Contact Column */}
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                {t("preFooter.contact.title")}
               </h3>
               <ul className="space-y-3">
-                {footerLinks.support.map((link) => (
-                  <li key={link.label}>
+                {columns.contact.map((item, index) => (
+                  <li key={index} className="text-sm">
+                    <span className="text-muted-foreground">{item.label}:</span>{" "}
                     <a
-                      href={link.href}
-                      className="text-sm text-foreground hover:text-primary transition-colors"
+                      href={item.href}
+                      className="text-foreground hover:text-primary transition-colors"
                     >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Community Column */}
-            <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                {t("footer.community.title", "COMMUNITY")}
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.community.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-foreground hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Governance Column */}
-            <div>
-              <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                {t("footer.governance.title", "GOVERNANCE")}
-              </h3>
-              <ul className="space-y-3">
-                {footerLinks.governance.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-foreground hover:text-primary transition-colors"
-                    >
-                      {link.label}
+                      {item.value}
                     </a>
                   </li>
                 ))}
