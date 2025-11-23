@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Moon, Sun, Globe } from "lucide-react";
+import { Moon, Sun, Globe, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoLight from "@/assets/logo-dark-blue.png";
 import logoDark from "@/assets/logo-light-blue.png";
@@ -9,6 +9,7 @@ export const Header = () => {
   const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Set dark mode by default
@@ -35,9 +36,17 @@ export const Header = () => {
     document.documentElement.lang = newLang;
   };
 
-  const scrollToConsultation = () => {
-    document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
   };
+
+  const navItems = [
+    { label: t("header.nav.solutions"), id: "solutions" },
+    { label: t("header.nav.projects"), id: "projects" },
+    { label: t("header.nav.team"), id: "team" },
+    { label: t("header.nav.about"), id: "mission" },
+  ];
 
   return (
     <header
@@ -46,11 +55,24 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-12 w-auto" />
+            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-10 w-auto" />
           </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
 
           {/* Right Side Controls */}
           <div className="flex items-center gap-3">
@@ -83,22 +105,49 @@ export const Header = () => {
               )}
             </Button>
 
-            {/* CTA Button */}
+            {/* CTA Button - Desktop */}
             <Button
-              onClick={scrollToConsultation}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-medium shadow-glow hidden sm:flex transition-all duration-200 hover:scale-105"
+              onClick={() => scrollToSection("consultation")}
+              className="hidden sm:flex bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-6 py-2 font-medium shadow-glow transition-all duration-200 hover-scale-effect"
             >
               {t("header.scheduleConsultation")}
             </Button>
+
+            {/* Mobile Menu Toggle */}
             <Button
-              onClick={scrollToConsultation}
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground sm:hidden transition-all duration-200"
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden rounded-full hover:bg-primary/10"
+              aria-label="Toggle Menu"
             >
-              {t("header.bookNow")}
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden py-4 border-t border-neutral-800">
+            <nav className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button
+                onClick={() => scrollToSection("consultation")}
+                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium shadow-glow transition-all duration-200"
+              >
+                {t("header.scheduleConsultation")}
+              </Button>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

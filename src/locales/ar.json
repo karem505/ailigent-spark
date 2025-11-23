@@ -1,7 +1,13 @@
 {
   "header": {
     "scheduleConsultation": "حجز استشارة",
-    "bookNow": "احجز الآن"
+    "bookNow": "احجز الآن",
+    "nav": {
+      "solutions": "الحلول",
+      "projects": "المشاريع",
+      "team": "الفريق",
+      "about": "من نحن"
+    }
   },
   "hero": {
     "headline": "حوّل بياناتك إلى قرارات - ذكية",
