@@ -1,7 +1,13 @@
 {
   "header": {
     "scheduleConsultation": "Schedule Consultation",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "nav": {
+      "solutions": "Solutions",
+      "projects": "Projects",
+      "team": "Team",
+      "about": "About"
+    }
   },
   "hero": {
     "headline": "TURN YOUR DATA INTO DECISIONS - INTELLIGENTLY",
