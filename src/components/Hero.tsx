@@ -35,9 +35,48 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0 bg-background" />
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Large ambient orbs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+        
+        {/* Floating particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="particle animate-particle bg-primary/30"
+            style={{
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
+              '--duration': `${Math.random() * 10 + 15}s`,
+              '--delay': `${Math.random() * 5}s`,
+              '--drift': `${(Math.random() - 0.5) * 100}px`,
+            } as React.CSSProperties}
+          />
+        ))}
+        
+        {/* Accent particles */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`accent-${i}`}
+            className="particle animate-particle bg-accent/40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              '--duration': `${Math.random() * 12 + 18}s`,
+              '--delay': `${Math.random() * 8}s`,
+              '--drift': `${(Math.random() - 0.5) * 120}px`,
+            } as React.CSSProperties}
+          />
+        ))}
+
+        {/* Glowing dots */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse-glow" />
+        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-accent rounded-full animate-pulse-glow" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-primary rounded-full animate-pulse-glow" style={{ animationDelay: "2s" }} />
       </div>
 
       {/* Content */}

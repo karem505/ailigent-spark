@@ -17,13 +17,13 @@ All colors MUST be HSL.
     --popover: 220 13% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 217 91% 60%;
+    --primary: 180 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 13% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 217 91% 60%;
+    --accent: 270 80% 65%;
     --accent-foreground: 220 13% 9%;
 
     --muted: 220 13% 18%;
@@ -34,19 +34,19 @@ All colors MUST be HSL.
 
     --border: 220 13% 20%;
     --input: 220 13% 20%;
-    --ring: 217 91% 60%;
+    --ring: 180 100% 45%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(263 85% 60%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(263 85% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(217 91% 10%) 100%);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(217 91% 60% / 0.2);
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
+    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.2);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Border beam animation */
-    --beam-color: 45 100% 50%;
+    --beam-color: 180 100% 50%;
   }
 
   .dark {
@@ -59,13 +59,13 @@ All colors MUST be HSL.
     --popover: 220 13% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 217 91% 60%;
+    --primary: 180 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 13% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 217 91% 60%;
+    --accent: 270 80% 65%;
     --accent-foreground: 220 13% 9%;
 
     --muted: 220 13% 18%;
@@ -76,13 +76,13 @@ All colors MUST be HSL.
 
     --border: 220 13% 20%;
     --input: 220 13% 20%;
-    --ring: 217 91% 60%;
+    --ring: 180 100% 45%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(263 85% 60%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(263 85% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(217 91% 10%) 100%);
-    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.4);
-    --shadow-card: 0 10px 30px -10px hsl(217 91% 60% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
+    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.4);
+    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.15);
   }
 }
 
@@ -176,6 +176,50 @@ All colors MUST be HSL.
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
+
+  /* Particle effects */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  @keyframes float-particle {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(var(--drift));
+      opacity: 0;
+    }
+  }
+
+  .animate-particle {
+    animation: float-particle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
 
   /* Border Beam Animation - Hover Only */
   .border-beam {
