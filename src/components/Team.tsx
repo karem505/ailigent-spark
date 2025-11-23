@@ -3,6 +3,7 @@ import { Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import teamAhmed from "@/assets/team-ahmed.png";
 import teamKarem from "@/assets/team-karem.jpg";
 import teamSohaila from "@/assets/team-sohaila.jpg";
@@ -82,9 +83,10 @@ export const Team = () => {
     <section 
       ref={ref as React.RefObject<HTMLElement>}
       id="team" 
-      className={`py-24 px-4 bg-neutral-900/30 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <div className="container mx-auto">
+      <BackgroundAnimation />
+      <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("team.title")}</h2>

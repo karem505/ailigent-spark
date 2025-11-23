@@ -2,6 +2,7 @@ import { Target, Eye, Star, Sparkles, Users, Award, Heart, TrendingUp } from "lu
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const MissionVisionValues = () => {
   const { t } = useTranslation();
@@ -12,7 +13,8 @@ export const MissionVisionValues = () => {
       id="mission" 
       className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <div className="container mx-auto">
+      <BackgroundAnimation />
+      <div className="container mx-auto relative z-10">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("mission.title")}</h2>
