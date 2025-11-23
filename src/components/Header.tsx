@@ -58,7 +58,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-14 w-auto" />
+            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-20 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
