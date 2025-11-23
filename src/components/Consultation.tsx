@@ -82,7 +82,7 @@ export const Consultation = () => {
       <div className="container mx-auto max-w-6xl">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">{t("consultation.title")}</h2>
+          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("consultation.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {t("consultation.subtitle")}
           </p>
@@ -93,15 +93,15 @@ export const Consultation = () => {
           {valueProps.map((prop, index) => (
             <Card
               key={index}
-              className="glass-card border-primary/20 text-center animate-fade-in-up hover-scale-effect border-beam"
+              className="glass-card border-neutral-800 text-center animate-fade-in-up hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="space-y-4">
                 <div className="mx-auto w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                   <prop.icon className="w-7 h-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{prop.title}</CardTitle>
-                <CardDescription className="text-sm text-foreground/70">
+                <CardTitle className="text-xl font-manrope font-light">{prop.title}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">
                   {prop.description}
                 </CardDescription>
               </CardHeader>
@@ -110,9 +110,9 @@ export const Consultation = () => {
         </div>
 
         {/* Consultation Form */}
-        <Card className="glass-card border-primary/20 shadow-card animate-fade-in-up hover-scale-effect border-beam" style={{ animationDelay: "0.3s" }}>
+        <Card className="glass-card border-neutral-800 shadow-card animate-fade-in-up hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.3s" }}>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl">{t("consultation.formTitle")}</CardTitle>
+            <CardTitle className="text-3xl font-manrope font-light">{t("consultation.formTitle")}</CardTitle>
             <CardDescription className="text-base">
               {t("consultation.formSubtitle")}
             </CardDescription>
@@ -192,7 +192,7 @@ export const Consultation = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-glow hover-scale-effect"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium shadow-glow hover-scale-effect transition-all duration-200"
               >
                 {isSubmitting ? (
                   t("consultation.form.submitting")

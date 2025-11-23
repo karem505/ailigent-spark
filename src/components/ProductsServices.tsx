@@ -76,7 +76,7 @@ export const ProductsServices = () => {
       <div className="container mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold">{t("solutions.title")}</h2>
+          <h2 className="text-4xl md:text-5xl font-manrope font-light tracking-tight">{t("solutions.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("solutions.subtitle")}
           </p>
@@ -84,12 +84,12 @@ export const ProductsServices = () => {
 
         {/* Products */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold mb-8 text-center">{t("solutions.featuredProducts")}</h3>
+          <h3 className="text-3xl font-manrope font-light mb-8 text-center">{t("solutions.featuredProducts")}</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam"
+                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
@@ -104,8 +104,8 @@ export const ProductsServices = () => {
                   <div className="mb-4">
                     <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
                   </div>
-                  <CardTitle className="text-2xl">{product.title}</CardTitle>
-                  <CardDescription className="text-base text-foreground/80 leading-relaxed">
+                  <CardTitle className="text-2xl font-manrope font-light">{product.title}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground leading-relaxed">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
@@ -125,12 +125,12 @@ export const ProductsServices = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-3xl font-bold mb-8 text-center">{t("solutions.professionalServices")}</h3>
+          <h3 className="text-3xl font-manrope font-light mb-8 text-center">{t("solutions.professionalServices")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-primary/20 animate-fade-in-up group hover-scale-effect border-beam"
+                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
@@ -139,7 +139,7 @@ export const ProductsServices = () => {
                       <service.icon className="w-8 h-8 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg text-center">{service.title}</CardTitle>
+                  <CardTitle className="text-lg text-center font-manrope font-light">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground leading-relaxed text-center">

@@ -55,15 +55,15 @@ export const Hero = () => {
           {/* Content on Right */}
           <div className="space-y-8 text-center md:text-left">
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-manrope font-light leading-tight tracking-tight">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 {t("hero.headline")}
               </span>
             </h1>
 
             {/* About Us Section */}
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">{t("hero.aboutUs")}</h2>
+              <h2 className="text-2xl md:text-3xl font-manrope font-light text-foreground">{t("hero.aboutUs")}</h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 <strong className="text-foreground">{t("hero.companyName")}</strong> {t("hero.description")}
               </p>
@@ -74,7 +74,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 onClick={scrollToConsultation}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-glow animate-glow group hover-scale-effect"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium shadow-glow group hover-scale-effect transition-all duration-200"
               >
                 {t("hero.cta")}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

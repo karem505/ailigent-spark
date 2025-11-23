@@ -41,8 +41,8 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-card shadow-lg" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${
+        isScrolled ? "bg-neutral-900/80 border-neutral-800/50" : "bg-neutral-900/50 border-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -86,14 +86,14 @@ export const Header = () => {
             {/* CTA Button */}
             <Button
               onClick={scrollToConsultation}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-semibold shadow-glow animate-glow hidden sm:flex"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 font-medium shadow-glow hidden sm:flex transition-all duration-200 hover:scale-105"
             >
               {t("header.scheduleConsultation")}
             </Button>
             <Button
               onClick={scrollToConsultation}
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground sm:hidden"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground sm:hidden transition-all duration-200"
             >
               {t("header.bookNow")}
             </Button>
