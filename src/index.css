@@ -168,7 +168,7 @@ All colors MUST be HSL.
     transform: scale(1.05);
   }
 
-  /* Border Beam Animation */
+  /* Border Beam Animation - Hover Only */
   .border-beam {
     position: relative;
     overflow: hidden;
@@ -192,8 +192,14 @@ All colors MUST be HSL.
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: border-beam 3s linear infinite;
     background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-beam:hover::before {
+    opacity: 1;
+    animation: border-beam 3s linear infinite;
   }
 
   @keyframes border-beam {
