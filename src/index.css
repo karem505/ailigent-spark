@@ -8,81 +8,84 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 98%;
+    --background: 220 30% 8%;
+    --foreground: 210 20% 98%;
 
-    --card: 220 13% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 28% 11%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 220 13% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 28% 11%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 180 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 98%;
 
-    --accent: 270 80% 65%;
-    --accent-foreground: 220 13% 9%;
+    --accent: 75 90% 55%;
+    --accent-foreground: 220 30% 8%;
 
-    --muted: 220 13% 18%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 60%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 180 100% 45%;
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
-    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.2);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(200 95% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(75 90% 55%) 0%, hsl(85 85% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 28% 10%) 50%, hsl(195 90% 12%) 100%);
+    --shadow-glow: 0 0 50px hsl(195 100% 50% / 0.25), 0 0 100px hsl(195 100% 50% / 0.1);
+    --shadow-card: 0 20px 40px -15px hsl(195 100% 50% / 0.15);
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
     /* Border beam animation */
-    --beam-color: 180 100% 50%;
+    --beam-color: 195 100% 50%;
+
+    /* Technical grid */
+    --grid-color: 195 80% 50%;
   }
 
   .dark {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 98%;
+    --background: 220 30% 8%;
+    --foreground: 210 20% 98%;
 
-    --card: 220 13% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 28% 11%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 220 13% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 28% 11%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 180 100% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 98%;
 
-    --accent: 270 80% 65%;
-    --accent-foreground: 220 13% 9%;
+    --accent: 75 90% 55%;
+    --accent-foreground: 220 30% 8%;
 
-    --muted: 220 13% 18%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 60%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 180 100% 45%;
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 195 100% 50%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 45%) 0%, hsl(240 80% 55%) 50%, hsl(270 80% 65%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(300 70% 60%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 13% 9%) 0%, hsl(220 13% 12%) 50%, hsl(180 100% 10%) 100%);
-    --shadow-glow: 0 0 40px hsl(180 100% 45% / 0.4);
-    --shadow-card: 0 10px 30px -10px hsl(180 100% 45% / 0.15);
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(200 95% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(75 90% 55%) 0%, hsl(85 85% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 28% 10%) 50%, hsl(195 90% 12%) 100%);
+    --shadow-glow: 0 0 50px hsl(195 100% 50% / 0.3), 0 0 100px hsl(195 100% 50% / 0.12);
+    --shadow-card: 0 20px 40px -15px hsl(195 100% 50% / 0.2);
   }
 }
 
@@ -93,12 +96,18 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-optical-sizing: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
   html {
@@ -262,5 +271,101 @@ All colors MUST be HSL.
     50% {
       background-position: -200% 0;
     }
+  }
+
+  /* Technical Grid Pattern */
+  .tech-grid {
+    background-image:
+      linear-gradient(hsl(var(--grid-color) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-color) / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -1px -1px;
+  }
+
+  .tech-grid-dense {
+    background-image:
+      linear-gradient(hsl(var(--grid-color) / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-color) / 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Scan line effect */
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  .scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
+    animation: scan 8s linear infinite;
+  }
+
+  /* Data metric styles */
+  .metric-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  /* Geometric accent lines */
+  .accent-line {
+    position: relative;
+  }
+
+  .accent-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, hsl(var(--primary)), transparent);
+  }
+
+  /* Staggered fade-in for numbers/metrics */
+  @keyframes fade-in-number {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-number {
+    animation: fade-in-number 0.6s ease-out forwards;
+  }
+
+  /* Sharp geometric shapes */
+  .geometric-accent {
+    position: absolute;
+    border: 2px solid hsl(var(--primary) / 0.2);
+    pointer-events: none;
+  }
+
+  /* Pulse animation for data points */
+  @keyframes data-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+
+  .animate-data-pulse {
+    animation: data-pulse 2s ease-in-out infinite;
   }
 }

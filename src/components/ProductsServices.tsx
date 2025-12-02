@@ -5,7 +5,6 @@ import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
@@ -69,52 +68,58 @@ export const ProductsServices = () => {
   ];
 
   return (
-    <section 
+    <section
       ref={ref as React.RefObject<HTMLElement>}
-      id="solutions" 
-      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      id="solutions"
+      className={`py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <BackgroundAnimation />
+      <div className="absolute inset-0 tech-grid opacity-30" />
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("solutions.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
+        <div className="text-center mb-20 space-y-6 animate-fade-in">
+          <div className="inline-block">
+            <div className="h-px w-12 bg-primary mb-4 mx-auto" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{t("solutions.title")}</h2>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("solutions.subtitle")}
           </p>
         </div>
 
         {/* Products */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-manrope font-bold mb-8 text-center">{t("solutions.featuredProducts")}</h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold mb-10 text-center uppercase tracking-wider text-xs text-muted-foreground">{t("solutions.featuredProducts")}</h3>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {products.map((product, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+                className="border border-border bg-card/30 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
+                <div className="absolute top-0 right-0 w-32 h-32 border-l border-b border-border/50" />
+                <CardHeader className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-0 font-mono text-xs uppercase">
                       {product.badge}
                     </Badge>
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:scale-110 transition-transform">
-                      <product.icon className="w-6 h-6 text-primary" />
+                    <div className="p-2 border border-primary/20 bg-primary/5 group-hover:bg-primary/10 transition-colors">
+                      <product.icon className="w-5 h-5 text-primary" />
                     </div>
                   </div>
-                  <div className="mb-4">
-                    <img src={product.logo} alt={`${product.title} logo`} className="h-16 w-auto object-contain" />
+                  <div>
+                    <img src={product.logo} alt={`${product.title} logo`} className="h-14 w-auto object-contain" />
                   </div>
-                  <CardTitle className="text-2xl font-manrope font-bold">{product.title}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
-                    {product.description}
-                  </CardDescription>
+                  <div className="space-y-2">
+                    <CardTitle className="text-xl font-bold">{product.title}</CardTitle>
+                    <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                      {product.description}
+                    </CardDescription>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {product.tags.map((tag, i) => (
-                      <Badge key={i} variant="outline" className="text-xs">
+                      <Badge key={i} variant="outline" className="text-xs font-mono border-border/50">
                         {tag}
                       </Badge>
                     ))}
@@ -127,24 +132,24 @@ export const ProductsServices = () => {
 
         {/* Services */}
         <div>
-          <h3 className="text-3xl font-manrope font-bold mb-8 text-center">{t("solutions.professionalServices")}</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <h3 className="text-2xl font-bold mb-10 text-center uppercase tracking-wider text-xs text-muted-foreground">{t("solutions.professionalServices")}</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
+                className="border border-border bg-card/20 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <service.icon className="w-8 h-8 text-primary" />
+                <CardHeader className="space-y-4">
+                  <div className="flex justify-center">
+                    <div className="w-12 h-12 border border-primary/20 bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                      <service.icon className="w-6 h-6 text-primary" />
                     </div>
                   </div>
-                  <CardTitle className="text-lg text-center font-manrope font-bold">{service.title}</CardTitle>
+                  <CardTitle className="text-base text-center font-bold leading-tight">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-center font-bold">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
                     {service.description}
                   </p>
                 </CardContent>

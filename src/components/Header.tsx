@@ -51,10 +51,10 @@ export const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${
-        isScrolled ? "bg-neutral-900/80 border-neutral-800/50" : "bg-neutral-900/50 border-transparent"
+        isScrolled ? "bg-background/90 border-border" : "bg-background/50 border-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 transition-transform hover:scale-105">
@@ -62,12 +62,12 @@ export const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-200"
               >
                 {item.label}
               </button>
@@ -75,17 +75,17 @@ export const Header = () => {
           </nav>
 
           {/* Right Side Controls */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Language Toggle */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleLanguage}
-              className="rounded-full hover:bg-primary/10"
+              className="hover:bg-primary/10 h-9 w-9"
               aria-label="Toggle Language"
             >
-              <Globe className="h-5 w-5" />
-              <span className="ml-1 text-xs font-medium">
+              <Globe className="h-4 w-4" />
+              <span className="ml-1 text-xs font-mono font-medium">
                 {i18n.language === "en" ? "AR" : "EN"}
               </span>
             </Button>
@@ -95,20 +95,20 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full hover:bg-primary/10"
+              className="hover:bg-primary/10 h-9 w-9"
               aria-label="Toggle Theme"
             >
               {isDark ? (
-                <Sun className="h-5 w-5 text-primary" />
+                <Sun className="h-4 w-4 text-primary" />
               ) : (
-                <Moon className="h-5 w-5" />
+                <Moon className="h-4 w-4" />
               )}
             </Button>
 
             {/* CTA Button - Desktop */}
             <Button
               onClick={() => scrollToSection("consultation")}
-              className="hidden sm:flex bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-6 py-2 font-medium shadow-glow transition-all duration-200 hover-scale-effect"
+              className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2 h-9 font-semibold text-xs uppercase tracking-wide transition-all duration-200"
             >
               {t("header.scheduleConsultation")}
             </Button>
@@ -118,30 +118,30 @@ export const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden rounded-full hover:bg-primary/10"
+              className="lg:hidden hover:bg-primary/10 h-9 w-9"
               aria-label="Toggle Menu"
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-neutral-800">
-            <nav className="flex flex-col gap-4">
+          <div className="lg:hidden py-4 border-t border-border">
+            <nav className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                  className="text-left text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-200 py-2"
                 >
                   {item.label}
                 </button>
               ))}
               <Button
                 onClick={() => scrollToSection("consultation")}
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white font-medium shadow-glow transition-all duration-200"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs uppercase tracking-wide transition-all duration-200 mt-2"
               >
                 {t("header.scheduleConsultation")}
               </Button>
