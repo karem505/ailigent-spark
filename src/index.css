@@ -479,6 +479,222 @@
   }
 
   /* ============================================
+     GLOW EFFECTS
+     ============================================ */
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+  }
+
+  .glow-primary-intense {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2), inset 0 1px 0 hsl(var(--foreground) / 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-primary-intense:hover {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--primary) / 0.3), inset 0 1px 0 hsl(var(--foreground) / 0.2);
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .glow-card {
+    box-shadow: 0 8px 32px hsl(var(--background) / 0.3), 0 0 0 1px hsl(var(--foreground) / 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .glow-card:hover {
+    transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 25px 80px hsl(var(--background) / 0.4), 0 0 0 1px hsl(var(--foreground) / 0.1), 0 0 60px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-border {
+    position: relative;
+    border: 1px solid hsl(var(--primary) / 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.6), hsl(var(--highlight) / 0.3), hsl(var(--primary) / 0.6));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-border:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    transform: translateY(-1px);
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  /* ============================================
+     ENHANCED HOVER EFFECTS
+     ============================================ */
+
+  .hover-float {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-float:hover {
+    transform: translateY(-6px);
+    filter: drop-shadow(0 10px 30px hsl(var(--primary) / 0.2));
+  }
+
+  .hover-bg-shift {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+  }
+
+  .hover-bg-shift:hover {
+    background-position: 100% 50%;
+  }
+
+  .tag-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .tag-hover:hover {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--highlight) / 0.1));
+    border-color: hsl(var(--primary) / 0.6);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.2);
+  }
+
+  .card-image-hover {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .card-image-hover img {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-image-hover:hover img {
+    transform: scale(1.1) rotate(1deg);
+    filter: brightness(1.1) contrast(1.1);
+  }
+
+  .button-shine {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .button-shine:hover::before {
+    left: 100%;
+  }
+
+  .button-shine:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .text-hover-glow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .text-hover-glow:hover {
+    text-shadow: 0 0 25px hsl(var(--primary) / 0.6), 0 0 50px hsl(var(--primary) / 0.3);
+    color: hsl(var(--highlight));
+  }
+
+  .interactive-text:hover {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--highlight)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: scale(1.02);
+  }
+
+  /* ============================================
+     AMBIENT LIGHTING
+     ============================================ */
+
+  .ambient-light {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: ambientMove 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .ambient-light-2 {
+    position: fixed;
+    bottom: 20%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, hsl(var(--highlight) / 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: ambientMove2 10s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes ambientMove {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, -50px) scale(1.1); }
+  }
+
+  @keyframes ambientMove2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-80px, 60px) scale(0.9); }
+  }
+
+  /* ============================================
+     GLOW ANIMATION
+     ============================================ */
+
+  @keyframes glowPulse {
+    from { box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1); }
+    to { box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.2); }
+  }
+
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite alternate;
+  }
+
+  /* Backdrop glow effect */
+  .backdrop-glow {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  /* Text glow effect */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  /* ============================================
      CURSOR STYLES
      ============================================ */
 
