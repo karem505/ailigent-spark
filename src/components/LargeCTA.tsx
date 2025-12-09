@@ -22,10 +22,10 @@ export const LargeCTA = () => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2 className="text-5xl md:text-7xl font-bold text-foreground tracking-tighter mb-8 animate-fade-in">
-          Ready to <span className="text-primary">Transform?</span>
+          {t("cta.title", "Ready to")} <span className="text-primary">{t("cta.highlight", "Transform?")}</span>
         </h2>
         <p className="text-lg text-muted-foreground mb-10 font-bold animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          From intelligent automation to full-scale digital transformation — let us build your future.
+          {t("cta.description", "From intelligent automation to full-scale digital transformation — let us build your future.")}
         </p>
         <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <Button
@@ -33,7 +33,7 @@ export const LargeCTA = () => {
             size="lg"
             className="px-8 py-6 bg-foreground text-background rounded-full font-bold hover:bg-foreground/90 transition-colors text-base"
           >
-            Book Free Consultation
+            {t("cta.button", "Book Free Consultation")}
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>

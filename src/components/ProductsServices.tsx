@@ -85,7 +85,7 @@ export const ProductsServices = () => {
             {t("solutions.title")}
           </h3>
           <p className="text-muted-foreground max-w-xl text-lg font-bold">
-            Intelligent solutions that transform how businesses operate, automate, and scale.
+            {t("solutions.description", "Intelligent solutions that transform how businesses operate, automate, and scale.")}
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export const ProductsServices = () => {
                 {/* Bottom action */}
                 <div className="relative z-10 pt-8 mt-auto">
                   <div className="flex items-center justify-between border-t border-border pt-6 group-hover:border-border/60 transition-colors">
-                    <span className="text-sm font-bold text-foreground">View Details</span>
+                    <span className="text-sm font-bold text-foreground">{t("solutions.viewDetails", "View Details")}</span>
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center transform group-hover:scale-110 transition-transform">
                       <ArrowRight className="text-primary-foreground w-5 h-5" />
                     </div>
