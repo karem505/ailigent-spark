@@ -10,6 +10,7 @@ import {
   Zap,
   ArrowRight,
   Bot,
+  Check,
 } from "lucide-react";
 import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
@@ -50,66 +51,29 @@ export const ProductsServices = () => {
   ];
 
   const services = [
-    {
-      title: t("solutions.services.agenticAI.title"),
-      description: t("solutions.services.agenticAI.description"),
-      icon: Bot,
-      color: "primary",
-    },
-    {
-      title: t("solutions.services.generativeAI.title"),
-      description: t("solutions.services.generativeAI.description"),
-      icon: Brain,
-      color: "pink",
-    },
-    {
-      title: t("solutions.services.conversationalAI.title"),
-      description: t("solutions.services.conversationalAI.description"),
-      icon: MessageSquare,
-      color: "green",
-    },
-    {
-      title: t("solutions.services.businessConsultation.title"),
-      description: t("solutions.services.businessConsultation.description"),
-      icon: Lightbulb,
-      color: "yellow",
-    },
-    {
-      title: t("solutions.services.aiIntegration.title"),
-      description: t("solutions.services.aiIntegration.description"),
-      icon: Link2,
-      color: "accent",
-    },
-    {
-      title: t("solutions.services.digitalTransformation.title"),
-      description: t("solutions.services.digitalTransformation.description"),
-      icon: Rocket,
-      color: "red",
-    },
+    { title: t("solutions.services.agenticAI.title"), description: t("solutions.services.agenticAI.description"), icon: Bot, color: "text-primary" },
+    { title: t("solutions.services.generativeAI.title"), description: t("solutions.services.generativeAI.description"), icon: Brain, color: "text-pink-500" },
+    { title: t("solutions.services.conversationalAI.title"), description: t("solutions.services.conversationalAI.description"), icon: MessageSquare, color: "text-green-500" },
+    { title: t("solutions.services.businessConsultation.title"), description: t("solutions.services.businessConsultation.description"), icon: Lightbulb, color: "text-yellow-500" },
+    { title: t("solutions.services.aiIntegration.title"), description: t("solutions.services.aiIntegration.description"), icon: Link2, color: "text-accent" },
+    { title: t("solutions.services.digitalTransformation.title"), description: t("solutions.services.digitalTransformation.description"), icon: Rocket, color: "text-red-500" },
   ];
-
-  const getIconColor = (color: string) => {
-    const colors: Record<string, string> = {
-      primary: "text-primary",
-      highlight: "text-highlight",
-      accent: "text-accent",
-      pink: "text-pink-500",
-      green: "text-green-500",
-      yellow: "text-yellow-500",
-      red: "text-red-500",
-    };
-    return colors[color] || "text-primary";
-  };
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="solutions"
-      className={`py-20 relative scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16 reveal active">
+      {/* Background */}
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[180px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Products Section Header */}
+        <div className="text-center mb-16 animate-fade-in">
           <span className="text-accent font-semibold tracking-wider uppercase text-sm">
             {t("solutions.subtitle", "Featured Tools")}
           </span>
@@ -122,26 +86,26 @@ export const ProductsServices = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 mb-24">
           {products.map((product, index) => {
-            const glowClass = product.color === "highlight" ? "gradient-bg-cyan" : "gradient-bg-purple";
-            const iconColor = product.color === "highlight" ? "text-highlight" : "text-accent";
-            const checkColor = product.color === "highlight" ? "text-highlight" : "text-accent";
+            const isHighlight = product.color === "highlight";
+            const glowColor = isHighlight ? "bg-highlight/20" : "bg-accent/20";
+            const iconColor = isHighlight ? "text-highlight" : "text-accent";
+            const checkColor = isHighlight ? "text-highlight" : "text-accent";
 
             return (
               <div
                 key={index}
-                className={`glass-panel p-8 rounded-2xl relative group overflow-hidden reveal active delay-${(index + 1) * 100}`}
+                className="glass-panel p-8 rounded-2xl relative group overflow-hidden hover-lift animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Glow Effect */}
-                <div
-                  className={`absolute top-0 right-0 w-64 h-64 ${glowClass} rounded-full blur-[60px] group-hover:opacity-100 opacity-50 transition-all duration-500 transform translate-x-1/3 -translate-y-1/3`}
-                />
+                <div className={`absolute top-0 right-0 w-64 h-64 ${glowColor} rounded-full blur-[80px] group-hover:blur-[100px] transition-all duration-500 transform translate-x-1/3 -translate-y-1/3`} />
 
                 <div className="relative z-10">
                   {/* Icon Box */}
-                  <div className={`icon-box icon-box-${product.color === "highlight" ? "cyan" : "purple"} mb-6`}>
-                    <product.icon className={`text-3xl ${iconColor} w-8 h-8`} />
+                  <div className={`w-16 h-16 rounded-xl ${isHighlight ? "bg-highlight/10 border-highlight/30" : "bg-accent/10 border-accent/30"} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    <product.icon className={`w-8 h-8 ${iconColor}`} />
                   </div>
 
                   {/* Logo */}
@@ -158,8 +122,8 @@ export const ProductsServices = () => {
                   {/* Features List */}
                   <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center">
-                        <i className={`fas fa-check ${checkColor} mr-2`} />
+                      <li key={i} className="flex items-center animate-fade-in" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
+                        <Check className={`${checkColor} mr-2 w-4 h-4`} />
                         {feature}
                       </li>
                     ))}
@@ -168,9 +132,10 @@ export const ProductsServices = () => {
                   {/* CTA */}
                   <button
                     onClick={() => document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" })}
-                    className={`inline-flex items-center ${iconColor} font-semibold hover:opacity-80 transition-colors`}
+                    className={`inline-flex items-center ${iconColor} font-semibold hover:opacity-80 transition-all group/btn`}
                   >
-                    {t("solutions.requestDemo", "Request a Demo")} <ArrowRight className="ml-2 w-4 h-4" />
+                    {t("solutions.requestDemo", "Request a Demo")}
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -179,10 +144,12 @@ export const ProductsServices = () => {
         </div>
 
         {/* Services Section */}
-        <div className="py-20 bg-card/30 border-y border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+        <div className="py-24 bg-card/30 border-y border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 relative">
+          <div className="absolute inset-0 bg-grid opacity-10" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
             {/* Services Header */}
-            <div className="text-center mb-16 reveal active">
+            <div className="text-center mb-16 animate-fade-in">
               <span className="text-primary font-semibold tracking-wider uppercase text-sm">
                 {t("solutions.servicesSubtitle", "Our Expertise")}
               </span>
@@ -199,11 +166,12 @@ export const ProductsServices = () => {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className={`glass-panel p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal active delay-${((index % 3) + 1) * 100}`}
+                  className="glass-panel p-6 rounded-xl hover-lift animate-fade-in-up group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <service.icon className={`text-3xl ${getIconColor(service.color)} mb-4 w-8 h-8`} />
+                  <service.icon className={`${service.color} mb-4 w-8 h-8 group-hover:scale-110 transition-transform`} />
                   <h3 className="text-xl font-bold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                 </div>
               ))}
             </div>
