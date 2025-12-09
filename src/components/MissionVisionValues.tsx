@@ -1,86 +1,70 @@
-import { Target, Eye, Star, Sparkles, Users, Award, Heart, TrendingUp } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Target, Eye, Handshake } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const MissionVisionValues = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
+
+  const cards = [
+    {
+      icon: Target,
+      title: t("mission.ourMission"),
+      description: t("mission.missionText"),
+      color: "primary",
+    },
+    {
+      icon: Eye,
+      title: t("mission.ourVision"),
+      description: t("mission.visionText"),
+      color: "highlight",
+    },
+    {
+      icon: Handshake,
+      title: t("mission.ourValues"),
+      description: t("mission.valuesText", "Integrity & Transparency • Sustainable Innovation • Client-Centric Approach"),
+      color: "accent",
+    },
+  ];
+
   return (
-    <section 
+    <section
       ref={ref as React.RefObject<HTMLElement>}
-      id="mission" 
-      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      id="mission"
+      className={`py-20 bg-card/30 border-y border-border relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <BackgroundAnimation />
-      <div className="container mx-auto relative z-10">
-        {/* Section Title */}
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("mission.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
-            {t("mission.subtitle")}
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 reveal active">
+          <span className="text-primary font-semibold tracking-wider uppercase text-sm">
+            {t("mission.subtitle", "Our Foundation")}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
+            {t("mission.title")}
+          </h2>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {/* Mission Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group border-beam transition-all duration-200 hover:border-neutral-700">
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Target className="w-8 h-8 text-primary" />
-              </div>
-              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourMission")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
-                {t("mission.missionText")}
-              </CardDescription>
-            </CardContent>
-          </Card>
+        <div className="grid md:grid-cols-3 gap-8">
+          {cards.map((card, index) => {
+            const iconColorClass =
+              card.color === "primary"
+                ? "text-primary"
+                : card.color === "highlight"
+                ? "text-highlight"
+                : "text-accent";
 
-          {/* Vision Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.1s" }}>
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Eye className="w-8 h-8 text-primary" />
+            return (
+              <div
+                key={index}
+                className={`glass-panel p-8 rounded-2xl reveal active delay-${(index + 1) * 100}`}
+              >
+                <card.icon className={`text-4xl ${iconColorClass} mb-4 w-10 h-10`} />
+                <h3 className="text-2xl font-bold text-foreground mb-3">{card.title}</h3>
+                <p className="text-muted-foreground">{card.description}</p>
               </div>
-              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourVision")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
-                {t("mission.visionText")}
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          {/* Values Card */}
-          <Card className="glass-card hover-lift border-neutral-800 animate-fade-in-up group hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700" style={{ animationDelay: "0.2s" }}>
-            <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Star className="w-8 h-8 text-primary" />
-              </div>
-              <CardTitle className="text-2xl font-manrope font-bold">{t("mission.ourValues")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                {[
-                  { icon: Sparkles, text: t("mission.values.innovation") },
-                  { icon: Award, text: t("mission.values.integrity") },
-                  { icon: Heart, text: t("mission.values.clientCentric") },
-                  { icon: Users, text: t("mission.values.collaboration") },
-                  { icon: TrendingUp, text: t("mission.values.excellence") },
-                  { icon: Target, text: t("mission.values.responsibleAI") },
-                ].map((value, index) => (
-                  <li key={index} className="flex items-center gap-3 text-muted-foreground">
-                    <value.icon className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span className="text-sm font-bold">{value.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+            );
+          })}
         </div>
       </div>
     </section>

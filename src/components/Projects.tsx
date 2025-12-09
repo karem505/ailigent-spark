@@ -1,117 +1,70 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, Play } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import peLogo from "@/assets/pe-logo.webp";
-import tornixLogo from "@/assets/tornix-logo.png";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const Projects = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
 
-  const projects = [
-    {
-      badge: t("projects.pe.badge"),
-      client: t("projects.pe.client"),
-      logo: peLogo,
-      description: t("projects.pe.description"),
-      focus: [
-        t("projects.pe.focus.0"),
-        t("projects.pe.focus.1"),
-        t("projects.pe.focus.2"),
-        t("projects.pe.focus.3"),
-        t("projects.pe.focus.4"),
-      ],
-      videoUrl: "https://www.youtube.com/embed/4T1_Spk9dss",
-    },
-    {
-      badge: t("projects.tornix.badge"),
-      client: t("projects.tornix.client"),
-      logo: tornixLogo,
-      description: t("projects.tornix.description"),
-      focus: [
-        t("projects.tornix.focus.0"),
-        t("projects.tornix.focus.1"),
-        t("projects.tornix.focus.2"),
-        t("projects.tornix.focus.3"),
-        t("projects.tornix.focus.4"),
-      ],
-      videoUrl: "https://www.youtube.com/embed/jbuQf16vO-4",
-    },
+  const focusItems = [
+    t("projects.pe.focus.0"),
+    t("projects.pe.focus.1"),
+    t("projects.pe.focus.2"),
+    t("projects.pe.focus.3"),
   ];
 
   return (
-    <section 
+    <section
       ref={ref as React.RefObject<HTMLElement>}
-      id="projects" 
-      className={`py-24 px-4 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      id="projects"
+      className={`py-20 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <BackgroundAnimation />
-      <div className="container mx-auto relative z-10">
-        {/* Section Title */}
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-manrope font-bold tracking-tight">{t("projects.title")}</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-bold">
-            {t("projects.subtitle")}
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 reveal active">
+          <span className="text-highlight font-semibold tracking-wider uppercase text-sm">
+            {t("projects.badge", "Client Impact")}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
+            {t("projects.title")}
+          </h2>
         </div>
 
-        {/* Projects Grid */}
-        <div className="space-y-12 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="glass-card border-neutral-800 animate-fade-in-up overflow-hidden hover-scale-effect border-beam transition-all duration-200 hover:border-neutral-700"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="grid lg:grid-cols-2 gap-6">
-                {/* Content Side */}
-                <CardHeader className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={project.logo}
-                      alt={`${project.client} logo`}
-                      className="h-16 w-auto object-contain"
-                    />
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
-                      {project.badge}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-3xl font-manrope font-bold">{project.client}</CardTitle>
-                  <CardDescription className="text-base text-muted-foreground leading-relaxed font-bold">
-                    {project.description}
-                  </CardDescription>
+        {/* Success Story Card */}
+        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-highlight/30 grid lg:grid-cols-3 gap-8 items-center reveal active delay-100">
+          {/* Left Column - Client Info */}
+          <div className="lg:col-span-1 text-center lg:text-left">
+            <div className="text-highlight text-lg font-semibold mb-2">
+              {t("projects.pe.badge")}
+            </div>
+            <div className="mb-4">
+              <img src={peLogo} alt="Professional Engineers Logo" className="h-16 w-auto object-contain mx-auto lg:mx-0" />
+            </div>
+            <h3 className="text-3xl font-display font-bold text-foreground mb-4">
+              {t("projects.pe.client")}
+            </h3>
+            <p className="text-muted-foreground">{t("projects.pe.description")}</p>
+          </div>
 
-                  <div className="pt-4 space-y-3">
-                    <h4 className="font-bold text-lg text-foreground">{t("projects.projectFocus")}</h4>
-                    <ul className="space-y-2">
-                      {project.focus.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="font-bold">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardHeader>
-
-                {/* Video Side */}
-                <CardContent className="p-0 lg:p-6 flex items-center">
-                  <div className="relative w-full aspect-video rounded-lg overflow-hidden group shadow-card">
-                    <iframe
-                      src={project.videoUrl}
-                      title={`${project.client} Project Video`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    />
-                  </div>
-                </CardContent>
-              </div>
-            </Card>
-          ))}
+          {/* Right Column - Deliverables */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-xl font-bold text-foreground border-b border-border pb-2 mb-4">
+              {t("projects.projectFocus")}
+            </h4>
+            <ul className="grid sm:grid-cols-2 gap-4 text-sm">
+              {focusItems.map((item, index) => (
+                <li
+                  key={index}
+                  className={`flex items-start text-muted-foreground reveal-right active delay-${(index + 2) * 100}`}
+                >
+                  <CheckCircle2 className="text-highlight mr-3 mt-1 flex-shrink-0 w-5 h-5" />
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
