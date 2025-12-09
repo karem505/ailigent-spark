@@ -9,7 +9,6 @@ import {
   Link2,
   Zap,
   ArrowRight,
-  Bot,
   Check,
 } from "lucide-react";
 import tornixLogo from "@/assets/tornix-product-logo.png";
@@ -51,12 +50,36 @@ export const ProductsServices = () => {
   ];
 
   const services = [
-    { title: t("solutions.services.agenticAI.title"), description: t("solutions.services.agenticAI.description"), icon: Bot, color: "text-primary" },
-    { title: t("solutions.services.generativeAI.title"), description: t("solutions.services.generativeAI.description"), icon: Brain, color: "text-pink-500" },
-    { title: t("solutions.services.conversationalAI.title"), description: t("solutions.services.conversationalAI.description"), icon: MessageSquare, color: "text-green-500" },
-    { title: t("solutions.services.businessConsultation.title"), description: t("solutions.services.businessConsultation.description"), icon: Lightbulb, color: "text-yellow-500" },
-    { title: t("solutions.services.aiIntegration.title"), description: t("solutions.services.aiIntegration.description"), icon: Link2, color: "text-accent" },
-    { title: t("solutions.services.digitalTransformation.title"), description: t("solutions.services.digitalTransformation.description"), icon: Rocket, color: "text-red-500" },
+    { 
+      title: t("solutions.services.businessConsultation.title"), 
+      description: t("solutions.services.businessConsultation.description"), 
+      icon: Lightbulb 
+    },
+    { 
+      title: t("solutions.services.digitalTransformation.title"), 
+      description: t("solutions.services.digitalTransformation.description"), 
+      icon: Rocket 
+    },
+    { 
+      title: t("solutions.services.agenticAI.title"), 
+      description: t("solutions.services.agenticAI.description"), 
+      icon: Zap 
+    },
+    { 
+      title: t("solutions.services.generativeAI.title"), 
+      description: t("solutions.services.generativeAI.description"), 
+      icon: Brain 
+    },
+    { 
+      title: t("solutions.services.conversationalAI.title"), 
+      description: t("solutions.services.conversationalAI.description"), 
+      icon: MessageSquare 
+    },
+    { 
+      title: t("solutions.services.aiIntegration.title"), 
+      description: t("solutions.services.aiIntegration.description"), 
+      icon: Link2 
+    },
   ];
 
   return (
@@ -144,37 +167,57 @@ export const ProductsServices = () => {
         </div>
 
         {/* Services Section */}
-        <div className="py-24 bg-card/30 border-y border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 relative">
-          <div className="absolute inset-0 bg-grid opacity-10" />
-          
-          <div className="max-w-7xl mx-auto relative z-10">
-            {/* Services Header */}
-            <div className="text-center mb-16 animate-fade-in">
-              <span className="text-primary font-semibold tracking-wider uppercase text-sm">
-                {t("solutions.servicesSubtitle", "Our Expertise")}
-              </span>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
-                {t("solutions.professionalServices")}
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t("solutions.servicesDesc", "From consultation to custom development, we build the future of your enterprise.")}
-              </p>
-            </div>
+        <div className="py-20">
+          {/* Services Header */}
+          <div className="text-center mb-16 animate-fade-in">
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm">
+              {t("solutions.servicesSubtitle", "Our Expertise")}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
+              {t("solutions.professionalServices")}
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {t("solutions.servicesDesc", "From consultation to custom development, we build the future of your enterprise.")}
+            </p>
+          </div>
 
-            {/* Services Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="glass-panel p-6 rounded-xl hover-lift animate-fade-in-up group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <service.icon className={`${service.color} mb-4 w-8 h-8 group-hover:scale-110 transition-transform`} />
-                  <h3 className="text-xl font-bold text-foreground mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+          {/* Services Grid - Matching the reference layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-highlight/30 transition-all duration-500 overflow-hidden flex flex-col min-h-[320px] animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Bottom glow effect */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-highlight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center mb-6 group-hover:border-highlight/40 transition-colors">
+                  <service.icon className="w-6 h-6 text-highlight" />
                 </div>
-              ))}
-            </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-display font-bold text-foreground mb-4">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                  {service.description}
+                </p>
+
+                {/* View Details Button */}
+                <div className="mt-6 flex items-center gap-3">
+                  <span className="text-sm font-semibold text-foreground">
+                    {t("solutions.viewDetails", "View Details")}
+                  </span>
+                  <div className="w-10 h-10 rounded-full bg-highlight flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-highlight/30">
+                    <ArrowRight className="w-5 h-5 text-highlight-foreground" />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
