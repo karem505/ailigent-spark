@@ -3,12 +3,14 @@ import peLogo from "@/assets/pe-logo.webp";
 import tornixLogo from "@/assets/tornix-logo.png";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 
 export const Projects = () => {
   const { t } = useTranslation();
   const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
   const { ref: project1Ref, className: project1Class } = useScrollReveal({ direction: "left", delay: 100 });
   const { ref: project2Ref, className: project2Class } = useScrollReveal({ direction: "right", delay: 200 });
+  const { getLayerStyle } = useMultiLayerParallax();
 
   const projects = [
     {
@@ -51,10 +53,16 @@ export const Projects = () => {
       id="projects"
       className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
-      {/* Background Effects */}
+      {/* Background Effects with Parallax */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-highlight/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+      <div 
+        className="absolute top-1/4 left-0 w-96 h-96 bg-highlight/10 rounded-full blur-[120px] pointer-events-none"
+        style={getLayerStyle(0.15)}
+      />
+      <div 
+        className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"
+        style={getLayerStyle(0.2)}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

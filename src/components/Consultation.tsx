@@ -7,10 +7,12 @@ import { useToast } from "@/hooks/use-toast";
 import { BarChart3, Target, Handshake, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 
 export const Consultation = () => {
   const { t } = useTranslation();
   const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "scale" });
+  const { getLayerStyle } = useMultiLayerParallax();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -51,11 +53,20 @@ export const Consultation = () => {
       id="consultation"
       className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
-      {/* Background */}
+      {/* Background with Parallax */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
-      <div className="absolute inset-0 bg-grid opacity-15" />
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      <div 
+        className="absolute inset-0 bg-grid opacity-15"
+        style={getLayerStyle(0.05)}
+      />
+      <div 
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"
+        style={getLayerStyle(0.15)}
+      />
+      <div 
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" 
+        style={{ ...getLayerStyle(0.2), animationDelay: "2s" }}
+      />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="glass-panel rounded-2xl p-8 md:p-12 border border-primary/20 shadow-2xl animate-fade-in-up">

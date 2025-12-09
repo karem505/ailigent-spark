@@ -1,6 +1,7 @@
 import { Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 import teamAhmed from "@/assets/team-ahmed.png";
 import teamKarem from "@/assets/team-karem.jpg";
 import teamSohaila from "@/assets/team-sohaila.jpg";
@@ -13,6 +14,7 @@ import teamHady from "@/assets/team-hady.png";
 export const Team = () => {
   const { t } = useTranslation();
   const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
+  const { getLayerStyle } = useMultiLayerParallax();
 
   const allMembers = [
     { name: t("team.members.gm.name"), role: t("team.roles.ceo"), linkedin: "https://www.linkedin.com/in/alsenosy/", image: teamAhmed },
@@ -31,10 +33,16 @@ export const Team = () => {
       id="team"
       className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
-      {/* Background */}
+      {/* Background with Parallax */}
       <div className="absolute inset-0 bg-background/50" />
-      <div className="absolute inset-0 bg-grid opacity-15" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px] pointer-events-none" />
+      <div 
+        className="absolute inset-0 bg-grid opacity-15"
+        style={getLayerStyle(0.08)}
+      />
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px] pointer-events-none"
+        style={getLayerStyle(0.12)}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4 animate-fade-in">

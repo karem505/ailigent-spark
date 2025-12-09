@@ -15,11 +15,13 @@ import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
   const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
   const { ref: servicesRef, className: servicesClass } = useScrollReveal({ direction: "up", delay: 100 });
+  const { getLayerStyle } = useMultiLayerParallax();
 
   const products = [
     {
@@ -89,11 +91,20 @@ export const ProductsServices = () => {
       id="solutions"
       className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
-      {/* Background */}
+      {/* Background with Parallax */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[200px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[180px] pointer-events-none" />
+      <div 
+        className="absolute inset-0 bg-grid opacity-20"
+        style={getLayerStyle(0.08)}
+      />
+      <div 
+        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[200px] pointer-events-none"
+        style={getLayerStyle(0.12)}
+      />
+      <div 
+        className="absolute bottom-1/3 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[180px] pointer-events-none"
+        style={getLayerStyle(0.18)}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Products Section Header */}

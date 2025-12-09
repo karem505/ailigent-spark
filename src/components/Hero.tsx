@@ -1,11 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import { Shield, Zap, HeadphonesIcon, ArrowRight } from "lucide-react";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
+import { useCountUp } from "@/hooks/useCountUp";
 
 export const Hero = () => {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [email, setEmail] = useState("");
+  const { getLayerStyle } = useMultiLayerParallax();
+
+  // Animated counters
+  const stat1 = useCountUp({ end: 90, duration: 2000, delay: 300 });
+  const stat2 = useCountUp({ end: 150, duration: 2500, delay: 500 });
+  const stat3 = useCountUp({ end: 99.9, decimals: 1, duration: 2000, delay: 700 });
 
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
@@ -102,10 +110,16 @@ export const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
     >
-      {/* Background Layers */}
+      {/* Background Layers with Parallax */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute inset-0 bg-gradient-mesh" />
+      <div 
+        className="absolute inset-0 bg-grid opacity-20"
+        style={getLayerStyle(0.1)}
+      />
+      <div 
+        className="absolute inset-0 bg-gradient-mesh"
+        style={getLayerStyle(0.05)}
+      />
 
       {/* Canvas Background */}
       <canvas
@@ -113,25 +127,37 @@ export const Hero = () => {
         className="absolute top-0 left-0 w-full h-full z-0 opacity-50"
       />
 
-      {/* Animated Glow Orbs */}
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[180px] pointer-events-none animate-pulse-slow" />
+      {/* Animated Glow Orbs with Parallax */}
+      <div 
+        className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[180px] pointer-events-none animate-pulse-slow"
+        style={getLayerStyle(0.15)}
+      />
       <div
         className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"
-        style={{ animationDelay: "2s" }}
+        style={{ ...getLayerStyle(0.2), animationDelay: "2s" }}
       />
 
-      {/* Geometric Decorations */}
-      <div className="absolute top-40 left-20 hidden lg:block">
+      {/* Geometric Decorations with Parallax */}
+      <div 
+        className="absolute top-40 left-20 hidden lg:block"
+        style={getLayerStyle(0.25)}
+      >
         <div className="w-16 h-16 border border-primary/30 rounded-full animate-float" />
         <div className="w-3 h-3 bg-primary/50 rounded-full absolute -bottom-8 left-8" />
       </div>
-      <div className="absolute bottom-40 left-16 hidden lg:block">
+      <div 
+        className="absolute bottom-40 left-16 hidden lg:block"
+        style={getLayerStyle(0.3)}
+      >
         <svg width="60" height="120" viewBox="0 0 60 120" fill="none" className="opacity-30">
           <path d="M0 60L30 30L60 60L30 90L0 60Z" stroke="hsl(var(--primary))" strokeWidth="1" />
           <path d="M15 60L30 45L45 60L30 75L15 60Z" stroke="hsl(var(--highlight))" strokeWidth="1" />
         </svg>
       </div>
-      <div className="absolute top-32 right-32 hidden lg:block">
+      <div 
+        className="absolute top-32 right-32 hidden lg:block"
+        style={getLayerStyle(0.2)}
+      >
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" className="opacity-40">
           <path d="M20 40L40 20L60 40" stroke="hsl(var(--highlight))" strokeWidth="2" />
           <path d="M20 50L40 30L60 50" stroke="hsl(var(--highlight))" strokeWidth="2" />
@@ -203,10 +229,13 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Stats Cards */}
+          {/* Right Column - Stats Cards with Animated Counters */}
           <div className="space-y-4 animate-fade-in animation-delay-200">
             {/* Main Stat Card */}
-            <div className="relative rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-8 glow-card overflow-hidden">
+            <div 
+              ref={stat1.ref as React.RefObject<HTMLDivElement>}
+              className="relative rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-8 glow-card overflow-hidden"
+            >
               {/* Corner Decorations */}
               <div className="absolute top-0 right-0 w-24 h-24">
                 <svg viewBox="0 0 96 96" fill="none" className="w-full h-full opacity-40">
@@ -219,7 +248,7 @@ export const Hero = () => {
                 {t("hero.stat1Label", "Productivity Boost")}
               </p>
               <p className="text-6xl md:text-7xl font-display font-bold text-highlight mb-2">
-                90<span className="text-4xl">%+</span>
+                {Math.round(stat1.count)}<span className="text-4xl">%+</span>
               </p>
               <p className="text-muted-foreground text-sm">
                 {t("hero.stat1Desc", "Average increase across implementations")}
@@ -228,23 +257,29 @@ export const Hero = () => {
 
             {/* Two Column Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card">
+              <div 
+                ref={stat2.ref as React.RefObject<HTMLDivElement>}
+                className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card"
+              >
                 <p className="text-muted-foreground text-xs font-mono uppercase tracking-widest mb-3">
                   {t("hero.stat2Label", "Active Projects")}
                 </p>
                 <p className="text-4xl font-display font-bold text-foreground mb-1">
-                  150<span className="text-primary text-2xl">+</span>
+                  {Math.round(stat2.count)}<span className="text-primary text-2xl">+</span>
                 </p>
                 <p className="text-muted-foreground text-xs">
                   {t("hero.stat2Desc", "In production")}
                 </p>
               </div>
-              <div className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card">
+              <div 
+                ref={stat3.ref as React.RefObject<HTMLDivElement>}
+                className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card"
+              >
                 <p className="text-muted-foreground text-xs font-mono uppercase tracking-widest mb-3">
                   {t("hero.stat3Label", "Uptime")}
                 </p>
                 <p className="text-4xl font-display font-bold text-foreground mb-1">
-                  99.9<span className="text-primary text-2xl">%</span>
+                  {stat3.count.toFixed(1)}<span className="text-primary text-2xl">%</span>
                 </p>
                 <p className="text-muted-foreground text-xs flex items-center gap-2">
                   {t("hero.stat3Desc", "Service reliability")}
