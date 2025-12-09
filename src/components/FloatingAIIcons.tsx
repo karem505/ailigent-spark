@@ -136,7 +136,7 @@ export const FloatingAIIcons = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none overflow-hidden -z-10"
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
       aria-hidden="true"
     >
       {/* Gradient overlay */}
