@@ -181,7 +181,7 @@ export const Hero = () => {
             {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8">
               <span className="text-foreground block">Transform.</span>
-              <span className="text-highlight block italic">Automate.</span>
+              <span className="text-highlight block">Automate.</span>
               <span className="text-foreground block">Scale.</span>
             </h1>
 
