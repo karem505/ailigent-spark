@@ -126,21 +126,20 @@ export const Hero = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
           </span>
-          {t("hero.status", "System Operational: Transforming Enterprise Operations")}
+          System Operational: Transforming Enterprise Operations
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-foreground mb-6 leading-[1.1] tracking-tight animate-fade-in-up">
-          <span className="italic">{t("hero.headline1", "Transform Your Business.")}</span>
+          <span className="italic">Transform Your Business.</span>
           <br />
-          <span className="text-gradient italic">{t("hero.headline2", "Automate Everything.")}</span>
+          <span className="text-gradient italic">Automate Everything.</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
-          {t("hero.subtitle", "AILIGENT delivers intelligent AI automation solutions that boost productivity by over")}{" "}
-          <span className="text-foreground font-bold">90%</span>.{" "}
-          {t("hero.subtitleCont", "Transform your operations with cutting-edge technology.")}
+          AILIGENT delivers intelligent AI automation solutions that boost productivity by over{" "}
+          <span className="text-foreground font-bold">90%</span>. Transform your operations with cutting-edge technology.
         </p>
 
         {/* CTA Buttons */}
