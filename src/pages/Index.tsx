@@ -16,7 +16,7 @@ const Index = () => {
       <FloatingAIIcons />
       <CustomCursor />
       <Header />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <TechMarquee />
         <MissionVisionValues />
