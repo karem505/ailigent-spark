@@ -52,7 +52,7 @@ export const FloatingAIIcons = () => {
     if (!container) return;
 
     // Initialize floating icons
-    const iconCount = 20;
+    const iconCount = 40;
     iconsRef.current = Array.from({ length: iconCount }, (_, i) => ({
       id: i,
       Icon: icons[Math.floor(Math.random() * icons.length)],
@@ -144,7 +144,7 @@ export const FloatingAIIcons = () => {
       
       {/* Floating icons */}
       {iconsRef.current.length === 0 && 
-        Array.from({ length: 20 }, (_, i) => {
+        Array.from({ length: 40 }, (_, i) => {
           const Icon = icons[Math.floor(Math.random() * icons.length)];
           const size = 20 + Math.random() * 30;
           const opacity = 0.05 + Math.random() * 0.1;
@@ -176,7 +176,7 @@ export const FloatingAIIcons = () => {
       }
       
       {/* Render actual icons after initialization */}
-      {Array.from({ length: 20 }, (_, i) => {
+      {Array.from({ length: 40 }, (_, i) => {
         const Icon = icons[i % icons.length];
         return (
           <div
