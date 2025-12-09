@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
+import heroLogo from "@/assets/hero-logo.png";
 
 export const Hero = () => {
   const { t } = useTranslation();
@@ -120,6 +121,15 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Logo */}
+        <div className="mb-8 animate-fade-in">
+          <img 
+            src={heroLogo} 
+            alt="AILIGENT" 
+            className="h-12 md:h-14 mx-auto dark:brightness-0 dark:invert"
+          />
+        </div>
+
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel border border-border/50 text-muted-foreground text-sm font-medium mb-10 animate-fade-in">
           <span className="relative flex h-2.5 w-2.5">
