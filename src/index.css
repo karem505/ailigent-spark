@@ -356,19 +356,99 @@
   .animation-delay-800 { animation-delay: 0.8s; }
 
   /* ============================================
-     SCROLL REVEAL
+     SCROLL REVEAL ANIMATIONS
      ============================================ */
 
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .scroll-reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Reveal from left */
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Reveal from right */
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Reveal with scale */
+  .scroll-reveal-scale {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Reveal with rotate */
+  .scroll-reveal-rotate {
+    opacity: 0;
+    transform: translateY(40px) rotate(-3deg);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-rotate.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Reveal with blur */
+  .scroll-reveal-blur {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-reveal-blur.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Staggered reveal delays for children */
+  .scroll-reveal-stagger > *:nth-child(1) { transition-delay: 0s; }
+  .scroll-reveal-stagger > *:nth-child(2) { transition-delay: 0.1s; }
+  .scroll-reveal-stagger > *:nth-child(3) { transition-delay: 0.2s; }
+  .scroll-reveal-stagger > *:nth-child(4) { transition-delay: 0.3s; }
+  .scroll-reveal-stagger > *:nth-child(5) { transition-delay: 0.4s; }
+  .scroll-reveal-stagger > *:nth-child(6) { transition-delay: 0.5s; }
+  .scroll-reveal-stagger > *:nth-child(7) { transition-delay: 0.6s; }
+  .scroll-reveal-stagger > *:nth-child(8) { transition-delay: 0.7s; }
+
+  /* Reveal delay utilities */
+  .reveal-delay-100 { transition-delay: 0.1s; }
+  .reveal-delay-200 { transition-delay: 0.2s; }
+  .reveal-delay-300 { transition-delay: 0.3s; }
+  .reveal-delay-400 { transition-delay: 0.4s; }
+  .reveal-delay-500 { transition-delay: 0.5s; }
+  .reveal-delay-600 { transition-delay: 0.6s; }
 
   /* ============================================
      HOVER EFFECTS

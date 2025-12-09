@@ -6,7 +6,9 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Projects = () => {
   const { t } = useTranslation();
-  const { ref, isVisible } = useScrollReveal();
+  const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
+  const { ref: project1Ref, className: project1Class } = useScrollReveal({ direction: "left", delay: 100 });
+  const { ref: project2Ref, className: project2Class } = useScrollReveal({ direction: "right", delay: 200 });
 
   const projects = [
     {
@@ -22,6 +24,8 @@ export const Projects = () => {
       ],
       videoUrl: "https://www.youtube.com/embed/4T1_Spk9dss",
       color: "highlight",
+      ref: project1Ref,
+      className: project1Class,
     },
     {
       badge: t("projects.tornix.badge"),
@@ -36,14 +40,16 @@ export const Projects = () => {
       ],
       videoUrl: "https://www.youtube.com/embed/jbuQf16vO-4",
       color: "accent",
+      ref: project2Ref,
+      className: project2Class,
     },
   ];
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       id="projects"
-      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
@@ -74,8 +80,8 @@ export const Projects = () => {
             return (
               <div
                 key={index}
-                className={`glass-panel rounded-2xl p-6 md:p-10 ${borderColor} overflow-hidden animate-fade-in-up`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                ref={project.ref as React.RefObject<HTMLDivElement>}
+                className={`glass-panel rounded-2xl p-6 md:p-10 ${borderColor} overflow-hidden ${project.className}`}
               >
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   {/* Content Side */}

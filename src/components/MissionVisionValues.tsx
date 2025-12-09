@@ -4,7 +4,10 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const MissionVisionValues = () => {
   const { t } = useTranslation();
-  const { ref, isVisible } = useScrollReveal();
+  const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "up" });
+  const { ref: missionRef, className: missionClass } = useScrollReveal({ direction: "left", delay: 100 });
+  const { ref: visionRef, className: visionClass } = useScrollReveal({ direction: "scale", delay: 200 });
+  const { ref: valuesRef, className: valuesClass } = useScrollReveal({ direction: "right", delay: 300 });
 
   const values = [
     { icon: Sparkles, text: t("mission.values.innovation") },
@@ -14,9 +17,9 @@ export const MissionVisionValues = () => {
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       id="mission"
-      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-card/30" />
@@ -40,9 +43,9 @@ export const MissionVisionValues = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 scroll-reveal-stagger">
           {/* Mission Card */}
-          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up group">
+          <div ref={missionRef as React.RefObject<HTMLDivElement>} className={`glass-panel p-8 rounded-2xl hover-lift group ${missionClass}`}>
             <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Target className="w-8 h-8 text-primary" />
             </div>
@@ -51,7 +54,7 @@ export const MissionVisionValues = () => {
           </div>
 
           {/* Vision Card */}
-          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up animation-delay-200 group">
+          <div ref={visionRef as React.RefObject<HTMLDivElement>} className={`glass-panel p-8 rounded-2xl hover-lift group ${visionClass}`}>
             <div className="w-16 h-16 rounded-2xl bg-highlight/10 border border-highlight/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Eye className="w-8 h-8 text-highlight" />
             </div>
@@ -60,7 +63,7 @@ export const MissionVisionValues = () => {
           </div>
 
           {/* Values Card */}
-          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up animation-delay-400 group">
+          <div ref={valuesRef as React.RefObject<HTMLDivElement>} className={`glass-panel p-8 rounded-2xl hover-lift group ${valuesClass}`}>
             <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Handshake className="w-8 h-8 text-accent" />
             </div>

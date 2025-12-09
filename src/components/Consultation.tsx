@@ -10,7 +10,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const Consultation = () => {
   const { t } = useTranslation();
-  const { ref, isVisible } = useScrollReveal();
+  const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "scale" });
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -47,9 +47,9 @@ export const Consultation = () => {
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       id="consultation"
-      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />

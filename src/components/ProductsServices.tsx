@@ -18,7 +18,8 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
-  const { ref, isVisible } = useScrollReveal();
+  const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
+  const { ref: servicesRef, className: servicesClass } = useScrollReveal({ direction: "up", delay: 100 });
 
   const products = [
     {
@@ -84,9 +85,9 @@ export const ProductsServices = () => {
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       id="solutions"
-      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
