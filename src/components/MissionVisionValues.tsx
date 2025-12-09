@@ -1,4 +1,4 @@
-import { Target, Eye, Handshake } from "lucide-react";
+import { Target, Eye, Handshake, Star, Sparkles, Users, Award, Heart, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -6,36 +6,31 @@ export const MissionVisionValues = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
 
-  const cards = [
-    {
-      icon: Target,
-      title: t("mission.ourMission"),
-      description: t("mission.missionText"),
-      color: "primary",
-    },
-    {
-      icon: Eye,
-      title: t("mission.ourVision"),
-      description: t("mission.visionText"),
-      color: "highlight",
-    },
-    {
-      icon: Handshake,
-      title: t("mission.ourValues"),
-      description: t("mission.valuesText", "Integrity & Transparency • Sustainable Innovation • Client-Centric Approach"),
-      color: "accent",
-    },
+  const values = [
+    { icon: Sparkles, text: t("mission.values.innovation") },
+    { icon: Award, text: t("mission.values.integrity") },
+    { icon: Heart, text: t("mission.values.clientCentric") },
   ];
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="mission"
-      className={`py-20 bg-card/30 border-y border-border relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background */}
+      <div className="absolute inset-0 bg-card/30" />
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" style={{ animationDelay: "2s" }} />
+
+      {/* Border Lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 reveal active">
+        <div className="text-center mb-16 animate-fade-in">
           <span className="text-primary font-semibold tracking-wider uppercase text-sm">
             {t("mission.subtitle", "Our Foundation")}
           </span>
@@ -46,25 +41,39 @@ export const MissionVisionValues = () => {
 
         {/* Cards Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {cards.map((card, index) => {
-            const iconColorClass =
-              card.color === "primary"
-                ? "text-primary"
-                : card.color === "highlight"
-                ? "text-highlight"
-                : "text-accent";
+          {/* Mission Card */}
+          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up group">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Target className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-3">{t("mission.ourMission")}</h3>
+            <p className="text-muted-foreground leading-relaxed">{t("mission.missionText")}</p>
+          </div>
 
-            return (
-              <div
-                key={index}
-                className={`glass-panel p-8 rounded-2xl reveal active delay-${(index + 1) * 100}`}
-              >
-                <card.icon className={`text-4xl ${iconColorClass} mb-4 w-10 h-10`} />
-                <h3 className="text-2xl font-bold text-foreground mb-3">{card.title}</h3>
-                <p className="text-muted-foreground">{card.description}</p>
-              </div>
-            );
-          })}
+          {/* Vision Card */}
+          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up animation-delay-200 group">
+            <div className="w-16 h-16 rounded-2xl bg-highlight/10 border border-highlight/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Eye className="w-8 h-8 text-highlight" />
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-3">{t("mission.ourVision")}</h3>
+            <p className="text-muted-foreground leading-relaxed">{t("mission.visionText")}</p>
+          </div>
+
+          {/* Values Card */}
+          <div className="glass-panel p-8 rounded-2xl hover-lift animate-fade-in-up animation-delay-400 group">
+            <div className="w-16 h-16 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Handshake className="w-8 h-8 text-accent" />
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-3">{t("mission.ourValues")}</h3>
+            <ul className="space-y-2">
+              {values.map((value, index) => (
+                <li key={index} className="flex items-center text-muted-foreground text-sm">
+                  <Star className="w-4 h-4 text-accent mr-2 flex-shrink-0" />
+                  {value.text}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

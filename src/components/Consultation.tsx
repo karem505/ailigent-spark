@@ -46,10 +46,19 @@ export const Consultation = () => {
   ];
 
   return (
-    <section ref={ref as React.RefObject<HTMLElement>} id="consultation" className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}>
-      <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      id="consultation"
+      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+      <div className="absolute inset-0 bg-grid opacity-15" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow" style={{ animationDelay: "2s" }} />
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-primary/20 reveal active">
+        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-primary/20 shadow-2xl animate-fade-in-up">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">{t("consultation.title")}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">{t("consultation.subtitle")}</p>
@@ -58,7 +67,7 @@ export const Consultation = () => {
           {/* Value Props */}
           <div className="grid grid-cols-3 gap-4 mb-10 text-center">
             {valueProps.map((prop, i) => (
-              <div key={i} className="text-muted-foreground">
+              <div key={i} className="text-muted-foreground animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
                 <prop.icon className={`${prop.color} text-2xl mb-2 mx-auto w-6 h-6`} />
                 <p className="text-sm font-semibold">{prop.title}</p>
               </div>
@@ -67,31 +76,40 @@ export const Consultation = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
+              <div className="animate-fade-in animation-delay-100">
                 <Label className="text-muted-foreground mb-2">{t("consultation.form.fullName")} <span className="text-destructive">*</span></Label>
-                <Input name="name" value={formData.name} onChange={handleChange} required className="bg-background/50 border-border" placeholder={t("consultation.form.namePlaceholder")} />
+                <Input name="name" value={formData.name} onChange={handleChange} required className="bg-background/50 border-border focus:border-primary transition-colors" placeholder={t("consultation.form.namePlaceholder")} />
               </div>
-              <div>
+              <div className="animate-fade-in animation-delay-200">
                 <Label className="text-muted-foreground mb-2">{t("consultation.form.email")} <span className="text-destructive">*</span></Label>
-                <Input name="email" type="email" value={formData.email} onChange={handleChange} required className="bg-background/50 border-border" placeholder={t("consultation.form.emailPlaceholder")} />
+                <Input name="email" type="email" value={formData.email} onChange={handleChange} required className="bg-background/50 border-border focus:border-primary transition-colors" placeholder={t("consultation.form.emailPlaceholder")} />
               </div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
+              <div className="animate-fade-in animation-delay-300">
                 <Label className="text-muted-foreground mb-2">{t("consultation.form.company")} <span className="text-destructive">*</span></Label>
-                <Input name="company" value={formData.company} onChange={handleChange} required className="bg-background/50 border-border" placeholder={t("consultation.form.companyPlaceholder")} />
+                <Input name="company" value={formData.company} onChange={handleChange} required className="bg-background/50 border-border focus:border-primary transition-colors" placeholder={t("consultation.form.companyPlaceholder")} />
               </div>
-              <div>
+              <div className="animate-fade-in animation-delay-400">
                 <Label className="text-muted-foreground mb-2">{t("consultation.form.phone")}</Label>
-                <Input name="phone" type="tel" value={formData.phone} onChange={handleChange} className="bg-background/50 border-border" placeholder={t("consultation.form.phonePlaceholder")} />
+                <Input name="phone" type="tel" value={formData.phone} onChange={handleChange} className="bg-background/50 border-border focus:border-primary transition-colors" placeholder={t("consultation.form.phonePlaceholder")} />
               </div>
             </div>
-            <div>
+            <div className="animate-fade-in animation-delay-500">
               <Label className="text-muted-foreground mb-2">{t("consultation.form.message")} <span className="text-destructive">*</span></Label>
-              <Textarea name="message" rows={4} value={formData.message} onChange={handleChange} required className="bg-background/50 border-border resize-none" placeholder={t("consultation.form.messagePlaceholder")} />
+              <Textarea name="message" rows={4} value={formData.message} onChange={handleChange} required className="bg-background/50 border-border focus:border-primary transition-colors resize-none" placeholder={t("consultation.form.messagePlaceholder")} />
             </div>
-            <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold py-4 btn-glow">
-              {isSubmitting ? t("consultation.form.submitting") : t("consultation.form.submitButton")}
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-bold py-6 btn-glow animate-fade-in animation-delay-600 transform hover:-translate-y-1 transition-all"
+            >
+              {isSubmitting ? t("consultation.form.submitting") : (
+                <>
+                  {t("consultation.form.submitButton")}
+                  <Send className="ml-2 w-5 h-5" />
+                </>
+              )}
             </Button>
             <p className="text-center text-xs text-muted-foreground">{t("consultation.responseTime", "Our team will reach out within 24 hours.")}</p>
           </form>

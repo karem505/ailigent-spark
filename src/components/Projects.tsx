@@ -1,6 +1,6 @@
-import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import peLogo from "@/assets/pe-logo.webp";
+import tornixLogo from "@/assets/tornix-logo.png";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -8,63 +8,133 @@ export const Projects = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
 
-  const focusItems = [
-    t("projects.pe.focus.0"),
-    t("projects.pe.focus.1"),
-    t("projects.pe.focus.2"),
-    t("projects.pe.focus.3"),
+  const projects = [
+    {
+      badge: t("projects.pe.badge"),
+      client: t("projects.pe.client"),
+      logo: peLogo,
+      description: t("projects.pe.description"),
+      focus: [
+        t("projects.pe.focus.0"),
+        t("projects.pe.focus.1"),
+        t("projects.pe.focus.2"),
+        t("projects.pe.focus.3"),
+      ],
+      videoUrl: "https://www.youtube.com/embed/4T1_Spk9dss",
+      color: "highlight",
+    },
+    {
+      badge: t("projects.tornix.badge"),
+      client: t("projects.tornix.client"),
+      logo: tornixLogo,
+      description: t("projects.tornix.description"),
+      focus: [
+        t("projects.tornix.focus.0"),
+        t("projects.tornix.focus.1"),
+        t("projects.tornix.focus.2"),
+        t("projects.tornix.focus.3"),
+      ],
+      videoUrl: "https://www.youtube.com/embed/jbuQf16vO-4",
+      color: "accent",
+    },
   ];
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="projects"
-      className={`py-20 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-highlight/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 reveal active">
+        <div className="text-center mb-16 animate-fade-in">
           <span className="text-highlight font-semibold tracking-wider uppercase text-sm">
             {t("projects.badge", "Client Impact")}
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
             {t("projects.title")}
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t("projects.subtitle")}
+          </p>
         </div>
 
-        {/* Success Story Card */}
-        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-highlight/30 grid lg:grid-cols-3 gap-8 items-center reveal active delay-100">
-          {/* Left Column - Client Info */}
-          <div className="lg:col-span-1 text-center lg:text-left">
-            <div className="text-highlight text-lg font-semibold mb-2">
-              {t("projects.pe.badge")}
-            </div>
-            <div className="mb-4">
-              <img src={peLogo} alt="Professional Engineers Logo" className="h-16 w-auto object-contain mx-auto lg:mx-0" />
-            </div>
-            <h3 className="text-3xl font-display font-bold text-foreground mb-4">
-              {t("projects.pe.client")}
-            </h3>
-            <p className="text-muted-foreground">{t("projects.pe.description")}</p>
-          </div>
+        {/* Projects Grid */}
+        <div className="space-y-12">
+          {projects.map((project, index) => {
+            const borderColor = project.color === "highlight" ? "border-highlight/30" : "border-accent/30";
+            const textColor = project.color === "highlight" ? "text-highlight" : "text-accent";
+            const checkColor = project.color === "highlight" ? "text-highlight" : "text-accent";
 
-          {/* Right Column - Deliverables */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xl font-bold text-foreground border-b border-border pb-2 mb-4">
-              {t("projects.projectFocus")}
-            </h4>
-            <ul className="grid sm:grid-cols-2 gap-4 text-sm">
-              {focusItems.map((item, index) => (
-                <li
-                  key={index}
-                  className={`flex items-start text-muted-foreground reveal-right active delay-${(index + 2) * 100}`}
-                >
-                  <CheckCircle2 className="text-highlight mr-3 mt-1 flex-shrink-0 w-5 h-5" />
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+            return (
+              <div
+                key={index}
+                className={`glass-panel rounded-2xl p-6 md:p-10 ${borderColor} overflow-hidden animate-fade-in-up`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  {/* Content Side */}
+                  <div className={`space-y-6 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={project.logo}
+                        alt={`${project.client} logo`}
+                        className="h-14 w-auto object-contain"
+                      />
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${textColor} bg-current/10 border border-current/30`}>
+                        {project.badge}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                      {project.client}
+                    </h3>
+
+                    <p className="text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="pt-4">
+                      <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4 border-b border-border pb-2">
+                        {t("projects.projectFocus")}
+                      </h4>
+                      <ul className="space-y-3">
+                        {project.focus.map((item, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start text-muted-foreground text-sm animate-fade-in"
+                            style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+                          >
+                            <CheckCircle2 className={`${checkColor} mr-3 mt-0.5 flex-shrink-0 w-5 h-5`} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Video Side */}
+                  <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-2xl group">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
+                      <iframe
+                        src={project.videoUrl}
+                        title={`${project.client} Project Video`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
