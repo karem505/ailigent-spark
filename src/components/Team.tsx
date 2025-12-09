@@ -12,7 +12,7 @@ import teamHady from "@/assets/team-hady.png";
 
 export const Team = () => {
   const { t } = useTranslation();
-  const { ref, isVisible } = useScrollReveal();
+  const { ref: sectionRef, className: sectionClass } = useScrollReveal({ direction: "blur" });
 
   const allMembers = [
     { name: t("team.members.gm.name"), role: t("team.roles.ceo"), linkedin: "https://www.linkedin.com/in/alsenosy/", image: teamAhmed },
@@ -27,9 +27,9 @@ export const Team = () => {
 
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLElement>}
       id="team"
-      className={`py-24 relative overflow-hidden scroll-reveal ${isVisible ? "visible" : ""}`}
+      className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
       {/* Background */}
       <div className="absolute inset-0 bg-background/50" />
