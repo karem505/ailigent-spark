@@ -167,7 +167,7 @@ export const ProductsServices = () => {
         </div>
 
         {/* Services Section */}
-        <div className="py-20">
+        <div id="services" className="py-20">
           {/* Services Header */}
           <div className="text-center mb-16 animate-fade-in">
             <span className="text-primary font-semibold tracking-wider uppercase text-sm">
