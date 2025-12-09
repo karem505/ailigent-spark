@@ -53,7 +53,7 @@ export const Team = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Avatar */}
-              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-muted to-card border-2 border-border overflow-hidden mb-4 group-hover:border-primary transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl group-hover:shadow-primary/30 group-hover:z-10 relative">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-muted to-card border-2 border-border overflow-hidden mb-4 group-hover:border-primary transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/20">
                 <img
                   src={member.image}
                   alt={member.name}
