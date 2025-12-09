@@ -10,52 +10,68 @@
     }
   },
   "hero": {
-    "headline": "TURN YOUR DATA INTO DECISIONS - INTELLIGENTLY",
-    "headline1": "Transform your business.",
-    "headline2": "Automate everything.",
-    "headline3": "Scale faster.",
+    "headline": "Turn Data Into Decisions — Intelligently",
+    "headline1": "Transform.",
+    "headline2": "Automate.",
+    "headline3": "Scale.",
     "aboutUs": "About Us",
-    "description": "is a Saudi company specializing in AI automation systems that transform business operations and boost productivity by over 90%.",
+    "description": "is a Saudi-based company specializing in AI-powered automation systems that streamline operations and drive productivity gains exceeding 90%.",
     "companyName": "AILIGENT",
-    "cta": "BOOK A FREE DEMO",
-    "trustBadge": "Trusted by leading companies worldwide",
-    "subtitle": "AILIGENT delivers intelligent AI automation solutions that boost productivity by over 90%. Transform your operations with cutting-edge technology.",
+    "cta": "Book a Free Demo",
+    "trustBadge": "Trusted by leading enterprises worldwide",
+    "subtitle": "We build intelligent automation systems that eliminate inefficiencies and accelerate growth. Boost productivity by 90%+ with enterprise-grade AI solutions.",
     "feature1": "Enterprise Security",
-    "feature2": "Global Deployment",
+    "feature2": "Fast Deploy",
     "feature3": "24/7 Support",
     "emailPlaceholder": "Enter your work email",
-    "ctaButton": "Get Free Demo",
+    "ctaButton": "Get Demo",
     "benefit1": "No credit card required",
     "benefit2": "Free consultation",
-    "benefit3": "Custom solutions"
+    "benefit3": "Custom solutions",
+    "status": "System Operational",
+    "metric1": {
+      "label": "Productivity Boost",
+      "description": "Average increase across implementations"
+    },
+    "metric2": {
+      "label": "Active Projects",
+      "description": "In production"
+    },
+    "metric3": {
+      "label": "Uptime",
+      "description": "Service reliability"
+    },
+    "status.processing": "Processing",
+    "status.value": "Real-time"
   },
   "mission": {
     "title": "Our Foundation",
-    "subtitle": "Guided by purpose, driven by innovation",
+    "subtitle": "Purpose-driven. Innovation-led.",
     "ourMission": "Our Mission",
-    "missionText": "Is to empower enterprises across all sectors to achieve operational excellence through autonomous AI solutions that drive strategic automation and transform data into real-time intelligent decisions.",
+    "missionText": "To empower enterprises across every sector with autonomous AI solutions that drive strategic automation, optimize operations, and transform raw data into real-time, actionable intelligence.",
     "ourVision": "Our Vision",
-    "visionText": "Is to establish Ailigent as the world's leading partner for organizations driving sustainable digital transformation — powered by trusted, self-learning AI systems that work autonomously and deliver measurable performance impact.",
+    "visionText": "To become the world's most trusted partner for organizations pursuing sustainable digital transformation — powered by self-learning AI systems that deliver measurable, lasting impact.",
     "ourValues": "Our Values",
     "values": {
       "innovation": "Sustainable Innovation",
       "integrity": "Integrity & Transparency",
-      "clientCentric": "Client-Centric Approach",
+      "clientCentric": "Client-First Approach",
       "collaboration": "Collaboration & Inclusion",
       "excellence": "Excellence in Execution",
       "responsibleAI": "Responsible AI"
     }
   },
   "solutions": {
-    "title": "OUR SERVICES",
-    "subtitle": "Transforming Businesses Through Intelligent Automation",
-    "featuredProducts": "FEATURED PRODUCTS",
-    "professionalServices": "PROFESSIONAL SERVICES",
+    "title": "What We Do",
+    "subtitle": "Our Expertise",
+    "description": "Intelligent solutions that transform how businesses operate, automate, and scale.",
+    "featuredProducts": "Featured Products",
+    "professionalServices": "Professional Services",
     "products": {
       "tornix": {
         "badge": "Product",
         "title": "Tornix",
-        "description": "A powerful project management software with seamless integrations with popular platforms like Trello, Microsoft Project, and other commonly used enterprise tools, streamlining project workflows and collaboration.",
+        "description": "A robust project management platform with seamless integrations across Trello, Microsoft Project, and other enterprise tools — simplifying workflows and enhancing team collaboration.",
         "tags": {
           "integration": "Integration",
           "collaboration": "Collaboration",
@@ -65,7 +81,7 @@
       "pmoBuilder": {
         "badge": "Product",
         "title": "PMO Builder",
-        "description": "A comprehensive Project Management Office (PMO) reporting tool. Leveraging AI, it provides project managers with full monitoring capabilities throughout the project lifecycle, generating insightful reports and ensuring proactive oversight.",
+        "description": "An AI-powered PMO reporting tool that gives project managers full visibility across the project lifecycle — generating insights, tracking progress, and enabling proactive decision-making.",
         "tags": {
           "aiPowered": "AI-Powered",
           "reporting": "Reporting",
@@ -75,74 +91,75 @@
     },
     "services": {
       "businessConsultation": {
-        "title": "Business Consultation & Customized Software",
-        "description": "We conduct in-depth analysis of a company's departments, identifying strengths and weaknesses. We then design and implement bespoke business automation and software solutions to address these specific challenges, optimizing processes and enhancing efficiency.",
-        "category": "Customized Solutions & Consulting"
+        "title": "Business Consultation & Custom Software",
+        "description": "We analyze your operations, identify gaps, and deliver tailored automation solutions that streamline processes and maximize efficiency.",
+        "category": "Consulting & Custom Solutions"
       },
       "digitalTransformation": {
         "title": "Digital Transformation",
-        "description": "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable business models. Our approach optimizes operations, enhances agility, and delivers superior customer-centric experiences.",
-        "category": "Customized Solutions & Consulting"
+        "description": "Accelerate your digital journey with innovation-driven strategies, modern technologies, and scalable frameworks that enhance agility and customer experience.",
+        "category": "Consulting & Custom Solutions"
       },
       "aiDevelopment": {
         "title": "AI Development",
-        "description": "We provide cutting-edge AI development services in Saudi Arabia, building intelligent solutions that enhance automation, decision-making, and customer experiences.",
-        "category": "Advanced AI Development Services"
+        "description": "End-to-end AI development services that enhance automation, improve decision-making, and elevate customer experiences.",
+        "category": "AI Development Services"
       },
       "agenticAI": {
-        "title": "Agentic AI Development",
-        "description": "Empower your business with autonomous agents capable of complex problem-solving, advanced process automation, and intelligent decision-making.",
-        "category": "Advanced AI Development Services"
+        "title": "Agentic AI",
+        "description": "Autonomous agents that solve complex problems, automate multi-step workflows, and make intelligent decisions at scale.",
+        "category": "AI Development Services"
       },
       "generativeAI": {
-        "title": "Generative AI Development",
-        "description": "Specializing in Generative AI in Saudi Arabia, we create solutions powered by Large Language Models (LLMs) for content generation, automation, and predictive analytics.",
-        "category": "Advanced AI Development Services"
+        "title": "Generative AI",
+        "description": "LLM-powered solutions for content generation, predictive analytics, and intelligent automation across your enterprise.",
+        "category": "AI Development Services"
       },
       "conversationalAI": {
         "title": "Conversational AI",
-        "description": "We design sophisticated conversational AI solutions that deliver human-like interactions, automate customer communication, and significantly improve user experiences.",
-        "category": "Advanced AI Development Services"
+        "description": "Human-like conversational interfaces that automate customer interactions and significantly improve user engagement.",
+        "category": "AI Development Services"
       },
       "aiIntegration": {
         "title": "AI Integration",
-        "description": "Our AI integration services connect artificial intelligence with your existing ERP, CRM, and other enterprise systems.",
-        "category": "Advanced AI Development Services"
+        "description": "Seamlessly connect AI capabilities with your existing ERP, CRM, and enterprise systems for unified intelligence.",
+        "category": "AI Development Services"
       }
     }
   },
   "projects": {
-    "title": "SUCCESS STORIES",
-    "subtitle": "Delivering Excellence Across Industries",
-    "projectFocus": "Project Focus:",
+    "title": "Success Stories",
+    "subtitle": "Proven Results Across Industries",
+    "projectFocus": "Project Focus",
     "pe": {
-      "badge": "Client Success Story",
-      "client": "PROFESSIONAL ENGINEERS",
-      "description": "Delivering comprehensive full operation automation and custom software solutions for professional engineering firms, streamlining workflows and enhancing operational efficiency.",
+      "badge": "Client Success",
+      "client": "Professional Engineers",
+      "description": "Full-scale operational automation and custom software development for engineering firms — streamlining workflows and driving measurable efficiency gains.",
       "focus": [
-        "Full Operation Automation & Custom Software Development",
-        "End-to-end automation implementation",
-        "Custom software solutions tailored to engineering workflows",
+        "End-to-end operational automation",
+        "Custom software tailored to engineering workflows",
         "Seamless integration with existing systems",
-        "Measurable efficiency improvements"
+        "Quantifiable productivity improvements",
+        "Ongoing optimization and support"
       ]
     },
     "tornix": {
-      "badge": "Featured Partnership",
-      "client": "TORNIX",
-      "description": "Tornix is an advanced AI-powered platform designed to transform project planning, execution, and delivery. Specializing in construction and large-scale projects, it integrates cutting-edge AI to bring automation, predictive analytics, and intelligent decision support.",
+      "badge": "Partnership",
+      "client": "Tornix",
+      "description": "An AI-powered platform transforming project planning, execution, and delivery — built for construction and large-scale infrastructure projects.",
       "focus": [
-        "AI-Powered Project Management & Construction Intelligence",
         "AI-driven cost and resource estimation",
-        "Automated risk detection and Monte Carlo simulations",
+        "Automated risk detection with Monte Carlo simulations",
         "Natural language project queries",
-        "Digital-twin simulations and dashboards"
+        "Digital twin simulations and live dashboards",
+        "Predictive analytics for proactive decision-making"
       ]
     }
   },
   "team": {
-    "title": "MEET OUR TEAM",
-    "subtitle": "Expertise Driving Innovation",
+    "title": "Meet the Team",
+    "subtitle": "Our People",
+    "description": "A distributed team of AI specialists, engineers, and strategists building the future of intelligent automation.",
     "members": {
       "gm": {
         "name": "Dr. Ahmed Alsenosy"
@@ -180,7 +197,7 @@
       "developer": "Software Developer & AI"
     },
     "roles": {
-      "ceo": "GM",
+      "ceo": "General Manager",
       "pmo": "CEO",
       "cmo": "CMO",
       "marketing": "Marketing Consultant",
@@ -192,64 +209,64 @@
     "linkedin": "LinkedIn"
   },
   "consultation": {
-    "title": "READY TO TRANSFORM YOUR OPERATIONS !",
-    "subtitle": "Schedule a strategic consultation with our enterprise automation experts. We'll analyze your current processes and design a custom AI solution that delivers measurable ROI.",
+    "title": "Ready to Transform Your Operations?",
+    "subtitle": "Book a strategic consultation with our automation experts. We'll assess your current processes and design a custom AI solution with measurable ROI.",
     "valueProps": {
       "assessment": {
-        "title": "Complimentary Assessment",
-        "description": "Free analysis of your automation potential and ROI projections."
+        "title": "Free Assessment",
+        "description": "Complimentary analysis of your automation potential and projected ROI."
       },
       "design": {
         "title": "Custom Solution Design",
-        "description": "Tailored automation architecture for your specific needs."
+        "description": "Tailored automation architecture built for your specific requirements."
       },
       "implementation": {
         "title": "White-Glove Implementation",
         "description": "End-to-end support from design through deployment and beyond."
       }
     },
-    "formTitle": "SCHEDULE YOUR CONSULTATION",
-    "formSubtitle": "Fill out the form below and our team will reach out within 24 hours",
+    "formTitle": "Schedule Your Consultation",
+    "formSubtitle": "Complete the form below. Our team will respond within 24 hours.",
     "form": {
       "fullName": "Full Name",
       "email": "Email Address",
       "company": "Company Name",
       "phone": "Phone Number",
       "message": "Message",
-      "namePlaceholder": "John Doe",
-      "emailPlaceholder": "john@company.com",
-      "companyPlaceholder": "Your Company",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@company.com",
+      "companyPlaceholder": "Your company",
       "phonePlaceholder": "+966 XX XXX XXXX",
-      "messagePlaceholder": "Tell us about your automation needs and goals...",
+      "messagePlaceholder": "Tell us about your automation goals...",
       "submitButton": "Submit Request",
       "submitting": "Submitting...",
       "required": "*"
     },
     "toast": {
       "missingInfo": "Missing Information",
-      "fillRequired": "Please fill in all required fields.",
-      "submitted": "Request Submitted!",
-      "thankYou": "Thank you for your interest. Our team will contact you within 24 hours."
+      "fillRequired": "Please complete all required fields.",
+      "submitted": "Request Submitted",
+      "thankYou": "Thank you. Our team will contact you within 24 hours."
     }
   },
   "preFooter": {
-    "tagline": "Empowering Fortune 500 companies with autonomous AI systems and custom enterprise software solutions.",
+    "tagline": "Empowering enterprises with autonomous AI systems and custom software solutions.",
     "solutions": {
-      "title": "SOLUTIONS",
+      "title": "Solutions",
       "aiAutomation": "AI Automation",
       "customSoftware": "Custom Software",
       "processOptimization": "Process Optimization",
       "integrationServices": "Integration Services"
     },
     "company": {
-      "title": "COMPANY",
+      "title": "Company",
       "aboutUs": "About Us",
       "caseStudies": "Case Studies",
       "team": "Team",
       "contact": "Contact"
     },
     "contact": {
-      "title": "CONTACT",
+      "title": "Contact",
       "email": "Email",
       "phone": "Phone",
       "location": "Location",
@@ -260,10 +277,11 @@
   },
   "footer": {
     "copyright": "© 2025 AILIGENT. All Rights Reserved.",
+    "tagline": "Designed for Growth",
     "social": {
-      "facebook": "Visit our Facebook page",
-      "linkedin": "Visit our LinkedIn page",
-      "email": "Send us an email"
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "email": "Email"
     }
   }
 }

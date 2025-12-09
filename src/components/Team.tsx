@@ -98,7 +98,7 @@ export const Team = () => {
             {t("team.title")}
           </h1>
           <p className="text-lg text-muted-foreground font-light leading-relaxed">
-            {t("team.description", "We are a distributed team of AI specialists, engineers, and innovators building the future of intelligent automation.")}
+            {t("team.description", "A distributed team of AI specialists, engineers, and strategists building the future of intelligent automation.")}
           </p>
         </div>
 

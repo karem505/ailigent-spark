@@ -8,28 +8,28 @@ export const ProcessTimeline = () => {
 
   const phases = [
     {
-      phase: "PHASE 01",
+      phase: "01",
       title: "Discovery & Analysis",
       description:
-        "We analyze your current processes and requirements. Whether it's a new AI implementation or automation optimization, we identify the best technical approach and strategy for your business goals.",
+        "We assess your current processes, identify opportunities, and define the optimal technical approach aligned with your business objectives.",
     },
     {
-      phase: "PHASE 02",
+      phase: "02",
       title: "Solution Design",
       description:
-        "We architect custom AI solutions tailored to your needs. From agentic AI workflows to conversational interfaces, we design systems that integrate seamlessly with your existing infrastructure.",
+        "We architect tailored AI solutions — from agentic workflows to conversational interfaces — designed to integrate seamlessly with your infrastructure.",
     },
     {
-      phase: "PHASE 03",
+      phase: "03",
       title: "Development & Integration",
       description:
-        "We build and deploy your AI solutions with rigorous testing. Our team ensures smooth integration with your systems and provides comprehensive training for your team.",
+        "We build, test, and deploy your AI systems with precision. Our team ensures smooth integration and delivers comprehensive training for your staff.",
     },
     {
-      phase: "PHASE 04",
+      phase: "04",
       title: "Optimization & Scale",
       description:
-        "We continuously monitor and optimize your AI systems for maximum performance. As your business grows, we scale the solutions to meet increasing demands.",
+        "We continuously monitor and refine your AI systems for peak performance, scaling solutions as your business grows.",
     },
   ];
 
@@ -46,7 +46,7 @@ export const ProcessTimeline = () => {
             Our Process
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-            Development Methodology
+            How We Work
           </h3>
         </div>
 
@@ -62,7 +62,7 @@ export const ProcessTimeline = () => {
 
               {/* Content */}
               <span className="text-xs font-mono text-primary mb-2 block font-bold">
-                {item.phase}
+                PHASE {item.phase}
               </span>
               <h4 className="text-2xl text-foreground font-bold mb-4">
                 {item.title}
