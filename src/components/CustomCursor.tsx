@@ -172,7 +172,7 @@ export const CustomCursor = () => {
           ref={(el) => {
             if (el) segmentRefs.current[i] = el;
           }}
-          className="pointer-events-none fixed top-0 left-0 z-40 hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
           style={{
             width: `${Math.max(4, 10 - i * 0.5)}px`,
             height: `${Math.max(4, 10 - i * 0.5)}px`,
@@ -188,7 +188,7 @@ export const CustomCursor = () => {
       {/* Cursor ring */}
       <div
         ref={cursorRingRef}
-        className="pointer-events-none fixed top-0 left-0 z-50 hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
         style={{
           width: "28px",
           height: "28px",
@@ -203,7 +203,7 @@ export const CustomCursor = () => {
       {/* Cursor dot */}
       <div
         ref={cursorDotRef}
-        className="pointer-events-none fixed top-0 left-0 z-50 hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block rounded-full -translate-x-1/2 -translate-y-1/2"
         style={{
           width: "6px",
           height: "6px",
