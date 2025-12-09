@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Globe, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoLight from "@/assets/logo-dark-blue.png";
-import logoDark from "@/assets/logo-light-blue.png";
+import logoWhite from "@/assets/logo-white.png";
+import logoBlue from "@/assets/logo-blue.png";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
@@ -60,18 +60,12 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#hero" className="flex-shrink-0 flex items-center gap-3 group">
-            {/* Logo Icon Box */}
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-shadow">
-              <img 
-                src={isDark ? logoDark : logoLight} 
-                alt="AILIGENT" 
-                className="h-7 w-7 object-contain"
-              />
-            </div>
-            <span className="font-display font-bold text-2xl text-foreground tracking-tight">
-              AILIGENT
-            </span>
+          <a href="#hero" className="flex-shrink-0 flex items-center group">
+            <img 
+              src={isDark ? logoWhite : logoBlue} 
+              alt="AILIGENT" 
+              className="h-12 object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
