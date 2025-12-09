@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Shield, Zap, HeadphonesIcon, ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [email, setEmail] = useState("");
 
   const scrollToConsultation = () => {
     document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" });
@@ -98,7 +100,7 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
     >
       {/* Background Layers */}
       <div className="absolute inset-0 bg-background" />
@@ -112,50 +114,166 @@ export const Hero = () => {
       />
 
       {/* Animated Glow Orbs */}
-      <div className="absolute top-1/3 left-1/3 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[180px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[180px] pointer-events-none animate-pulse-slow" />
       <div
-        className="absolute bottom-1/3 right-1/3 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"
+        className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"
         style={{ animationDelay: "2s" }}
       />
 
+      {/* Geometric Decorations */}
+      <div className="absolute top-40 left-20 hidden lg:block">
+        <div className="w-16 h-16 border border-primary/30 rounded-full animate-float" />
+        <div className="w-3 h-3 bg-primary/50 rounded-full absolute -bottom-8 left-8" />
+      </div>
+      <div className="absolute bottom-40 left-16 hidden lg:block">
+        <svg width="60" height="120" viewBox="0 0 60 120" fill="none" className="opacity-30">
+          <path d="M0 60L30 30L60 60L30 90L0 60Z" stroke="hsl(var(--primary))" strokeWidth="1" />
+          <path d="M15 60L30 45L45 60L30 75L15 60Z" stroke="hsl(var(--highlight))" strokeWidth="1" />
+        </svg>
+      </div>
+      <div className="absolute top-32 right-32 hidden lg:block">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" className="opacity-40">
+          <path d="M20 40L40 20L60 40" stroke="hsl(var(--highlight))" strokeWidth="2" />
+          <path d="M20 50L40 30L60 50" stroke="hsl(var(--highlight))" strokeWidth="2" />
+        </svg>
+      </div>
+
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel border border-border/50 text-muted-foreground text-sm font-medium mb-10 animate-fade-in">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-          </span>
-          System Operational: Transforming Enterprise Operations
-        </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Text Content */}
+          <div className="animate-fade-in">
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-highlight/20 border border-highlight/40 text-highlight text-xs font-mono uppercase tracking-wider mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+              </span>
+              {t("hero.status", "System Operational")}
+            </div>
 
-        {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-foreground mb-6 leading-[1.1] tracking-tight animate-fade-in-up">
-          <span className="italic">Transform Your Business.</span>
-          <br />
-          <span className="text-gradient italic">Automate Everything.</span>
-        </h1>
+            {/* Headline */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-8">
+              <span className="text-foreground block">Transform.</span>
+              <span className="text-highlight block italic">Automate.</span>
+              <span className="text-foreground block">Scale.</span>
+            </h1>
 
-        {/* Subtitle */}
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
-          AILIGENT delivers intelligent AI automation solutions that boost productivity by over{" "}
-          <span className="text-foreground font-bold">90%</span>. Transform your operations with cutting-edge technology.
-        </p>
+            {/* Description */}
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+              {t("hero.description", "We build intelligent automation systems that eliminate inefficiencies and accelerate growth. Boost productivity by 90%+ with enterprise-grade AI solutions.")}
+            </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
-          <button
-            onClick={scrollToConsultation}
-            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-gradient-to-r from-accent to-primary hover:opacity-90 text-primary-foreground font-bold text-lg transition-all duration-300 shadow-lg shadow-accent/30 hover:shadow-accent/50 transform hover:-translate-y-1"
-          >
-            {t("hero.ctaDemo", "Get Free Demo")}
-          </button>
-          <button
-            onClick={scrollToConsultation}
-            className="w-full sm:w-auto px-8 py-4 rounded-lg glass-panel hover:bg-secondary/50 text-foreground font-bold text-lg transition-all duration-300 border border-border hover:border-muted-foreground"
-          >
-            {t("hero.ctaConsultation", "Free Consultation")}
-          </button>
+            {/* Email Form */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 max-w-lg">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t("hero.emailPlaceholder", "Enter your work email")}
+                className="flex-1 px-5 py-4 rounded-lg bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-highlight focus:ring-1 focus:ring-highlight transition-all font-mono text-sm"
+              />
+              <button
+                onClick={scrollToConsultation}
+                className="px-6 py-4 rounded-lg bg-highlight hover:bg-highlight/90 text-highlight-foreground font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap button-shine glow-primary-intense"
+              >
+                {t("hero.cta", "Get Demo")}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <p className="text-muted-foreground text-sm font-mono mb-10">
+              {t("hero.noCreditCard", "No credit card required")} • {t("hero.freeConsultation", "Free consultation")}
+            </p>
+
+            {/* Feature Badges */}
+            <div className="flex flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-card/60 border border-border text-foreground text-xs font-mono uppercase tracking-wider glow-border">
+                <Shield className="w-4 h-4 text-highlight" />
+                {t("hero.badge1", "Enterprise Security")}
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-card/60 border border-border text-foreground text-xs font-mono uppercase tracking-wider glow-border">
+                <Zap className="w-4 h-4 text-highlight" />
+                {t("hero.badge2", "Fast Deploy")}
+              </div>
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-card/60 border border-border text-foreground text-xs font-mono uppercase tracking-wider glow-border">
+                <HeadphonesIcon className="w-4 h-4 text-highlight" />
+                {t("hero.badge3", "24/7 Support")}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Stats Cards */}
+          <div className="space-y-4 animate-fade-in animation-delay-200">
+            {/* Main Stat Card */}
+            <div className="relative rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-8 glow-card overflow-hidden">
+              {/* Corner Decorations */}
+              <div className="absolute top-0 right-0 w-24 h-24">
+                <svg viewBox="0 0 96 96" fill="none" className="w-full h-full opacity-40">
+                  <path d="M96 0V32L64 0H96Z" stroke="hsl(var(--border))" strokeWidth="1" />
+                  <path d="M96 32V64L32 0H64L96 32Z" stroke="hsl(var(--border))" strokeWidth="1" />
+                </svg>
+              </div>
+              
+              <p className="text-muted-foreground text-xs font-mono uppercase tracking-widest mb-4">
+                {t("hero.stat1Label", "Productivity Boost")}
+              </p>
+              <p className="text-6xl md:text-7xl font-display font-bold text-highlight mb-2">
+                90<span className="text-4xl">%+</span>
+              </p>
+              <p className="text-muted-foreground text-sm">
+                {t("hero.stat1Desc", "Average increase across implementations")}
+              </p>
+            </div>
+
+            {/* Two Column Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card">
+                <p className="text-muted-foreground text-xs font-mono uppercase tracking-widest mb-3">
+                  {t("hero.stat2Label", "Active Projects")}
+                </p>
+                <p className="text-4xl font-display font-bold text-foreground mb-1">
+                  150<span className="text-primary text-2xl">+</span>
+                </p>
+                <p className="text-muted-foreground text-xs">
+                  {t("hero.stat2Desc", "In production")}
+                </p>
+              </div>
+              <div className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card">
+                <p className="text-muted-foreground text-xs font-mono uppercase tracking-widest mb-3">
+                  {t("hero.stat3Label", "Uptime")}
+                </p>
+                <p className="text-4xl font-display font-bold text-foreground mb-1">
+                  99.9<span className="text-primary text-2xl">%</span>
+                </p>
+                <p className="text-muted-foreground text-xs flex items-center gap-2">
+                  {t("hero.stat3Desc", "Service reliability")}
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                </p>
+              </div>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="rounded-2xl bg-card/60 backdrop-blur-sm border border-border p-6 glow-card">
+              <div className="flex justify-between items-center mb-3">
+                <p className="text-muted-foreground text-sm font-mono">
+                  {t("hero.processing", "Processing")}
+                </p>
+                <p className="text-highlight text-sm font-mono">
+                  {t("hero.realtime", "Real-time")}
+                </p>
+              </div>
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div 
+                  className="h-full rounded-full animate-shimmer"
+                  style={{
+                    background: "linear-gradient(90deg, hsl(var(--highlight)) 0%, hsl(var(--primary)) 50%, hsl(60 100% 50%) 100%)",
+                    width: "85%",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
