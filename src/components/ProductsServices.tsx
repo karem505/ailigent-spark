@@ -85,7 +85,7 @@ export const ProductsServices = () => {
             {t("solutions.title")}
           </h3>
           <p className="text-muted-foreground max-w-xl text-lg font-bold">
-            We transform businesses with intelligent AI automation solutions and deliver cutting-edge technology implementations.
+            Intelligent solutions that transform how businesses operate, automate, and scale.
           </p>
         </div>
 

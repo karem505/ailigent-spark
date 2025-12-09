@@ -25,7 +25,7 @@ export const LargeCTA = () => {
           Ready to <span className="text-primary">Transform?</span>
         </h2>
         <p className="text-lg text-muted-foreground mb-10 font-bold animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          From AI automation to digital transformation. Let's build your intelligent future together.
+          From intelligent automation to full-scale digital transformation — let us build your future.
         </p>
         <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <Button
@@ -33,7 +33,7 @@ export const LargeCTA = () => {
             size="lg"
             className="px-8 py-6 bg-foreground text-background rounded-full font-bold hover:bg-foreground/90 transition-colors text-base"
           >
-            Get Free Consultation
+            Book Free Consultation
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
