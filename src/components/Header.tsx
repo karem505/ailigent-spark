@@ -12,8 +12,9 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Set dark mode by default
-    document.documentElement.classList.add("dark");
+    // Sync state with actual DOM class
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setIsDark(isDarkMode);
   }, []);
 
   useEffect(() => {
