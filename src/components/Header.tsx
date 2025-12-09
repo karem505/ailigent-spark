@@ -42,11 +42,11 @@ export const Header = () => {
   };
 
   const navItems = [
-    { label: t("header.nav.solutions"), id: "solutions" },
-    { label: t("header.nav.products", "Products"), id: "solutions" },
+    { label: t("header.nav.solutions", "Solutions"), id: "solutions" },
+    { label: t("header.nav.products", "Products"), id: "projects" },
     { label: t("header.nav.services", "Services"), id: "solutions" },
-    { label: t("header.nav.about"), id: "mission" },
-    { label: t("header.nav.team"), id: "team" },
+    { label: t("header.nav.about", "About"), id: "mission" },
+    { label: t("header.nav.team", "Team"), id: "team" },
   ];
 
   return (
