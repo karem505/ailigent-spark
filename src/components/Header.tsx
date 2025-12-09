@@ -64,7 +64,7 @@ export const Header = () => {
             <img 
               src={isDark ? logoWhite : logoBlue} 
               alt="AILIGENT" 
-              className="h-12 object-contain"
+              className={`object-contain ${isDark ? 'h-12' : 'h-16'}`}
             />
           </a>
 
