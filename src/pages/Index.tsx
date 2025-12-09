@@ -8,10 +8,12 @@ import { Team } from "@/components/Team";
 import { Consultation } from "@/components/Consultation";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
+import { FloatingAIIcons } from "@/components/FloatingAIIcons";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
+      <FloatingAIIcons />
       <CustomCursor />
       <Header />
       <main>
