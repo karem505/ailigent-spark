@@ -69,7 +69,7 @@ export const Consultation = () => {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="glass-panel rounded-2xl p-8 md:p-12 border border-primary/20 shadow-2xl animate-fade-in-up">
+        <div className="glass-panel-enhanced card-glow-border rounded-2xl p-8 md:p-12 shadow-2xl animate-fade-in-up">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">{t("consultation.title")}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">{t("consultation.subtitle")}</p>
@@ -78,8 +78,8 @@ export const Consultation = () => {
           {/* Value Props */}
           <div className="grid grid-cols-3 gap-4 mb-10 text-center">
             {valueProps.map((prop, i) => (
-              <div key={i} className="text-muted-foreground animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
-                <prop.icon className={`${prop.color} text-2xl mb-2 mx-auto w-6 h-6`} />
+              <div key={i} className="text-muted-foreground animate-fade-in group/prop hover:text-foreground transition-colors" style={{ animationDelay: `${i * 0.1}s` }}>
+                <prop.icon className={`${prop.color} text-2xl mb-2 mx-auto w-6 h-6 icon-float group-hover/prop:scale-125 transition-transform`} />
                 <p className="text-sm font-semibold">{prop.title}</p>
               </div>
             ))}
