@@ -12,14 +12,13 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Sync state with actual DOM class
     const isDarkMode = document.documentElement.classList.contains("dark");
     setIsDark(isDarkMode);
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -50,106 +49,122 @@ export const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${
-        isScrolled ? "bg-background/90 border-border" : "bg-background/50 border-transparent"
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 glass-panel border-b-0 ${
+        isScrolled ? "bg-background/90" : ""
       }`}
+      style={{
+        backdropFilter: isScrolled ? "blur(20px)" : "blur(12px)",
+        WebkitBackdropFilter: isScrolled ? "blur(20px)" : "blur(12px)",
+      }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-20 w-auto" />
+          <a href="#hero" className="flex-shrink-0 flex items-center gap-2 transition-transform hover:scale-105">
+            <img src={isDark ? logoDark : logoLight} alt="AILIGENT Logo" className="h-16 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Right Side Controls */}
-          <div className="flex items-center gap-2">
-            {/* Language Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleLanguage}
-              className="hover:bg-primary/10 h-9 w-9"
-              aria-label="Toggle Language"
-            >
-              <Globe className="h-4 w-4" />
-              <span className="ml-1 text-xs font-mono font-medium">
-                {i18n.language === "en" ? "AR" : "EN"}
-              </span>
-            </Button>
-
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="hover:bg-primary/10 h-9 w-9"
-              aria-label="Toggle Theme"
-            >
-              {isDark ? (
-                <Sun className="h-4 w-4 text-primary" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-            </Button>
-
-            {/* CTA Button - Desktop */}
-            <Button
-              onClick={() => scrollToSection("consultation")}
-              className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2 h-9 font-semibold text-xs uppercase tracking-wide transition-all duration-200"
-            >
-              {t("header.scheduleConsultation")}
-            </Button>
-
-            {/* Mobile Menu Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden hover:bg-primary/10 h-9 w-9"
-              aria-label="Toggle Menu"
-            >
-              {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border">
-            <nav className="flex flex-col gap-3">
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-xs font-medium uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-200 py-2"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   {item.label}
                 </button>
               ))}
+              
+              {/* Language Toggle */}
               <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleLanguage}
+                className="hover:bg-primary/10 text-muted-foreground hover:text-foreground"
+              >
+                <Globe className="h-4 w-4 mr-1" />
+                {i18n.language === "en" ? "AR" : "EN"}
+              </Button>
+
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="hover:bg-primary/10"
+              >
+                {isDark ? (
+                  <Sun className="h-4 w-4 text-primary" />
+                ) : (
+                  <Moon className="h-4 w-4" />
+                )}
+              </Button>
+
+              {/* CTA Button */}
+              <button
                 onClick={() => scrollToSection("consultation")}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs uppercase tracking-wide transition-all duration-200 mt-2"
+                className="px-5 py-2.5 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all duration-300 btn-glow"
               >
                 {t("header.scheduleConsultation")}
-              </Button>
-            </nav>
+              </button>
+            </div>
           </div>
-        )}
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleLanguage}
+              className="hover:bg-primary/10"
+            >
+              <Globe className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="hover:bg-primary/10"
+            >
+              {isDark ? <Sun className="h-4 w-4 text-primary" /> : <Moon className="h-4 w-4" />}
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
+        </div>
       </div>
-    </header>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass-panel border-t border-border">
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollToSection("consultation")}
+              className="block w-full px-3 py-2 mt-4 text-center rounded-md text-base font-bold bg-primary text-primary-foreground"
+            >
+              {t("header.scheduleConsultation")}
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };

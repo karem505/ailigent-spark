@@ -16,7 +16,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
-        manrope: ['Manrope', ...fontFamily.sans],
+        display: ['Space Grotesk', ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -24,13 +24,6 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        neutral: {
-          900: "hsl(220 13% 12%)",
-          800: "hsl(220 13% 20%)",
-          700: "hsl(220 13% 28%)",
-          400: "hsl(220 9% 65%)",
-          300: "hsl(220 9% 75%)",
-        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -51,6 +44,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        highlight: {
+          DEFAULT: "hsl(var(--highlight))",
+          foreground: "hsl(var(--highlight-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -59,15 +56,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        ai: {
+          base: "hsl(222 47% 3%)",
+          card: "hsl(220 40% 7%)",
+          accent: "hsl(217 91% 60%)",
+          glow: "hsl(270 60% 60%)",
+          highlight: "hsl(186 94% 42%)",
         },
       },
       borderRadius: {
@@ -93,16 +87,16 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "scale-in": {
-          "0%": { opacity: "0", transform: "scale(0.9)" },
+          "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        "glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(190 100% 50% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(190 100% 50% / 0.6)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
+        "pulse-slow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.7" },
         },
       },
       animation: {
@@ -111,8 +105,8 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
-        "glow": "glow 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
+        "pulse-slow": "pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },

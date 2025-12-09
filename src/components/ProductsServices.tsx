@@ -1,15 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Link2, Zap, ArrowRight } from "lucide-react";
+import {
+  LayoutDashboard,
+  BarChart3,
+  Lightbulb,
+  Rocket,
+  Brain,
+  MessageSquare,
+  Link2,
+  Zap,
+  ArrowRight,
+  Bot,
+} from "lucide-react";
 import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useScrollReveal();
+
   const products = [
     {
       badge: t("solutions.products.tornix.badge"),
@@ -17,7 +27,12 @@ export const ProductsServices = () => {
       description: t("solutions.products.tornix.description"),
       icon: LayoutDashboard,
       logo: tornixLogo,
-      tags: [t("solutions.products.tornix.tags.integration"), t("solutions.products.tornix.tags.collaboration"), t("solutions.products.tornix.tags.workflow")],
+      color: "highlight",
+      features: [
+        t("solutions.products.tornix.tags.integration", "AI-driven cost and resource estimation"),
+        t("solutions.products.tornix.tags.collaboration", "Automated risk detection & Monte Carlo simulations"),
+        t("solutions.products.tornix.tags.workflow", "Digital-twin simulations and dashboards"),
+      ],
     },
     {
       badge: t("solutions.products.pmoBuilder.badge"),
@@ -25,155 +40,173 @@ export const ProductsServices = () => {
       description: t("solutions.products.pmoBuilder.description"),
       icon: BarChart3,
       logo: pmoBuilderLogo,
-      tags: [t("solutions.products.pmoBuilder.tags.aiPowered"), t("solutions.products.pmoBuilder.tags.reporting"), t("solutions.products.pmoBuilder.tags.monitoring")],
+      color: "accent",
+      features: [
+        t("solutions.products.pmoBuilder.tags.aiPowered", "AI-Powered Executive Reporting"),
+        t("solutions.products.pmoBuilder.tags.reporting", "Real-time Monitoring and Oversight"),
+        t("solutions.products.pmoBuilder.tags.monitoring", "Seamless integration with Trello & MS Project"),
+      ],
     },
   ];
 
   const services = [
     {
-      title: t("solutions.services.businessConsultation.title"),
-      description: t("solutions.services.businessConsultation.description"),
-      category: t("solutions.services.businessConsultation.category"),
-      icon: Lightbulb,
-    },
-    {
-      title: t("solutions.services.digitalTransformation.title"),
-      description: t("solutions.services.digitalTransformation.description"),
-      category: t("solutions.services.digitalTransformation.category"),
-      icon: Rocket,
-    },
-    {
       title: t("solutions.services.agenticAI.title"),
       description: t("solutions.services.agenticAI.description"),
-      category: t("solutions.services.agenticAI.category"),
-      icon: Zap,
+      icon: Bot,
+      color: "primary",
     },
     {
       title: t("solutions.services.generativeAI.title"),
       description: t("solutions.services.generativeAI.description"),
-      category: t("solutions.services.generativeAI.category"),
       icon: Brain,
+      color: "pink",
     },
     {
       title: t("solutions.services.conversationalAI.title"),
       description: t("solutions.services.conversationalAI.description"),
-      category: t("solutions.services.conversationalAI.category"),
       icon: MessageSquare,
+      color: "green",
+    },
+    {
+      title: t("solutions.services.businessConsultation.title"),
+      description: t("solutions.services.businessConsultation.description"),
+      icon: Lightbulb,
+      color: "yellow",
     },
     {
       title: t("solutions.services.aiIntegration.title"),
       description: t("solutions.services.aiIntegration.description"),
-      category: t("solutions.services.aiIntegration.category"),
       icon: Link2,
+      color: "accent",
+    },
+    {
+      title: t("solutions.services.digitalTransformation.title"),
+      description: t("solutions.services.digitalTransformation.description"),
+      icon: Rocket,
+      color: "red",
     },
   ];
+
+  const getIconColor = (color: string) => {
+    const colors: Record<string, string> = {
+      primary: "text-primary",
+      highlight: "text-highlight",
+      accent: "text-accent",
+      pink: "text-pink-500",
+      green: "text-green-500",
+      yellow: "text-yellow-500",
+      red: "text-red-500",
+    };
+    return colors[color] || "text-primary";
+  };
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="solutions"
-      className={`py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-20 relative scroll-reveal ${isVisible ? "visible" : ""}`}
     >
-      <BackgroundAnimation />
-      <div className="container mx-auto relative z-10">
-        {/* Section Title */}
-        <div className="mb-20 text-center md:text-left">
-          <h2 className="text-primary font-bold text-xs uppercase tracking-widest mb-3">
-            {t("solutions.subtitle", "Our Expertise")}
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16 reveal active">
+          <span className="text-accent font-semibold tracking-wider uppercase text-sm">
+            {t("solutions.subtitle", "Featured Tools")}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-4">
             {t("solutions.title")}
-          </h3>
-          <p className="text-muted-foreground max-w-xl text-lg font-bold">
-            {t("solutions.description", "Intelligent solutions that transform how businesses operate, automate, and scale.")}
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t("solutions.description", "Powerful tools designed to streamline complex enterprise workflows and accelerate project delivery.")}
           </p>
         </div>
 
-        {/* Products */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold mb-10 text-center uppercase tracking-wider text-xs text-muted-foreground">{t("solutions.featuredProducts")}</h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {products.map((product, index) => (
-              <Card
-                key={index}
-                className="border border-border bg-card/30 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 border-l border-b border-border/50" />
-                <CardHeader className="space-y-4">
-                  <div className="flex items-start justify-between">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-0 font-mono text-xs uppercase">
-                      {product.badge}
-                    </Badge>
-                    <div className="p-2 border border-primary/20 bg-primary/5 group-hover:bg-primary/10 transition-colors">
-                      <product.icon className="w-5 h-5 text-primary" />
-                    </div>
-                  </div>
-                  <div>
-                    <img src={product.logo} alt={`${product.title} logo`} className="h-14 w-auto object-contain" />
-                  </div>
-                  <div className="space-y-2">
-                    <CardTitle className="text-xl font-bold">{product.title}</CardTitle>
-                    <CardDescription className="text-sm text-muted-foreground leading-relaxed font-bold">
-                      {product.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {product.tags.map((tag, i) => (
-                      <Badge key={i} variant="outline" className="text-xs font-mono border-border/50">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        {/* Products Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {products.map((product, index) => {
+            const glowClass = product.color === "highlight" ? "gradient-bg-cyan" : "gradient-bg-purple";
+            const iconColor = product.color === "highlight" ? "text-highlight" : "text-accent";
+            const checkColor = product.color === "highlight" ? "text-highlight" : "text-accent";
 
-        {/* Services - Enhanced Webnoxy Style Cards */}
-        <div>
-          <h3 className="text-2xl font-bold mb-10 text-center uppercase tracking-wider text-xs text-muted-foreground">{t("solutions.professionalServices")}</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {services.map((service, index) => (
+            return (
               <div
                 key={index}
-                className="service-card group relative bg-card border border-border rounded-[2rem] p-8 hover:border-primary/30 transition-colors duration-500 overflow-hidden flex flex-col justify-between h-[380px]"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`glass-panel p-8 rounded-2xl relative group overflow-hidden reveal active delay-${(index + 1) * 100}`}
               >
-                {/* Glow effect at bottom */}
-                <div className="absolute inset-x-0 bottom-0 h-40 service-card-glow opacity-40 group-hover:opacity-60 transition-opacity" />
+                {/* Glow Effect */}
+                <div
+                  className={`absolute top-0 right-0 w-64 h-64 ${glowClass} rounded-full blur-[60px] group-hover:opacity-100 opacity-50 transition-all duration-500 transform translate-x-1/3 -translate-y-1/3`}
+                />
 
                 <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 icon-box-glow group-hover:border-primary/40 transition-colors">
-                    <service.icon className="text-primary w-7 h-7" />
+                  {/* Icon Box */}
+                  <div className={`icon-box icon-box-${product.color === "highlight" ? "cyan" : "purple"} mb-6`}>
+                    <product.icon className={`text-3xl ${iconColor} w-8 h-8`} />
                   </div>
 
-                  {/* Title */}
-                  <h4 className="text-xl font-bold text-foreground mb-4">
-                    {service.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed font-bold">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Bottom action */}
-                <div className="relative z-10 mt-auto">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm font-bold text-foreground">{t("solutions.viewDetails", "View Details")}</span>
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                      <ArrowRight className="text-primary-foreground w-4 h-4" />
-                    </div>
+                  {/* Logo */}
+                  <div className="mb-4">
+                    <img src={product.logo} alt={`${product.title} logo`} className="h-12 w-auto object-contain" />
                   </div>
+
+                  {/* Title & Description */}
+                  <h3 className={`text-2xl font-bold text-foreground mb-3 group-hover:${iconColor} transition-colors`}>
+                    {product.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
+
+                  {/* Features List */}
+                  <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
+                    {product.features.map((feature, i) => (
+                      <li key={i} className="flex items-center">
+                        <i className={`fas fa-check ${checkColor} mr-2`} />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <button
+                    onClick={() => document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" })}
+                    className={`inline-flex items-center ${iconColor} font-semibold hover:opacity-80 transition-colors`}
+                  >
+                    {t("solutions.requestDemo", "Request a Demo")} <ArrowRight className="ml-2 w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            ))}
+            );
+          })}
+        </div>
+
+        {/* Services Section */}
+        <div className="py-20 bg-card/30 border-y border-border -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Services Header */}
+            <div className="text-center mb-16 reveal active">
+              <span className="text-primary font-semibold tracking-wider uppercase text-sm">
+                {t("solutions.servicesSubtitle", "Our Expertise")}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mt-2 mb-6">
+                {t("solutions.professionalServices")}
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                {t("solutions.servicesDesc", "From consultation to custom development, we build the future of your enterprise.")}
+              </p>
+            </div>
+
+            {/* Services Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`glass-panel p-6 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal active delay-${((index % 3) + 1) * 100}`}
+                >
+                  <service.icon className={`text-3xl ${getIconColor(service.color)} mb-4 w-8 h-8`} />
+                  <h3 className="text-xl font-bold text-foreground mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
