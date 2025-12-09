@@ -1,6 +1,7 @@
 import { Target, Eye, Handshake, Star, Sparkles, Users, Award, Heart, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useMultiLayerParallax } from "@/hooks/useParallax";
 
 export const MissionVisionValues = () => {
   const { t } = useTranslation();
@@ -8,6 +9,7 @@ export const MissionVisionValues = () => {
   const { ref: missionRef, className: missionClass } = useScrollReveal({ direction: "left", delay: 100 });
   const { ref: visionRef, className: visionClass } = useScrollReveal({ direction: "scale", delay: 200 });
   const { ref: valuesRef, className: valuesClass } = useScrollReveal({ direction: "right", delay: 300 });
+  const { getLayerStyle } = useMultiLayerParallax();
 
   const values = [
     { icon: Sparkles, text: t("mission.values.innovation") },
@@ -21,11 +23,20 @@ export const MissionVisionValues = () => {
       id="mission"
       className={`py-24 relative overflow-hidden ${sectionClass}`}
     >
-      {/* Background */}
+      {/* Background with Parallax */}
       <div className="absolute inset-0 bg-card/30" />
-      <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" style={{ animationDelay: "2s" }} />
+      <div 
+        className="absolute inset-0 bg-grid opacity-20"
+        style={getLayerStyle(0.1)}
+      />
+      <div 
+        className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow"
+        style={getLayerStyle(0.15)}
+      />
+      <div 
+        className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse-slow" 
+        style={{ ...getLayerStyle(0.2), animationDelay: "2s" }}
+      />
 
       {/* Border Lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
