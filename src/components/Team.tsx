@@ -57,31 +57,31 @@ export const Team = () => {
           {allMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative w-48 text-center animate-fade-in-up"
+              className="group relative w-48 text-center animate-fade-in-up card-shimmer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Avatar */}
-              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-muted to-card border-2 border-border overflow-hidden mb-4 group-hover:border-primary transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/20">
+              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-muted to-card border-2 border-border overflow-hidden mb-4 group-hover:border-primary transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-primary/30 pulse-ring">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
               </div>
 
               {/* Name & Role */}
-              <h3 className="text-foreground font-bold group-hover:text-primary transition-colors">{member.name}</h3>
-              <p className="text-primary text-sm">{member.role}</p>
+              <h3 className="text-foreground font-bold group-hover:text-primary transition-colors duration-300">{member.name}</h3>
+              <p className="text-primary text-sm group-hover:text-highlight transition-colors">{member.role}</p>
 
               {/* LinkedIn on hover */}
               <a
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-0 right-1/4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2"
+                className="absolute top-0 right-1/4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:-translate-y-4 group-hover:rotate-[-10deg]"
                 aria-label={`${member.name} LinkedIn`}
               >
-                <div className="p-2 bg-primary rounded-full shadow-lg shadow-primary/30 hover:scale-110 transition-transform">
+                <div className="p-2 bg-primary rounded-full shadow-lg shadow-primary/40 hover:scale-125 hover:rotate-12 transition-all duration-300">
                   <Linkedin className="w-4 h-4 text-primary-foreground" />
                 </div>
               </a>

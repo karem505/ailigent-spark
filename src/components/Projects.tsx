@@ -89,7 +89,7 @@ export const Projects = () => {
               <div
                 key={index}
                 ref={project.ref as React.RefObject<HTMLDivElement>}
-                className={`glass-panel rounded-2xl p-6 md:p-10 ${borderColor} overflow-hidden ${project.className}`}
+                className={`glass-panel-enhanced card-3d card-shimmer card-glow-border rounded-2xl p-6 md:p-10 overflow-hidden ${project.className}`}
               >
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   {/* Content Side */}
@@ -98,14 +98,14 @@ export const Projects = () => {
                       <img
                         src={project.logo}
                         alt={`${project.client} logo`}
-                        className="h-14 w-auto object-contain"
+                        className="h-14 w-auto object-contain group-hover:scale-110 transition-transform"
                       />
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${textColor} bg-current/10 border border-current/30`}>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${textColor} bg-current/10 border border-current/30 hover:scale-105 transition-transform`}>
                         {project.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                    <h3 className={`text-2xl md:text-3xl font-display font-bold text-foreground hover:${textColor} transition-colors`}>
                       {project.client}
                     </h3>
 
@@ -121,10 +121,10 @@ export const Projects = () => {
                         {project.focus.map((item, i) => (
                           <li
                             key={i}
-                            className="flex items-start text-muted-foreground text-sm animate-fade-in"
+                            className="flex items-start text-muted-foreground text-sm animate-fade-in group/item hover:text-foreground transition-colors"
                             style={{ animationDelay: `${0.3 + i * 0.1}s` }}
                           >
-                            <CheckCircle2 className={`${checkColor} mr-3 mt-0.5 flex-shrink-0 w-5 h-5`} />
+                            <CheckCircle2 className={`${checkColor} mr-3 mt-0.5 flex-shrink-0 w-5 h-5 group-hover/item:scale-125 transition-transform`} />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -134,8 +134,8 @@ export const Projects = () => {
 
                   {/* Video Side */}
                   <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-2xl group">
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border shadow-2xl group/video hover:border-highlight/40 transition-all hover:shadow-highlight/20">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 group-hover/video:opacity-100 transition-opacity z-10 pointer-events-none" />
                       <iframe
                         src={project.videoUrl}
                         title={`${project.client} Project Video`}

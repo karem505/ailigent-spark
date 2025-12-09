@@ -131,21 +131,21 @@ export const ProductsServices = () => {
             return (
               <div
                 key={index}
-                className="glass-panel p-8 rounded-2xl relative group overflow-hidden hover-lift animate-fade-in-up"
+                className="glass-panel-enhanced card-3d card-shimmer card-glow-border p-8 rounded-2xl relative group overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Glow Effect */}
-                <div className={`absolute top-0 right-0 w-64 h-64 ${glowColor} rounded-full blur-[80px] group-hover:blur-[100px] transition-all duration-500 transform translate-x-1/3 -translate-y-1/3`} />
+                <div className={`absolute top-0 right-0 w-64 h-64 ${glowColor} rounded-full blur-[80px] group-hover:blur-[60px] group-hover:w-80 group-hover:h-80 transition-all duration-700 transform translate-x-1/3 -translate-y-1/3`} />
 
                 <div className="relative z-10">
                   {/* Icon Box */}
-                  <div className={`w-16 h-16 rounded-xl ${isHighlight ? "bg-highlight/10 border-highlight/30" : "bg-accent/10 border-accent/30"} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <product.icon className={`w-8 h-8 ${iconColor}`} />
+                  <div className={`w-16 h-16 rounded-xl ${isHighlight ? "bg-highlight/10 border-highlight/30" : "bg-accent/10 border-accent/30"} border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform icon-float pulse-ring`}>
+                    <product.icon className={`w-8 h-8 ${iconColor} icon-glow`} />
                   </div>
 
                   {/* Logo */}
-                  <div className="mb-4">
-                    <img src={product.logo} alt={`${product.title} logo`} className="h-12 w-auto object-contain" />
+                  <div className="mb-4 overflow-hidden">
+                    <img src={product.logo} alt={`${product.title} logo`} className="h-12 w-auto object-contain group-hover:scale-110 transition-transform duration-500" />
                   </div>
 
                   {/* Title & Description */}
@@ -155,10 +155,10 @@ export const ProductsServices = () => {
                   <p className="text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
 
                   {/* Features List */}
-                  <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
+                  <ul className="space-y-3 mb-8 text-sm text-muted-foreground">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center animate-fade-in" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
-                        <Check className={`${checkColor} mr-2 w-4 h-4`} />
+                      <li key={i} className="flex items-center animate-fade-in group/feature hover:text-foreground transition-colors" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
+                        <Check className={`${checkColor} mr-2 w-4 h-4 group-hover/feature:scale-125 transition-transform`} />
                         {feature}
                       </li>
                     ))}
@@ -167,10 +167,10 @@ export const ProductsServices = () => {
                   {/* CTA */}
                   <button
                     onClick={() => document.getElementById("consultation")?.scrollIntoView({ behavior: "smooth" })}
-                    className={`inline-flex items-center ${iconColor} font-semibold hover:opacity-80 transition-all group/btn`}
+                    className={`inline-flex items-center ${iconColor} font-semibold hover:opacity-80 transition-all group/btn button-shine px-4 py-2 rounded-lg`}
                   >
                     {t("solutions.requestDemo", "Request a Demo")}
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -198,19 +198,19 @@ export const ProductsServices = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-card/80 backdrop-blur-sm border border-border/50 rounded-3xl p-8 hover:border-highlight/30 transition-all duration-500 overflow-hidden flex flex-col min-h-[320px] animate-fade-in-up"
+                className="group relative glass-panel-enhanced card-3d card-shimmer card-glow-border rounded-3xl p-8 flex flex-col min-h-[320px] animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Bottom glow effect */}
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-highlight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-highlight/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl" />
 
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center mb-6 group-hover:border-highlight/40 transition-colors">
-                  <service.icon className="w-6 h-6 text-highlight" />
+                <div className="w-14 h-14 rounded-2xl bg-card border border-border/50 flex items-center justify-center mb-6 group-hover:border-highlight/40 transition-all icon-float pulse-ring">
+                  <service.icon className="w-6 h-6 text-highlight icon-glow" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-display font-bold text-foreground mb-4">
+                <h3 className="text-xl font-display font-bold text-foreground mb-4 group-hover:text-highlight transition-colors">
                   {service.title}
                 </h3>
 
@@ -220,12 +220,12 @@ export const ProductsServices = () => {
                 </p>
 
                 {/* View Details Button */}
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="text-sm font-semibold text-foreground">
+                <div className="mt-6 flex items-center gap-3 group/btn cursor-pointer">
+                  <span className="text-sm font-semibold text-foreground group-hover/btn:text-highlight transition-colors">
                     {t("solutions.viewDetails", "View Details")}
                   </span>
-                  <div className="w-10 h-10 rounded-full bg-highlight flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-highlight/30">
-                    <ArrowRight className="w-5 h-5 text-highlight-foreground" />
+                  <div className="w-10 h-10 rounded-full bg-highlight flex items-center justify-center group-hover:scale-125 group-hover:rotate-[-15deg] transition-all duration-300 shadow-lg shadow-highlight/30">
+                    <ArrowRight className="w-5 h-5 text-highlight-foreground group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </div>
