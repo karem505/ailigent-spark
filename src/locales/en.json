@@ -67,6 +67,7 @@
     "description": "Intelligent solutions that transform how businesses operate, automate, and scale.",
     "featuredProducts": "Featured Products",
     "professionalServices": "Professional Services",
+    "viewDetails": "View Details",
     "products": {
       "tornix": {
         "badge": "Product",
@@ -124,6 +125,29 @@
         "title": "AI Integration",
         "description": "Seamlessly connect AI capabilities with your existing ERP, CRM, and enterprise systems for unified intelligence.",
         "category": "AI Development Services"
+      }
+    }
+  },
+  "process": {
+    "title": "How We Work",
+    "subtitle": "Our Process",
+    "phase": "PHASE",
+    "phases": {
+      "discovery": {
+        "title": "Discovery & Analysis",
+        "description": "We assess your current processes, identify opportunities, and define the optimal technical approach aligned with your business objectives."
+      },
+      "design": {
+        "title": "Solution Design",
+        "description": "We architect tailored AI solutions — from agentic workflows to conversational interfaces — designed to integrate seamlessly with your infrastructure."
+      },
+      "development": {
+        "title": "Development & Integration",
+        "description": "We build, test, and deploy your AI systems with precision. Our team ensures smooth integration and delivers comprehensive training for your staff."
+      },
+      "optimization": {
+        "title": "Optimization & Scale",
+        "description": "We continuously monitor and refine your AI systems for peak performance, scaling solutions as your business grows."
       }
     }
   },
@@ -207,6 +231,22 @@
       "developer": "Software Developer & AI"
     },
     "linkedin": "LinkedIn"
+  },
+  "cta": {
+    "title": "Ready to",
+    "highlight": "Transform?",
+    "description": "From intelligent automation to full-scale digital transformation — let us build your future.",
+    "button": "Book Free Consultation"
+  },
+  "marquee": {
+    "aiAutomation": "AI AUTOMATION",
+    "machineLearning": "MACHINE LEARNING",
+    "deepLearning": "DEEP LEARNING",
+    "agenticAI": "AGENTIC AI",
+    "dataAnalytics": "DATA ANALYTICS",
+    "processAutomation": "PROCESS AUTOMATION",
+    "neuralNetworks": "NEURAL NETWORKS",
+    "enterpriseAI": "ENTERPRISE AI"
   },
   "consultation": {
     "title": "Ready to Transform Your Operations?",

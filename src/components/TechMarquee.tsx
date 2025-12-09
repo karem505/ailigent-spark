@@ -5,14 +5,14 @@ export const TechMarquee = () => {
   const { t } = useTranslation();
   
   const technologies = [
-    { icon: Brain, label: "AI AUTOMATION" },
-    { icon: Cpu, label: "MACHINE LEARNING" },
-    { icon: Layers, label: "DEEP LEARNING" },
-    { icon: Zap, label: "AGENTIC AI" },
-    { icon: BarChart3, label: "DATA ANALYTICS" },
-    { icon: Cog, label: "PROCESS AUTOMATION" },
-    { icon: Network, label: "NEURAL NETWORKS" },
-    { icon: Shield, label: "ENTERPRISE AI" },
+    { icon: Brain, label: t("marquee.aiAutomation", "AI AUTOMATION") },
+    { icon: Cpu, label: t("marquee.machineLearning", "MACHINE LEARNING") },
+    { icon: Layers, label: t("marquee.deepLearning", "DEEP LEARNING") },
+    { icon: Zap, label: t("marquee.agenticAI", "AGENTIC AI") },
+    { icon: BarChart3, label: t("marquee.dataAnalytics", "DATA ANALYTICS") },
+    { icon: Cog, label: t("marquee.processAutomation", "PROCESS AUTOMATION") },
+    { icon: Network, label: t("marquee.neuralNetworks", "NEURAL NETWORKS") },
+    { icon: Shield, label: t("marquee.enterpriseAI", "ENTERPRISE AI") },
   ];
 
   const MarqueeContent = () => (

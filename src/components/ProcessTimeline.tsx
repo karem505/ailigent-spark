@@ -9,27 +9,23 @@ export const ProcessTimeline = () => {
   const phases = [
     {
       phase: "01",
-      title: "Discovery & Analysis",
-      description:
-        "We assess your current processes, identify opportunities, and define the optimal technical approach aligned with your business objectives.",
+      title: t("process.phases.discovery.title", "Discovery & Analysis"),
+      description: t("process.phases.discovery.description", "We assess your current processes, identify opportunities, and define the optimal technical approach aligned with your business objectives."),
     },
     {
       phase: "02",
-      title: "Solution Design",
-      description:
-        "We architect tailored AI solutions — from agentic workflows to conversational interfaces — designed to integrate seamlessly with your infrastructure.",
+      title: t("process.phases.design.title", "Solution Design"),
+      description: t("process.phases.design.description", "We architect tailored AI solutions — from agentic workflows to conversational interfaces — designed to integrate seamlessly with your infrastructure."),
     },
     {
       phase: "03",
-      title: "Development & Integration",
-      description:
-        "We build, test, and deploy your AI systems with precision. Our team ensures smooth integration and delivers comprehensive training for your staff.",
+      title: t("process.phases.development.title", "Development & Integration"),
+      description: t("process.phases.development.description", "We build, test, and deploy your AI systems with precision. Our team ensures smooth integration and delivers comprehensive training for your staff."),
     },
     {
       phase: "04",
-      title: "Optimization & Scale",
-      description:
-        "We continuously monitor and refine your AI systems for peak performance, scaling solutions as your business grows.",
+      title: t("process.phases.optimization.title", "Optimization & Scale"),
+      description: t("process.phases.optimization.description", "We continuously monitor and refine your AI systems for peak performance, scaling solutions as your business grows."),
     },
   ];
 
@@ -43,10 +39,10 @@ export const ProcessTimeline = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-primary font-bold text-xs uppercase tracking-widest mb-3">
-            Our Process
+            {t("process.subtitle", "Our Process")}
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
-            How We Work
+            {t("process.title", "How We Work")}
           </h3>
         </div>
 
@@ -62,7 +58,7 @@ export const ProcessTimeline = () => {
 
               {/* Content */}
               <span className="text-xs font-mono text-primary mb-2 block font-bold">
-                PHASE {item.phase}
+                {t("process.phase", "PHASE")} {item.phase}
               </span>
               <h4 className="text-2xl text-foreground font-bold mb-4">
                 {item.title}
