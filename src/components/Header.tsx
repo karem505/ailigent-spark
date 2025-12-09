@@ -51,11 +51,15 @@ export const Header = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? "bg-background/95 backdrop-blur-xl border-b border-border/50" 
-          : "bg-background/80 backdrop-blur-md"
+          ? "bg-card/40 backdrop-blur-2xl border-b border-border/30 shadow-lg shadow-background/20" 
+          : "bg-card/20 backdrop-blur-xl border-b border-border/10"
       }`}
+      style={{
+        WebkitBackdropFilter: isScrolled ? "blur(24px) saturate(180%)" : "blur(16px) saturate(150%)",
+        backdropFilter: isScrolled ? "blur(24px) saturate(180%)" : "blur(16px) saturate(150%)",
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
