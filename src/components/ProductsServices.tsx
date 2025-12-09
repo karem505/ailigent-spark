@@ -1,10 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Link2, Zap } from "lucide-react";
+import { LayoutDashboard, BarChart3, Lightbulb, Rocket, Brain, MessageSquare, Link2, Zap, ArrowRight } from "lucide-react";
 import tornixLogo from "@/assets/tornix-product-logo.png";
 import pmoBuilderLogo from "@/assets/pmo-builder-logo.jpg";
 import { useTranslation } from "react-i18next";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export const ProductsServices = () => {
   const { t } = useTranslation();
@@ -71,18 +72,20 @@ export const ProductsServices = () => {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="solutions"
-      className={`py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
+      className={`py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-background scroll-reveal ${isVisible ? 'visible' : ''}`}
     >
-      <div className="absolute inset-0 tech-grid opacity-30" />
+      <BackgroundAnimation />
       <div className="container mx-auto relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-20 space-y-6 animate-fade-in">
-          <div className="inline-block">
-            <div className="h-px w-12 bg-primary mb-4 mx-auto" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{t("solutions.title")}</h2>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("solutions.subtitle")}
+        <div className="mb-20 text-center md:text-left">
+          <h2 className="text-primary font-bold text-xs uppercase tracking-widest mb-3">
+            {t("solutions.subtitle", "Our Expertise")}
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-6">
+            {t("solutions.title")}
+          </h3>
+          <p className="text-muted-foreground max-w-xl text-lg font-bold">
+            We transform businesses with intelligent AI automation solutions and deliver cutting-edge technology implementations.
           </p>
         </div>
 
@@ -111,7 +114,7 @@ export const ProductsServices = () => {
                   </div>
                   <div className="space-y-2">
                     <CardTitle className="text-xl font-bold">{product.title}</CardTitle>
-                    <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                    <CardDescription className="text-sm text-muted-foreground leading-relaxed font-bold">
                       {product.description}
                     </CardDescription>
                   </div>
@@ -130,30 +133,46 @@ export const ProductsServices = () => {
           </div>
         </div>
 
-        {/* Services */}
+        {/* Services - Enhanced Webnoxy Style Cards */}
         <div>
           <h3 className="text-2xl font-bold mb-10 text-center uppercase tracking-wider text-xs text-muted-foreground">{t("solutions.professionalServices")}</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card
+              <div
                 key={index}
-                className="border border-border bg-card/20 backdrop-blur-sm hover:border-primary/30 transition-all duration-300 group"
+                className="service-card group relative bg-card border border-border rounded-[2rem] p-8 hover:border-primary/30 transition-colors duration-500 overflow-hidden flex flex-col justify-between h-[380px]"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="space-y-4">
-                  <div className="flex justify-center">
-                    <div className="w-12 h-12 border border-primary/20 bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </div>
+                {/* Glow effect at bottom */}
+                <div className="absolute inset-x-0 bottom-0 h-40 service-card-glow opacity-40 group-hover:opacity-60 transition-opacity" />
+
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-2xl bg-card border border-border flex items-center justify-center mb-6 icon-box-glow group-hover:border-primary/40 transition-colors">
+                    <service.icon className="text-primary w-7 h-7" />
                   </div>
-                  <CardTitle className="text-base text-center font-bold leading-tight">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-center">
+
+                  {/* Title */}
+                  <h4 className="text-xl font-bold text-foreground mb-4">
+                    {service.title}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm leading-relaxed font-bold">
                     {service.description}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+
+                {/* Bottom action */}
+                <div className="relative z-10 pt-8 mt-auto">
+                  <div className="flex items-center justify-between border-t border-border pt-6 group-hover:border-border/60 transition-colors">
+                    <span className="text-sm font-bold text-foreground">View Details</span>
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                      <ArrowRight className="text-primary-foreground w-5 h-5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
