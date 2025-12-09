@@ -164,11 +164,11 @@ export const ProductsServices = () => {
                 </div>
 
                 {/* Bottom action */}
-                <div className="relative z-10 pt-8 mt-auto">
-                  <div className="flex items-center justify-between border-t border-border pt-6 group-hover:border-border/60 transition-colors">
+                <div className="relative z-10 mt-auto">
+                  <div className="flex items-center gap-3">
                     <span className="text-sm font-bold text-foreground">{t("solutions.viewDetails", "View Details")}</span>
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                      <ArrowRight className="text-primary-foreground w-5 h-5" />
+                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center transform group-hover:scale-110 transition-transform">
+                      <ArrowRight className="text-primary-foreground w-4 h-4" />
                     </div>
                   </div>
                 </div>
