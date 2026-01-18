@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { 
   Brain, 
   Cpu, 
@@ -22,191 +21,74 @@ const icons = [
   CircuitBoard, Layers, GitBranch, Code, Activity, Atom
 ];
 
-interface FloatingIcon {
-  id: number;
-  Icon: typeof Brain;
-  x: number;
-  y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
-  rotation: number;
-  rotationSpeed: number;
-  opacity: number;
-  color: string;
-}
-
 const colors = [
   "hsl(var(--primary))",
   "hsl(var(--highlight))",
   "hsl(var(--accent))",
 ];
 
+// Pre-computed static positions for 15 icons
+const iconConfigs = [
+  { x: 8, y: 12, size: 24, duration: 25, delay: 0 },
+  { x: 85, y: 8, size: 28, duration: 30, delay: 2 },
+  { x: 45, y: 22, size: 22, duration: 28, delay: 4 },
+  { x: 15, y: 55, size: 30, duration: 32, delay: 1 },
+  { x: 72, y: 35, size: 26, duration: 27, delay: 3 },
+  { x: 30, y: 75, size: 24, duration: 29, delay: 5 },
+  { x: 88, y: 60, size: 28, duration: 31, delay: 2 },
+  { x: 55, y: 85, size: 22, duration: 26, delay: 4 },
+  { x: 12, y: 88, size: 26, duration: 33, delay: 1 },
+  { x: 65, y: 15, size: 24, duration: 28, delay: 3 },
+  { x: 38, y: 45, size: 30, duration: 30, delay: 0 },
+  { x: 78, y: 78, size: 22, duration: 27, delay: 5 },
+  { x: 22, y: 32, size: 28, duration: 29, delay: 2 },
+  { x: 92, y: 42, size: 24, duration: 31, delay: 4 },
+  { x: 50, y: 62, size: 26, duration: 25, delay: 1 },
+];
+
 export const FloatingAIIcons = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const iconsRef = useRef<FloatingIcon[]>([]);
-  const animationRef = useRef<number>();
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Initialize floating icons
-    const iconCount = 40;
-    iconsRef.current = Array.from({ length: iconCount }, (_, i) => ({
-      id: i,
-      Icon: icons[Math.floor(Math.random() * icons.length)],
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: 20 + Math.random() * 30,
-      speedX: (Math.random() - 0.5) * 0.02,
-      speedY: (Math.random() - 0.5) * 0.02,
-      rotation: Math.random() * 360,
-      rotationSpeed: (Math.random() - 0.5) * 0.3,
-      opacity: 0.05 + Math.random() * 0.1,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    }));
-
-    const animate = () => {
-      iconsRef.current.forEach((icon) => {
-        // Update position
-        icon.x += icon.speedX;
-        icon.y += icon.speedY;
-        icon.rotation += icon.rotationSpeed;
-
-        // Bounce off edges
-        if (icon.x <= 0 || icon.x >= 100) {
-          icon.speedX *= -1;
-          icon.x = Math.max(0, Math.min(100, icon.x));
-        }
-        if (icon.y <= 0 || icon.y >= 100) {
-          icon.speedY *= -1;
-          icon.y = Math.max(0, Math.min(100, icon.y));
-        }
-
-        // Update DOM element
-        const element = container.querySelector(`[data-icon-id="${icon.id}"]`) as HTMLElement;
-        if (element) {
-          element.style.left = `${icon.x}%`;
-          element.style.top = `${icon.y}%`;
-          element.style.transform = `translate(-50%, -50%) rotate(${icon.rotation}deg)`;
-        }
-      });
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
-  // Mouse interaction - icons move away from cursor
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const mouseX = (e.clientX / window.innerWidth) * 100;
-      const mouseY = (e.clientY / window.innerHeight) * 100;
-
-      iconsRef.current.forEach((icon) => {
-        const dx = icon.x - mouseX;
-        const dy = icon.y - mouseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 15) {
-          const force = (15 - distance) / 15;
-          icon.speedX += (dx / distance) * force * 0.01;
-          icon.speedY += (dy / distance) * force * 0.01;
-          
-          // Limit speed
-          const maxSpeed = 0.08;
-          icon.speedX = Math.max(-maxSpeed, Math.min(maxSpeed, icon.speedX));
-          icon.speedY = Math.max(-maxSpeed, Math.min(maxSpeed, icon.speedY));
-        }
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <div
-      ref={containerRef}
       className="fixed inset-0 pointer-events-none overflow-hidden z-0"
       aria-hidden="true"
     >
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-transparent" />
       
-      {/* Floating icons */}
-      {iconsRef.current.length === 0 && 
-        Array.from({ length: 40 }, (_, i) => {
-          const Icon = icons[Math.floor(Math.random() * icons.length)];
-          const size = 20 + Math.random() * 30;
-          const opacity = 0.05 + Math.random() * 0.1;
-          const color = colors[Math.floor(Math.random() * colors.length)];
-          
-          return (
-            <div
-              key={i}
-              data-icon-id={i}
-              className="absolute transition-none"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                transform: `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`,
-              }}
-            >
-              <Icon
-                style={{
-                  width: size,
-                  height: size,
-                  color: color,
-                  opacity: opacity,
-                  filter: `blur(${Math.random() * 1}px)`,
-                }}
-              />
-            </div>
-          );
-        })
-      }
-      
-      {/* Render actual icons after initialization */}
-      {Array.from({ length: 40 }, (_, i) => {
+      {/* Floating icons - CSS animated for performance */}
+      {iconConfigs.map((config, i) => {
         const Icon = icons[i % icons.length];
+        const color = colors[i % colors.length];
+        
         return (
           <div
             key={i}
-            data-icon-id={i}
-            className="absolute"
+            className="absolute animate-float"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              willChange: "left, top, transform",
+              left: `${config.x}%`,
+              top: `${config.y}%`,
+              animationDuration: `${config.duration}s`,
+              animationDelay: `${config.delay}s`,
+              willChange: "transform",
             }}
           >
             <Icon
-              className="text-primary"
               style={{
-                width: 20 + (i % 3) * 10,
-                height: 20 + (i % 3) * 10,
-                color: colors[i % colors.length],
-                opacity: 0.06 + (i % 5) * 0.02,
-                filter: `blur(${(i % 3) * 0.3}px) drop-shadow(0 0 ${10 + i * 2}px ${colors[i % colors.length]})`,
+                width: config.size,
+                height: config.size,
+                color: color,
+                opacity: 0.08 + (i % 4) * 0.02,
+                filter: `blur(${(i % 3) * 0.3}px)`,
               }}
             />
           </div>
         );
       })}
 
-      {/* Floating orbs */}
+      {/* Floating orbs - reduced to 3 */}
       <div 
         className="absolute w-64 h-64 rounded-full bg-primary/5 blur-3xl animate-float"
-        style={{ left: "10%", top: "20%", animationDelay: "0s", animationDuration: "20s" }}
+        style={{ left: "10%", top: "20%", animationDuration: "20s" }}
       />
       <div 
         className="absolute w-48 h-48 rounded-full bg-highlight/5 blur-3xl animate-float"
@@ -214,15 +96,7 @@ export const FloatingAIIcons = () => {
       />
       <div 
         className="absolute w-56 h-56 rounded-full bg-accent/5 blur-3xl animate-float"
-        style={{ left: "50%", top: "30%", animationDelay: "10s", animationDuration: "30s" }}
-      />
-      <div 
-        className="absolute w-40 h-40 rounded-full bg-highlight/5 blur-3xl animate-float"
-        style={{ left: "20%", top: "70%", animationDelay: "7s", animationDuration: "22s" }}
-      />
-      <div 
-        className="absolute w-52 h-52 rounded-full bg-primary/5 blur-3xl animate-float"
-        style={{ left: "80%", top: "15%", animationDelay: "3s", animationDuration: "28s" }}
+        style={{ left: "50%", top: "75%", animationDelay: "10s", animationDuration: "30s" }}
       />
     </div>
   );
